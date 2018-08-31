@@ -239,6 +239,8 @@ And list each number.  You only want the gpu number with amdgpu in most cases.
 # ls /sys/kernel/debug/dri/2
 ...etc
 
+NOTE:  The following steps are to be performed after every reboot/restart.
+
 Make note of initial RPM
 # sensors | grep pci -A 6
 In this example, only one gpu is there at gpu number 0.
@@ -272,6 +274,9 @@ Now run the miner
 
 # cd git/xmrig-amd/build
 # ./xmrig-amd
+
+You may skip the next step if the power usage is still optimal after the reboot.
+Check it with getGPUStats.sh.
 
 Apply PPT to gpu 0.  Use V64PPT for Vega 64 and Vega FE.  Use V56PPT for Vega 56.
 # ./setPPT.sh 0 V56PPT
