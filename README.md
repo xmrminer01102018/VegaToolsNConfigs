@@ -18,6 +18,10 @@ Binary file checksums:
 2.   4c9fc25157f392e9c94ab1536847b7c0  V64PPT
 3.   e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
 
+Contact(s)
+
+xmrminer01102018@gmail.com
+
 Glossary
 1. PPT - Soft Power Play Table
 2. Ubuntu - Linux OS
