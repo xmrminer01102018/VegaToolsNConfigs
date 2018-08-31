@@ -9,7 +9,7 @@ config/PPTDIR folder - contains
 1. PPT binary files for Vega 56/64/FE.
 2. PPT hex table in text format to generate binary PPT file.
 3. SoftPPT-1.0.0.jar to convert hex table to binary PPT file.
-4. SoftPPTProj.tgz(The maven java project to make SoftPPT-1.0.0.jar program.
+4. SoftPPTProj.tgz(The maven java project to make SoftPPT-1.0.0.jar program).
 
 tools folder - contains shell scripts for fan speed, overclocking, monitoring and setting PPT.
 
@@ -20,7 +20,7 @@ Binary file checksums:
 
 LIMITATIONS
 
-Three Vega GPUs per motherboard for XMR mining.  Risers and extenders do not work.
+Four Vega GPUs per motherboard for XMR mining.  Risers and extenders do not work.
 
 Lists of tested hardware - Coming soon.
 
