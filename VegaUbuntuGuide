@@ -1,0 +1,311 @@
+wARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RXVEGA 56/64/FE GPUs ON UBUNTU 18.04.1+ AND LINUX.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION.  PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+SOME AMD VEGA CARDS TENDS TO MESS THE VIDEO OUTPUT SIGNAL UP AND YOU MAY NOT BE ABLE TO USE THE COMPUTER UPON ONE OF THE REBOOTS IN THE INSTRUCTIONS.  PLEASE SET UP SSH.  AND ALSO USE THE ONBOARD VIDEO OR CHEAP VIDOE CARD ON PCIE2(IF YOU HAVE ONE AVAILABLE) SLOT TO EASE FRUSTRATION.
+
+Checklist.
+
+NOTE:  As of this writing Ubuntu 18.04.1 , amdgpu-pro 18.10 with amdgpu-pro 18.30 and xmrig-amd miner is the only combination that is working.
+Until AMD works with miner code developers, this is the only way I know how to get Vega cards working with high hash rates.
+For some reason CentOS and others are not working at this time.(That's another project) 
+ 
+1. PC with at least one available pcie slot.
+2. AMD Vega 56/64/FE.
+3. Ubuntu MATE Linux OS 18.04.1 LTS.  URL: https://ubuntu-mate.org/ (Only tested version)
+  Contents from /etc/os-release
+  NAME="Ubuntu"
+  VERSION="18.04.1 LTS (Bionic Beaver)"
+  ID=ubuntu
+  ID_LIKE=debian
+  PRETTY_NAME="Ubuntu 18.04.1 LTS"
+  VERSION_ID="18.04"
+  HOME_URL="https://www.ubuntu.com/"
+  SUPPORT_URL="https://help.ubuntu.com/"
+  BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+  PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+  VERSION_CODENAME=bionic
+  UBUNTU_CODENAME=bionic
+4. amdgpu-pro-18.30-633530.tar.xz for Ubuntu 18.04.1 
+URL: https://www2.ati.com/drivers/
+5. amdgpu-pro-18.10-572953.tar.xz for Ubuntu 16.04.4
+URL: https://support.amd.com/en-us/kb-articles/Pages/Radeon-Software-for-Linux-18.10-Release-Notes.aspx
+Click on "Radeon Software for Linux version 18.10 for Ubuntu 16.04.4" to download.
+6. xmrig-amd 2.7.3-beta(Only tested version).  Other versions may work.
+7. Download utility scripts and configuration files from git hub.
+   URL:  https://github.com/xmrminer01102018/VegaToolsNConfigs
+
+
+Procedures
+To get xmrig-amd working you have to install two different versions of amd-gpu-pro.
+
+Assumption: Ubuntu MATE 18.04.1 installed and network has been configured.
+Install Ubuntu MATE and configure network.(If you don't know how, please google it.)
+Assuming all commands are executed as a "root" user.  If you prefer, you may use sudo.
+
+All commands are followed after "$"(for non-root user) "#"(for root user) character prompt.
+And please do not get offended that I'm going through command by command.
+I'm writing for the inexperienced user.
+
+Assumption: The Ubuntu user is "jdoe".  Network has been configured.
+
+$ sudo su -
+[sudo]  password for user jdoe: ********  <-- Enter your jdoe's password
+# passwd
+Enter new UNIX password: ********  <-- Enter your root's password here
+Retype new UNIX password: ********  <-- Confirm your root's password here
+passwd: password updated successfully
+# exit
+logout
+$ su -
+Password: ********  <-- Enter your root's password that you have created above
+# apt-get update
+# apt-get install openssh-server
+# cd /etc/ssh
+Edit sshd_config and add or uncomment the following line and save it.  If you know what you re doing you may skip it.
+PermitRootLogin yes
+
+# reboot
+
+Rebooting...
+
+Log back into the system from console or from ssh terminal.
+
+Check for sshd
+# service ssh status
+If it is not running execute next line
+# service ssh restart
+
+
+# apt-get update
+# echo "vm.nr_hugepages = 128" >> /etc/sysctl.conf
+# reboot
+
+Rebooting...
+
+Log back into the system from console or from ssh terminal.
+
+It is necessary to update during installation process.  Otherwise it may not work.
+# apt-get update
+The lm-sensors may be already installed.  Check it anyway.
+# apt-get install lm-sensors
+You may have to re-run the sensors-detect if you add a new video card. 
+# sensors-detect
+Say "YES" to every question.  Depends on your system, it may take a while.
+Download/acquire amdgpu-pro drivers listed in checklist.
+In my case they are in ~/Downloads directory. Replace it with your own directory.
+# cd ~/Downloads
+Install version 18.10 first.
+# tar -Jxvf amdgpu-pro-18.10-572953.tar.xz
+# cd amdgpu-pro-18.10-572953
+# ./amdgpu-pro-install -y --opencl=pal
+At the end of installation, ignore the following warning
+WARNING: amdgpu dkms failed for running kernel
+# reboot
+Rebooting...
+At this point your desktop may be unusable, the amdgpu-pro driver will likely show you just a cursor on your left top of the monitor.  That's why ssh server was instaled in the beginning.
+
+Log back into the system with ssh.
+It is necessary to update during installation process.  Otherwise it may not work.
+# apt-get update
+# apt-get install -y git libuv1-dev libmicrohttpd-dev libssl-dev cmake build-essential libhwloc-dev opencl-headers
+# cd; mkdir git
+# cd git
+# git clone https://github.com/xmrig/xmrig-amd.git
+# ls
+# cd xmrig-amd
+# cd src/3rdparty
+# mv CL CL_original
+# ln -s /usr/include/CL CL
+# cd ..
+# find . -name "*.*" -exec grep -H "math.h" {} \;
+You will find the following...
+./workers/Hashrate.cpp:#include <math.h>
+./amd/OclGPU.cpp:#include <math.h>
+./api/ApiRouter.cpp:#include <math.h>
+./Cpu.cpp:#include <math.h>
+
+Change math.h to cmath.  I do not have the diff file.  It is safer to change them manually.
+# perl -i.bak -npe 's/math\.h/cmath/g' ./workers/Hashrate.cpp
+# perl -i.bak -npe 's/math\.h/cmath/g' ./amd/OclGPU.cpp
+# perl -i.bak -npe 's/math\.h/cmath/g' ./api/ApiRouter.cpp
+# perl -i.bak -npe 's/math\.h/cmath/g' ./Cpu.cpp
+
+Delete *.bak files
+# find . -name "*.bak" -exec rm -f {} \;
+
+Check and make sure they have been changed.
+# find . -name "*.*" -exec grep -H "cmath" {} \;
+./workers/Hashrate.cpp:#include <cmath>
+./workers/Workers.cpp:#include <cmath>
+./amd/OclGPU.cpp:#include <cmath>
+./api/ApiRouter.cpp:#include <cmath>
+./Cpu.cpp:#include <cmath>
+
+# find . -name "*.*" -exec grep -H "isnormal" {} \;
+./workers/Hashrate.cpp:    if (isnormal(h)) {
+./workers/Hashrate.cpp:        if (isnormal(data)) {
+./workers/Hashrate.cpp:   if (isnormal(highest) && highest > m_highest) {
+./api/ApiRouter.cpp:    if (!isnormal(d)) {
+
+# perl -i.bak -npe 's/isnormal\(/std\:\:isnormal\(/g' ./workers/Hashrate.cpp
+# perl -i.bak -npe 's/isnormal\(/std\:\:isnormal\(/g' ./api/ApiRouter.cpp
+# find . -name "*.*" -exec grep -H "std::isnormal" {} \;
+./workers/Hashrate.cpp:    if (std::isnormal(h)) {
+./workers/Hashrate.cpp:        if (std::isnormal(data)) {
+./workers/Hashrate.cpp:   if (std::isnormal(highest) && highest > m_highest) {
+./api/ApiRouter.cpp:    if (!std::isnormal(d)) {
+
+Delete *.bak files
+# find . -name "*.bak" -exec rm -f {} \;
+
+# cd ~/git/xmrig-amd/
+# mkdir build; cd build; cmake ..; make
+
+Modified the config.json downloaded from git hub.
+Now copy the your config.json file to the buid directory
+
+# cp /your/path/to/your/config.json .
+
+Now test the miner.  You should see around 1100 H/s at this stage.
+# ./xmrig-amd
+If not something went wrong.  The miner shoud be working.
+NOTE: If you get OpenCL device not found error just reboot the system.  It should work after that. 
+Kill the miner. Ctrl-C should work.  Otherwise open up another ssh session and kill it.
+Example:
+
+# ps -aef | grep xmrig
+root      7863  1237  4 02:19 pts/0    00:00:13 ./xmrig-amd
+root      7960  7948  0 02:24 pts/1    00:00:00 grep --color=auto xmrig
+# kill -9 7863 <-- this is the pid from above "ps"
+
+Save your copy of xmrig-amd.
+# cd ~/git
+# tar -czvf ~/xmrig-amdAMDGPro18d10.tgz xmrig-amd
+
+Copy ~/xmrig-amdAMDGPro18d10.tgz to another machine as a back up if you do not want to do the same process again and again.
+
+Now uninstall amdgpu-pro18.10.
+# /usr/bin/amdgpu-pro-uninstall
+Say "yes" or "Y" to uninstall.
+# reboot
+
+Rebooting...
+Log back into the system from console or from ssh terminal.
+
+It is necessary to update during installation process.  Otherwise it may not work.
+# apt-get update
+
+In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
+# cd ~/Downloads
+Install version 18.30 at this time. The reason 18.10 was installed first was for openCL communications with the miner and the Vega device.  The 18.30 broke the communications for now.  Until the miner and/or AMD fix it, this is the procedure.  The 18.30 is needed because AMD added the voltage support in this version.
+# tar -Jxvf amdgpu-pro-18.30-633530.tar.xz 
+# cd amdgpu-pro-18.30-633530 
+# ./amdgpu-pro-install -y --opencl=pal
+
+# cd /etc/default
+# mv grub grub.original
+# cp grub.original grub
+# perl -i.bak -npe 's/quiet splash/quiet splash amdgpu.ppfeaturemask=0xffffffff/g' grub
+Confirm the change
+# cat grub | grep amdgpu
+
+# update-grub
+# poweroff 
+
+ADD ALL THE VIDEO CARDS HERE.
+
+Restar the computer and log back into the system from console or from ssh terminal.
+
+It is necessary to update during installation process.  Otherwise it may not work.
+# apt-get update
+
+NOTE: IF YOU DO NOT KNOW HOW TO RUN THE SCRIPTS, JUST TYPE IN THE SCRIPT AND PRESS ENTER.
+EXAMPLE:
+./setGPUOC.sh
+./setGPUOC.sh gpu_number_separated_by_comma %SCLK %MCLK
+Example: Overclock GPU 0 with 8% gpu clock increase and 6% memory clock increase:
+./setGPUOC.sh 0 8 6
+
+
+Set fan speed to 80%.  If you do not know your gpu numbers do the following.
+They should match the number of gpus in your system.
+# ls /sys/kernel/debug/dri/
+Use only single digit numbers only.  Ignore the triple digits if they exist.
+And list each number.  You only want the gpu number with amdgpu in most cases.
+# ls /sys/kernel/debug/dri/0
+# ls /sys/kernel/debug/dri/1
+# ls /sys/kernel/debug/dri/2
+...etc
+
+Make note of initial RPM
+# sensors | grep pci -A 6
+In this example, only one gpu is there at gpu number 0.
+If you have more than one, use "-g 0,1", "-g 0,1,2", "-g 0,1,2,3"...etc
+Set fan speed to 80%. 
+# ./setAMDGPUFanSpeed.sh -g 0 -s 80
+
+Now recheck the RPM
+# sensors | grep pci -A 6
+
+Run the GPU info script first to make sure that you can see the Vega card and follow the directions.
+
+# ./getGPUStats.sh
+
+After you get it working, run the setSMClockVoltages.sh file with your Vega card .data file.
+
+Example: If you have XFX Vega64 card in card0 run the following.  Clock and voltage file - *.data_OC8_7.
+Specific card *.data_OC8_7 files are provided.  If your card is not in the list, use any *V56*.data_OC8_7 or *V64*.data_OC8_7 and tweak it.  VegaFE does not have that problem.  So far there are no third party VegaFEs. 
+
+Example of single GPU
+# ./setSMClockVoltages.sh 0 XFXVega64.data_OC8_7 skip
+
+Optional: Example for multiple GPUs gpu1 gpu5 gpu6
+# ./setSMClockVoltages.sh 1,5,6 XFXVega64.data_OC8_7 skip
+
+Now overclock the gpu 0 accordig to OC number in clock and voltage file name.
+
+# ./setGPUOC.sh 0 8 7
+
+Now run the miner
+
+# cd git/xmrig-amd/build
+# ./xmrig-amd
+
+Apply PPT to gpu 0.  Use V64PPT for Vega 64 and Vega FE.  Use V56PPT for Vega 56.
+# ./setPPT.sh 0 V56PPT
+
+After PPT is applied, the fan will stop.  Restart the fan speed again. 
+# ./setAMDGPUFanSpeed.sh -g 0 -s 80
+
+Now monitor your gpu(s) in another terminal(s)
+
+# ./getGPUStats.sh
+
+HAPPY MINING...
+------------------- END OF LINUX VEGA MINING GUIDE -------------------
+
+Donations are welcome and appreciated but not necessary.
+A simple thank you would suffice.
+xmrminer01102018's XMR wallet: 41e7jNJYz2mdcRPUfJ3QrqYkKYjzgmVoabZatS77ks4mdXoahX1XQxnh2G39TMgZHB4g4LDQgyV4s6dyc5HkBEVgD1ymW2h
+
+
+CREDITS:
+
+PPT
+https://www.amdxmrminer.com/reach-stable-2000-hs-mining-xmr-on-vegas/
+
+OC
+https://linuxconfig.org/overclock-your-radeon-gpu-with-amdgpu
+https://wiki.archlinux.org/index.php/improving_performance#Overclocking_with_amdgpu
+
+GRUB
+https://askubuntu.com/questions/19486/how-do-i-add-a-kernel-boot-parameter#19487
+
+AMD
+https://www.amd.com/en/support
+
+XMRIG-AMD
+https://github.com/xmrig/xmrig-amd
+
