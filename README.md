@@ -19,6 +19,7 @@ Binary file checksums:
 3.   e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
 
 LIMITATIONS
+
 Three Vega GPUs per motherboard for XMR mining.  Risers and extenders do not work.
 
 Lists of tested hardware - Coming soon.
