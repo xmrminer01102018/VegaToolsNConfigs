@@ -14,6 +14,5 @@ config/PPTDIR folder - contains
 tools folder - contains shell scripts for fan speed, overclocking, monitoring and setting PPT.
 
 Glossary
-
-PPT - Soft Power Play Table
-Ubuntu - Linux OS
+.PPT - Soft Power Play Table
+.Ubuntu - Linux OS
