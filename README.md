@@ -3,6 +3,8 @@ AMD Vega GPU tools and configuration file(s) for Monero(XMR) mining.
 
 VegaUbuntuGuide - How to setup Vega mining in Ubuntu.
 
+TestedHarware - Limited hardware list working or not.
+
 config folder - contains gpu and mem clock settings.
 
 config/PPTDIR folder - contains
@@ -20,9 +22,7 @@ Binary file checksums:
 
 LIMITATIONS
 
-Four Vega GPUs per motherboard for XMR mining.  Risers and extenders do not work.
-
-Lists of tested hardware - Coming soon.
+Four Vega GPUs per motherboard for XMR mining.  Risers and extenders working with some motherboards.
 
 Contact(s)
 
