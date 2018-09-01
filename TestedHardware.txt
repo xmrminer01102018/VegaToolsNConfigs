@@ -1,0 +1,51 @@
+Tested Hardware
+
+Working: Yes
+Mobo: MSI H110M PRO-VD PLUS LGA 1151 Intel H110 SATA 6Gb/s USB 3.1 Micro ATX Motherboard - Intel
+CPU: Intel Celeron G3920 Skylake Dual-Core 2.9 GHz LGA 1151 65W BX80662G3920 Desktop Processor Intel HD Graphics 510
+Slot Layout from ports side: pcie3x16 pcie2x1 pcie2x1
+Risers: pcie3x16(VER 009S riser) pcie2x1(VER 009S) pcie2x1(VER 009S)
+RAM: 2 X G.SKILL Aegis 4GB 288-Pin DDR4 SDRAM DDR4 2133
+
+Working: Yes
+Mobo: ASRock X399M TAICHI sTR4 AMD X399 SATA 6Gb/s USB 3.1 Micro ATX AMD Motherboard
+CPU: AMD Threadripper 1900X
+Slot Layout from ports side: pcie3x16 pcie3x16 pcie3x16
+Risers: pcie3x16(plugin) pcie3x16(Extender Riser Cable) pcie3x16(plugin)
+        Gaming PCI-E x16 to x16 3.0 Extender Riser Cable from DEEPCOOL GENOME II PC case.
+RAM: 2 X G.SKILL Aegis 4GB 288-Pin DDR4 SDRAM DDR4 2133
+
+Working: No
+Mobo: ASRock X370 Killer SLI/ac AM4 AMD Promontory X370 
+CPU: AMD AMD RYZEN 3 2200G Quad-Core 3.5 GHz
+Slot Layout from ports side: N/A
+Risers: N/A
+RAM: G.SKILL TridentZ RGB Series 16GB
+
+Working: Yes
+Mobo: MSI X470 GAMING PRO CARBON AM4 AMD X470
+CPU: AMD RYZEN 7 1700 8-Core 3.0 GHz
+Slot Layout from ports side: pcie3x16 pcie2x1 pcie3x16 pcie2x1 pcie2x16
+Risers: Not tested
+RAM: G.SKILL TridentZ RGB Series 16GB
+
+Working: Yes
+Mobo: ASUS ROG ZENITH EXTREME sTR4 AMD X399
+CPU: AMD Threadripper 1950X
+Slot Layout from ports side: pcie3x16 pcie3x8 pcie3x16 pcie3x8
+Risers: Not working
+RAM: G.SKILL TridentZ RGB Series 32GB
+
+Working: Yes
+Mobo: MSI X370 SLI PLUS AM4 AMD X370
+CPU: AMD AMD RYZEN 3 2200G Quad-Core 3.5 GHz
+Slot Layout from ports side: pcie2x1 pcie3x16 pcie2x1 pcie3x16 pcie2x1 pcie2x16
+Risers: Not working
+RAM: G.SKILL TridentZ RGB Series 16GB
+
+Working: No
+Mobo: ASUS Z270
+CPU: N/A
+Slot Layout from ports side: N/A
+Risers: N/A
+RAM: N/A
