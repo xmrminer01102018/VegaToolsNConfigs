@@ -1,5 +1,8 @@
 Tested Hardware
 
+Things NOT TO DO.
+Never put any PowerColr V56 gpus in first PCIE 3x16 slot.
+
 Working: Yes
 Mobo: MSI H110M PRO-VD PLUS LGA 1151 Intel H110 SATA 6Gb/s USB 3.1 Micro ATX Motherboard - Intel
 CPU: Intel Celeron G3920 Skylake Dual-Core 2.9 GHz LGA 1151 65W BX80662G3920 Desktop Processor Intel HD Graphics 510
