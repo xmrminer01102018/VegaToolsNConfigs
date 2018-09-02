@@ -47,7 +47,7 @@ CPU: AMD AMD RYZEN 3 2200G Quad-Core 3.5 GHz
 Slot Layout from ports side: pcie2x1 pcie3x16 pcie2x1 pcie3x16 pcie2x1 pcie2x16
 Risers: Not working
 RAM: G.SKILL TridentZ RGB Series 16GB
-Bad Video Mode: Yes
+Bad Video Mode: Yes (VDI Vega 56 such as ASUS ROG Vega 56 and UEFI boot mode fixed it)
 
 Working: No
 Mobo: ASUS Z270
