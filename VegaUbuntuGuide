@@ -221,6 +221,15 @@ Restar the computer and log back into the system from console or from ssh termin
 It is necessary to update during installation process.  Otherwise it may not work.
 # apt-get update
 
+Move all the files from config, tools and PPTDIR folders to VegaToolsNConfigs folder.
+# cd VegaToolsNConfigs
+# mv config/* .
+# mv tools/* .
+# mv PPTDIR/* .
+
+Make the scripts runnable.
+# chmod 770 *.sh
+
 NOTE: IF YOU DO NOT KNOW HOW TO RUN THE SCRIPTS, JUST TYPE IN THE SCRIPT AND PRESS ENTER.
 EXAMPLE:
 ./setGPUOC.sh
