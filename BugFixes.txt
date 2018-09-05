@@ -1,0 +1,8 @@
+09/03/2018
+setAMDGPUFanSpeed.sh
+In multiple GPU combination, the directory /sys/class/drm/card${gpunumber}/device/hwmon/hwmon${gpunumber} is not always true.
+The directory colud be
+/sys/class/drm/card0/device/hwmon/hwmon0
+or
+/sys/class/drm/card0/device/hwmon/hwmon1.
+Fix: Instead of relying on ${gpunumber}, I used the find command to get the correct directory path.

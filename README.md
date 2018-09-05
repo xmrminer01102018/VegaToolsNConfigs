@@ -24,6 +24,8 @@ LIMITATIONS
 
 Four Vega GPUs per motherboard for XMR mining.  Risers and extenders working with some motherboards.
 
+The limitations has been upgraded to 6 GPUs with risers.
+
 Contact(s)
 
 xmrminer01102018@gmail.com
