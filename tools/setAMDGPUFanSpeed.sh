@@ -91,7 +91,9 @@ if [  "$GPUSEQ" == "all" ]; then
 fi
 
 enable="1"
-readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$gpusequence, "); unset 'a[-1]';
+# Simplify readarray parsing for simple CSV string
+readarray -td, a <<<"$gpusequence, "; unset 'a[-1]';
+#readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$gpusequence, "); unset 'a[-1]';
 
 for gpunumber in "${a[@]}"
 do
