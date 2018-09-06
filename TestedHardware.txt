@@ -52,10 +52,10 @@ Risers: Not working
 RAM: G.SKILL TridentZ RGB Series 16GB
 Bad Video Mode: Yes (VDI Vega 56 such as ASUS ROG Vega 56 and UEFI boot mode fixed it)
 
-Working: No
-Mobo: ASUS Z270
-CPU: N/A
-Slot Layout from ports side: N/A
+Working: Yes
+Mobo: Asus Z270-A
+CPU: Intel Celeron G3930
+Slot Layout from ports side: pcie3/2x1 pcie3/2x16 pcie3/2x1 pcie3/2x1 pcie3/2x16 pcie3/2x1 pcie3/2x16
 Risers: N/A
 RAM: N/A
 Bad Video Mode: N/A
