@@ -59,3 +59,11 @@ Slot Layout from ports side: pcie3/2x1 pcie3/2x16 pcie3/2x1 pcie3/2x1 pcie3/2x16
 Risers: N/A
 RAM: N/A
 Bad Video Mode: N/A
+
+Working: Yes
+Mobo: COLORFUL C.B250A-BTC PLUS Motherboard LGA1151 Mining 8 Graphics Card Stolts US
+CPU: Intel Celeron G3920 Skylake Dual-Core 2.9 GHz LGA 1151 65W BX80662G3920 Desktop Processor Intel HD Graphics 510
+Slot Layout from ports side: pcie3x16 pcie2x1 pcie2x1 pcie2x1 pcie2x1 pcie2x1 pcie2x1 pcie2x1 
+Risers: N/A
+RAM: G.SKILL Ripjaws Series 16GB 260-Pin DDR4 SO-DIMM DDR4 2400 (PC4 19200) Laptop Memory
+Bad Video Mode: No
