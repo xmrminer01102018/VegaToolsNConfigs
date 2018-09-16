@@ -61,6 +61,14 @@ RAM: N/A
 Bad Video Mode: N/A
 
 Working: Yes
+Mobo: ASUS Prime X370-Pro AM4 AMD X370
+CPU: AMD RYZEN 3 1200 4-Core 3.1 GHz
+Slot Layout from ports side: pcie3x16/8 pcie2x1 pcie2x1 pcie3x8 pcie2x1 pcie2x4 
+Risers: Not tested
+RAM: Ballistix Sport LT 8GB Single DDR4 2400
+Bad Video Mode: No
+
+Working: Yes
 Mobo: COLORFUL C.B250A-BTC PLUS Motherboard LGA1151 Mining 8 Graphics Card Stolts US
 CPU: Intel Celeron G3920 Skylake Dual-Core 2.9 GHz LGA 1151 65W BX80662G3920 Desktop Processor Intel HD Graphics 510
 Slot Layout from ports side: pcie3x16 pcie2x1 pcie2x1 pcie2x1 pcie2x1 pcie2x1 pcie2x1 pcie2x1 
