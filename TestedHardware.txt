@@ -75,3 +75,26 @@ Slot Layout from ports side: pcie3x16 pcie2x1 pcie2x1 pcie2x1 pcie2x1 pcie2x1 pc
 Risers: N/A
 RAM: G.SKILL Ripjaws Series 16GB 260-Pin DDR4 SO-DIMM DDR4 2400 (PC4 19200) Laptop Memory
 Bad Video Mode: No
+
+
+Quick List for complex builds
+-----------------------------
+
+Eight GPU Rig:
+1. COLORFUL C.B250A-BTC PLUS Motherboard LGA1151 Mining 8 Graphics Card Stolts US
+2. Six PowerColor Red Dragon Vega 56 GPUs and two MSI Radeon RX Vega 56 Air Boost 8G OC.
+3. CPU - Intel Celeron G3920 Skylake Dual-Core 2.9 GHz LGA 1151 65W
+4. G.SKILL Ripjaws Series 16GB 260-Pin DDR4 SO-DIMM DDR4 2400 (PC4 19200) Laptop Memory
+5. EVGA SuperNOVA 1600
+6. Electop 2 Pack 2 Pin SW PC Power Cable on/Off Push Button ATX Computer Switch
+7. 4 X 120mm DC 12V 2.4A 200CFM 3Wire 3Pin TAC Connector FFC1212DE CPU Cooling Fan
+8. ModTek 4-Pin Molex to 4 x 3-Pin Fan Connector Cable (Power 4 Fans from 1 Molex Connection!)
+9. Eight COMeap 6 Pin Male to Dual 2X 8 Pin (6+2) Male PCI Express Power Adapter Cable for Graphics Video Card 24-inch (62cm)
+
+Six GPU Rig with risers:
+1. Six MSI Radeon RX Vega 56 Air Boost 8G OC GPUs
+2. Motherboard - MSI H110M PRO-VD PLUS LGA 1151
+3. CPU - Intel Celeron G3920 Skylake Dual-Core 2.9 GHz LGA 1151 65W
+4. VER 009S risers.
+5. PCIe PCI Express Riser Extender Adapter Card (Can connect to 4 GPUs with PCIE 3x16 slot)
+6. RAM - Patriot Signature Line 16GB (2 x 8GB) 288-Pin DDR4
