@@ -3,11 +3,14 @@ THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RXVEGA 56/64/FE GPU
 THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
 USE IT AT YOUR OWN RISK/DISCRETION.  PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
 
-SOME AMD VEGA CARDS TENDS TO MESS UP THE VIDEO OUTPUT SIGNAL UP AND YOU MAY NOT BE ABLE TO USE THE COMPUTER UPON ONE OF THE REBOOTS IN THE INSTRUCTIONS.  PLEASE SET UP SSH.  AND ALSO USE THE ONBOARD VIDEO OR CHEAP VIDOE CARD ON PCIE2(IF YOU HAVE ONE AVAILABLE) SLOT TO EASE FRUSTRATION.
+SOME AMD VEGA CARDS TENDS TO MESS UP THE VIDEO OUTPUT SIGNAL AND YOU MAY NOT BE ABLE TO USE THE COMPUTER UPON ONE OF THE REBOOTS
+IN THE INSTRUCTIONS.  PLEASE SET UP SSH.  AND ALSO USE THE ONBOARD VIDEO OR CHEAP VIDOE CARD ON PCIE2(IF YOU HAVE ONE AVAILABLE)
+SLOT TO EASE FRUSTRATION.
 
 Checklist.
 
-NOTE:  As of this writing Ubuntu 18.04.1 , amdgpu-pro 18.10 with amdgpu-pro 18.30 and xmrig-amd miner is the only combination that is working.
+NOTE:  As of this writing Ubuntu 18.04.1 , amdgpu-pro 18.10 with amdgpu-pro 18.30 and xmrig-amd miner is the only combination
+that is working.
 Until AMD works with miner code developers, this is the only way I know how to get Vega cards working with high hash rates.
 For some reason CentOS and others are not working at this time.(That's another project) 
  
@@ -104,7 +107,8 @@ At the end of installation, ignore the following warning
 WARNING: amdgpu dkms failed for running kernel
 # reboot
 Rebooting...
-At this point your desktop may be unusable, the amdgpu-pro driver will likely show you just a cursor on your left top of the monitor.  That's why ssh server was instaled in the beginning.
+At this point your desktop may be unusable, the amdgpu-pro driver will likely show you just a cursor on your left top of the
+monitor.  That's why ssh server was instaled in the beginning.
 
 Log back into the system with ssh.
 It is necessary to update during installation process.  Otherwise it may not work.
@@ -199,7 +203,9 @@ It is necessary to update during installation process.  Otherwise it may not wor
 
 In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
 # cd ~/Downloads
-Install version 18.30 at this time. The reason 18.10 was installed first was for openCL communications with the miner and the Vega device.  The 18.30 broke the communications for now.  Until the miner and/or AMD fix it, this is the procedure.  The 18.30 is needed because AMD added the voltage support in this version.
+Install version 18.30 at this time. The reason 18.10 was installed first was for openCL communications with the miner and the
+Vega device.  The 18.30 broke the communications for now.  Until the miner and/or AMD fix it, this is the procedure.  The 18.30
+is needed because AMD added the voltage support in this version.
 # tar -Jxvf amdgpu-pro-18.30-633530.tar.xz 
 # cd amdgpu-pro-18.30-633530 
 # ./amdgpu-pro-install -y --opencl=pal
@@ -267,7 +273,8 @@ Run the GPU info script first to make sure that you can see the Vega card and fo
 After you get it working, run the setSMClockVoltages.sh file with your Vega card .data file.
 
 Example: If you have XFX Vega64 card in card0 run the following.  Clock and voltage file - *.data_OC8_7.
-Specific card *.data_OC8_7 files are provided.  If your card is not in the list, use any *V56*.data_OC8_7 or *V64*.data_OC8_7 and tweak it.  VegaFE does not have that problem.  So far there are no third party VegaFEs. 
+Specific card *.data_OC8_7 files are provided.  If your card is not in the list, use any *V56*.data_OC8_7 or *V64*.data_OC8_7
+and tweak it.  VegaFE does not have that problem.  So far there are no third party VegaFEs. 
 
 Example of single GPU
 # ./setSMClockVoltages.sh 0 XFXVega64.data_OC8_7 skip
