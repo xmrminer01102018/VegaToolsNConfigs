@@ -1,0 +1,201 @@
+WARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RXVEGA 56/64/FE GPUs ON UBUNTU 18.04.1+ AND LINUX.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION.  PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+SOME AMD VEGA CARDS TENDS TO MESS UP THE VIDEO OUTPUT SIGNAL AND YOU MAY NOT BE ABLE TO USE THE COMPUTER UPON ONE OF THE REBOOTS
+IN THE INSTRUCTIONS.  PLEASE SET UP SSH.  AND ALSO USE THE ONBOARD VIDEO OR CHEAP VIDOE CARD ON PCIE2(IF YOU HAVE ONE AVAILABLE)
+SLOT TO EASE FRUSTRATION.
+
+Checklist.
+
+NOTE:  As of this writing Ubuntu 18.04.1 , amdgpu-pro 18.10 with amdgpu-pro 18.30 and xmrig-amd miner is the only combination
+that is working.
+Until AMD works with miner code developers, this is the only way I know how to get Vega cards working with high hash rates.
+For some reason CentOS and others are not working at this time.(That's another project) 
+ 
+1. PC with at least one available pcie slot.
+2. AMD Vega 56/64/FE.
+3. Ubuntu MATE Linux OS 18.04.1 LTS.  URL: https://ubuntu-mate.org/ (Only tested version)
+  Contents from /etc/os-release
+  NAME="Ubuntu"
+  VERSION="18.04.1 LTS (Bionic Beaver)"
+  ID=ubuntu
+  ID_LIKE=debian
+  PRETTY_NAME="Ubuntu 18.04.1 LTS"
+  VERSION_ID="18.04"
+  HOME_URL="https://www.ubuntu.com/"
+  SUPPORT_URL="https://help.ubuntu.com/"
+  BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+  PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+  VERSION_CODENAME=bionic
+  UBUNTU_CODENAME=bionic
+4. amdgpu-pro-18.30-633530.tar.xz or amdgpu-pro-18.30-641594.tar.xz for Ubuntu 18.04.1 
+URL: https://www2.ati.com/drivers/
+5. amdgpu-pro-18.10-572953.tar.xz for Ubuntu 16.04.4
+URL: https://support.amd.com/en-us/kb-articles/Pages/Radeon-Software-for-Linux-18.10-Release-Notes.aspx
+Click on "Radeon Software for Linux version 18.10 for Ubuntu 16.04.4" to download.
+6. xmrig-amd 2.7.3-beta(Only tested version).  Other versions may work.
+7. Download utility scripts and configuration files from git hub.
+   URL:  https://github.com/xmrminer01102018/VegaToolsNConfigs
+
+
+Procedures
+To get xmrig-amd working you have to install two different versions of amd-gpu-pro.
+
+Assumption: Ubuntu MATE 18.04.1 installed and network has been configured.
+Install Ubuntu MATE and configure network.(If you don't know how, please google it.)
+Assuming all commands are executed as a "root" user.  If you prefer, you may use sudo.
+
+All commands are followed after "$"(for non-root user) "#"(for root user) character prompt.
+And please do not get offended that I'm going through command by command.
+I'm writing for the inexperienced user.
+
+Assumption: The Ubuntu user is "jdoe".  Network has been configured.
+
+$ sudo su -
+[sudo]  password for user jdoe: ********  <-- Enter your jdoe's password
+# passwd
+Enter new UNIX password: ********  <-- Enter your root's password here
+Retype new UNIX password: ********  <-- Confirm your root's password here
+passwd: password updated successfully
+# exit
+logout
+$ su -
+Password: ********  <-- Enter your root's password that you have created above
+
+Make sure that network has been configured and connected.
+Download a zip file from GitHub.
+# cd
+# unzip VegaToolsNConfigs-master.zip
+# mv VegaToolsNConfigs-master VegaToolsNConfigs
+# mv VegaToolsNConfigs /root/
+If you clone the VegaToolsNConfigs, move the directory to /root/.
+Move all the files from config, tools and PPTDIR folders to VegaToolsNConfigs folder.
+# cd VegaToolsNConfigs
+# mv config/* .
+# mv tools/* .
+# mv PPTDIR/* .
+
+Make the scripts runnable.
+# chmod 770 *.sh
+Copy/Download AMD driver amdgpu-pro-18*.tar.xz files to /root/Downloads/ directory
+Change "DRIVER_TO_RUN" to your amdgpu-pro-18.30 in /root/VegaToolsNConfigs/automateVUG.sh
+script if necessary.
+cd VegaToolsNConfigs
+./autoConfigure.sh
+
+Sit back, relax, and let the toool do the work!
+After each reboot, ssh into the machine as root and see the progress by typing.
+# tail -f stage.log
+During amdgpu-pro driver installation, sometimes it may stop at some line and you
+may not see the progress.  Be patient, most of the time the program is doing something.
+When it is done, the machine will turn itself off.
+
+
+ADD ALL THE VIDEO CARDS HERE.
+
+Restar the computer and log back into the system from console or from ssh terminal.
+
+Save your copy of xmrig-amd.
+# cd ~/git
+# tar -czvf ~/xmrig-amdAMDGPro18d10.tgz xmrig-amd
+
+Copy ~/xmrig-amdAMDGPro18d10.tgz to another machine as a back up if you do not want to do the same process again and again.
+
+Edit config.json and run the miner.
+
+NOTE: IF YOU DO NOT KNOW HOW TO RUN THE SCRIPTS, JUST TYPE IN THE SCRIPT AND PRESS ENTER.
+EXAMPLE:
+./setGPUOC.sh
+./setGPUOC.sh gpu_number_separated_by_comma %SCLK %MCLK
+Example: Overclock GPU 0 with 8% gpu clock increase and 6% memory clock increase:
+./setGPUOC.sh 0 8 6
+
+
+Set fan speed to 80%.  If you do not know your gpu numbers do the following.
+They should match the number of gpus in your system.
+# ls /sys/kernel/debug/dri/
+Use only single digit numbers only.  Ignore the triple digits if they exist.
+And list each number.  You only want the gpu number with amdgpu in most cases.
+# ls /sys/kernel/debug/dri/0
+# ls /sys/kernel/debug/dri/1
+# ls /sys/kernel/debug/dri/2
+...etc
+
+NOTE:  The following steps are to be performed after every reboot/restart.
+
+Make note of initial RPM
+# sensors | grep pci -A 6
+In this example, only one gpu is there at gpu number 0.
+If you have more than one, use "-g 0,1", "-g 0,1,2", "-g 0,1,2,3"...etc
+Set fan speed to 80%. 
+# ./setAMDGPUFanSpeed.sh -g 0 -s 80
+
+Now recheck the RPM
+# sensors | grep pci -A 6
+
+Run the GPU info script first to make sure that you can see the Vega card and follow the directions.
+
+# ./getGPUStats.sh
+
+After you get it working, run the setSMClockVoltages.sh file with your Vega card .data file.
+
+Example: If you have XFX Vega64 card in card0 run the following.  Clock and voltage file - *.data_OC8_7.
+Specific card *.data_OC8_7 files are provided.  If your card is not in the list, use any *V56*.data_OC8_7 or *V64*.data_OC8_7
+and tweak it.  VegaFE does not have that problem.  So far there are no third party VegaFEs. 
+
+Example of single GPU
+# ./setSMClockVoltages.sh 0 XFXVega64.data_OC8_7 skip
+
+Optional: Example for multiple GPUs gpu1 gpu5 gpu6
+# ./setSMClockVoltages.sh 1,5,6 XFXVega64.data_OC8_7 skip
+
+Now overclock the gpu 0 accordig to OC number in clock and voltage file name.
+
+# ./setGPUOC.sh 0 8 7
+
+Now run the miner
+
+# cd git/xmrig-amd/build
+# ./xmrig-amd
+
+You may skip the next step if the power usage is still optimal after the reboot.
+Check it with getGPUStats.sh.
+
+Apply PPT to gpu 0.  Use V64PPT for Vega 64 and Vega FE.  Use V56PPT for Vega 56.
+# ./setPPT.sh 0 V56PPT
+
+After PPT is applied, the fan will stop.  Restart the fan speed again. 
+# ./setAMDGPUFanSpeed.sh -g 0 -s 80
+
+Now monitor your gpu(s) in another terminal(s)
+
+# ./getGPUStats.sh
+
+HAPPY MINING...
+------------------- END OF LINUX VEGA MINING GUIDE -------------------
+
+Donations are welcome and appreciated but not necessary.
+A simple thank you would suffice.
+xmrminer01102018's XMR wallet: 41e7jNJYz2mdcRPUfJ3QrqYkKYjzgmVoabZatS77ks4mdXoahX1XQxnh2G39TMgZHB4g4LDQgyV4s6dyc5HkBEVgD1ymW2h
+
+
+CREDITS:
+
+PPT
+https://www.amdxmrminer.com/reach-stable-2000-hs-mining-xmr-on-vegas/
+
+OC
+https://linuxconfig.org/overclock-your-radeon-gpu-with-amdgpu
+https://wiki.archlinux.org/index.php/improving_performance#Overclocking_with_amdgpu
+
+GRUB
+https://askubuntu.com/questions/19486/how-do-i-add-a-kernel-boot-parameter#19487
+
+AMD
+https://www.amd.com/en/support
+
+XMRIG-AMD
+https://github.com/xmrig/xmrig-amd
+
