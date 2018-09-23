@@ -1,7 +1,9 @@
 # VegaToolsNConfigs
 AMD Vega GPU tools and configuration file(s) for Monero(XMR) mining.
 
-VegaUbuntuGuide - How to setup Vega mining in Ubuntu.
+VegaUbuntuGuide - How to manually setup Vega mining in Ubuntu.
+VegaUbuntuGuidWithAutoTools - How to setup Vega mining in Ubuntu with 90% automation.  Escentially the same as
+                              VegaUbuntuGuide but after a few manual downloads, run the scrips to setup.
 
 TestedHarware - Limited hardware list working or not.
 
