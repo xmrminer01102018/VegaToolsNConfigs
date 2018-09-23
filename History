@@ -4,7 +4,7 @@ Added autoConfigure.sh, automateVUG.sh, and startXmrigAmd.sh in tools.
 
 09/15/2018
 Added rig monitoring scripts.
-Added json.config file for 8 GPU.
+Added config.json file for 8 GPU.
 
 09/03/2018
 Added riserOptimizer.sh in tools.
