@@ -51,10 +51,23 @@
 # URL: https://www2.ati.com/drivers/
 # amdgpu-pro-18.10-572953.tar.xz for Ubuntu 16.04.4
 # URL: https://support.amd.com/en-us/kb-articles/Pages/Radeon-Software-for-Linux-18.10-Release-Notes.aspx
+# Make sure that network has been configured and connected.
+# Download a zip file from GitHub.
+# cd
+# unzip VegaToolsNConfigs-master.zip
+# mv VegaToolsNConfigs-master VegaToolsNConfigs
+# mv VegaToolsNConfigs /root/
+# If you clone the VegaToolsNConfigs, move the directory to /root/.
+# Move all the files from config, tools and PPTDIR folders to VegaToolsNConfigs folder.
+# cd VegaToolsNConfigs
+# mv config/* .
+# mv tools/* .
+# mv PPTDIR/* .
+# Make the scripts are runnable.
+# chmod 770 *.sh
+# Now run this script as root by typing cd /root/VegaToolsNConfigs; ./autoConfigure.sh 
 
-# Now run this script as root by typing ./autoConfigure.sh 
-
-# Put the driver version that you have as the last DRIVER_TO_RUN without .tar.xz
+# Put the driver version that you have, as the last DRIVER_TO_RUN without .tar.xz
 # In this case it is amdgpu-pro-18.30-641594
 DRIVER_TO_RUN="amdgpu-pro-18.30-633530"
 DRIVER_TO_RUN="amdgpu-pro-18.30-641594"
