@@ -5,6 +5,8 @@ VegaUbuntuGuide - How to manually setup Vega mining in Ubuntu.
 
 VegaUbuntuGuidWithAutoTools - How to setup Vega mining in Ubuntu with 90% automation.  Escentially the same as VegaUbuntuGuide but after a few manual downloads, run the scripts to setup.
 
+History - Addition(s) and changes by date.
+
 TestedHarware - Limited hardware list working or not.
 
 config folder - contains gpu and mem clock settings.
