@@ -82,10 +82,11 @@ Make the scripts runnable.
 Copy/Download AMD driver amdgpu-pro-18*.tar.xz files to /root/Downloads/ directory
 Change "DRIVER_TO_RUN" to your amdgpu-pro-18.30 in /root/VegaToolsNConfigs/automateVUG.sh
 script if necessary.
-cd VegaToolsNConfigs
-./autoConfigure.sh
+# cd VegaToolsNConfigs
+# ./autoConfigure.sh
 
-Sit back, relax, and let the toool do the work!
+SIT BACK, RELAX, and let the toool do the work!
+
 After each reboot, ssh into the machine as root and see the progress by typing.
 # tail -f stage.log
 During amdgpu-pro driver installation, sometimes it may stop at some line and you
