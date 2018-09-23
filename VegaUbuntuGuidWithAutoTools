@@ -51,7 +51,7 @@ All commands are followed after "$"(for non-root user) "#"(for root user) charac
 And please do not get offended that I'm going through command by command.
 I'm writing for the inexperienced user.
 
-Assumption: The Ubuntu user is "jdoe".  Network has been configured.
+Assumption: The Ubuntu user is "jdoe".  Network has been configured and at least one Vega gpu is plugged in.
 
 $ sudo su -
 [sudo]  password for user jdoe: ********  <-- Enter your jdoe's password
