@@ -77,7 +77,7 @@ Move all the files from config, tools and PPTDIR folders to VegaToolsNConfigs fo
 # mv tools/* .
 # mv PPTDIR/* .
 
-Make the scripts are runnable.
+Make the scripts runnable.
 # chmod 770 *.sh
 Copy/Download AMD driver amdgpu-pro-18*.tar.xz files to /root/Downloads/ directory
 Change "DRIVER_TO_RUN" to your amdgpu-pro-18.30 in /root/VegaToolsNConfigs/automateVUG.sh
