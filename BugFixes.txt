@@ -1,3 +1,10 @@
+09/07/2018
+setAMDGPUFanSpeed.sh
+Contributed by: phreaknik
+# Simplify readarray parsing for simple CSV string
+readarray -td, a <<<"$gpusequence, "; unset 'a[-1]';
+#readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$gpusequence, "); unset 'a[-1]';
+
 09/03/2018
 setAMDGPUFanSpeed.sh
 In multiple GPU combination, the directory /sys/class/drm/card${gpunumber}/device/hwmon/hwmon${gpunumber} is not always true.
