@@ -101,6 +101,7 @@ KILL=/bin/kill
 PERL=/usr/bin/perl
 UPDATEGRUB=/usr/sbin/update-grub
 POWEROFF=/sbin/poweroff
+WC=/usr/bin/wc
 
 FNDNAME=$( ${FIND} /root -name "autoConfigure.sh" | ${GREP} Configure | ${TAIL} -n 1 )
 
@@ -128,6 +129,11 @@ then
   ${ECHO} "apt-get updated..." 
   ${APTGET} install -y openssh-server
   ${ECHO} "ssh server installed..." 
+  WCCOUNT=$( ${CAT} /etc/ssh/sshd_config | ${GREP} "^PermitRootLogin" | ${WC} -l )
+  if [ $WCCOUNT != 0 ]; then
+    ${ECHO} "Commenting out the existing rule..."
+    ${PERL} -i.bak -npe 's/^PermitRootLogin/\#PermitRootLogin/g' /etc/ssh/sshd_config 
+  fi
   ${ECHO} "PermitRootLogin yes" >> /etc/ssh/sshd_config
   ${ECHO} "sshd_config updated..." 
   ${ECHO}  "vm.nr_hugepages = 128" >> /etc/sysctl.conf
