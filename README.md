@@ -12,6 +12,8 @@ Ubuntu MATE 16.04.5
 
 VegaUbuntuGuideWithAutoTools - How to setup Vega mining in Ubuntu with 90% automation.  Essentially the same as VegaUbuntuGuide but after a few manual downloads, run the scripts to setup.
 
+OptimalRunningSequencesForVegas - Running sequences for maximum hash rate.
+
 History - Addition(s) and changes by date.
 
 TestedHarware - Limited hardware list working or not.
