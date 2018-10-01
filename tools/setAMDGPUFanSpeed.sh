@@ -124,8 +124,10 @@ fi
 
 enable="1"
 # Simplify readarray parsing for simple CSV string
-readarray -td, a <<<"$gpusequence, "; unset 'a[-1]';
+#readarray -t a <<<"$gpusequence, "; unset 'a[-1]';
 #readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$gpusequence, "); unset 'a[-1]';
+# Not all "readarray" versions act the same but "read" does
+IFS=',' read -ra a <<< "$gpusequence"
 
 for gpunumber in "${a[@]}"
 do
