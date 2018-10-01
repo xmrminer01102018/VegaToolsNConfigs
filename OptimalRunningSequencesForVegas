@@ -1,0 +1,78 @@
+NOTE: You can ignore the guide referencing OC numbers.
+      I left most of the config file names the same but change the OC value to
+      get the optimal value. If the OC values in the file name and comannd are
+      different they are "intentional".
+
+For Samsung V56 use the following steps for optimal hash rate.
+Don't pay attention to befor and after values in OC.
+The number may not change but you will definitely see the hash rate change.
+Remember to replace the gpu sequence with your own.
+
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+./setSMClockVoltages.sh 0 XFXV56S.data_OC9_8 skip
+./setGPUOC.sh 0 9 8
+
+Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
+If you see zero hash rate, don't panic.  Do the next step.
+
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+Wait about 2-3 minutes more and do the last step.
+
+./setSMClockVoltages.sh 0 XFXV56S.data_P7P3OC8_7 skip
+./setGPUOC.sh 0 8 7
+
+
+For Hynix V56 use the following steps for optimal hash rate.
+Don't pay attention to befor and after values in OC.
+The number may not change but you will definitely see the hash rate change.
+Remember to replace the gpu sequence with your own.
+
+./setSMClockVoltages.sh 0,1 MSIV56H.data_OC8_7 skip
+./setGPUOC.sh 0,1 7 6
+./setPPT.sh 0 V56PPT
+./setPPT.sh 1 V56PPT
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+
+
+
+For V64 use the following steps for optimal hash rate.
+Don't pay attention to befor and after values in OC.
+The number may not change but you will definitely see the hash rate change.
+Remember to replace the gpu sequence with your own.
+
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+./setSMClockVoltages.sh 0,1 XFXVega64S.data_2KOC9_7 skip
+./setGPUOC.sh 0,1 9 7
+
+Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
+If you see zero hash rate, don't panic.  Do the next step.
+
+./setPPT.sh 0 V64PPT
+./setPPT.sh 1 V64PPT
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+
+Wait about 2-3 minutes more and do the last step.
+
+./setSMClockVoltages.sh 0,1 XFXVega64S.data_P7P3_OC9_7 skip
+./setGPUOC.sh 0,1 9 7
+
+
+
+For FE use the following steps for optimal hash rate.
+Don't pay attention to befor and after values in OC.
+The number may not change but you will definitely see the hash rate change.
+Remember to replace the gpu sequence with your own.
+
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+./setSMClockVoltages.sh 0,1 VegaFE.data_OC9_8 skip
+./setGPUOC.sh 0,1 9 7
+
+Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
+Do the next step.
+
+./setPPT.sh 0 V64PPT
+./setPPT.sh 1 V64PPT
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+
