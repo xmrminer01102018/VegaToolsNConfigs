@@ -30,9 +30,13 @@ For some reason CentOS and others are not working at this time.(That's another p
   PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
   VERSION_CODENAME=bionic
   UBUNTU_CODENAME=bionic
-4. amdgpu-pro-18.30-633530.tar.xz or amdgpu-pro-18.30-641594.tar.xz for Ubuntu 18.04.1 
+4. If you are using Ubuntu 18.04.1, amdgpu-pro-18.30-633530.tar.xz or amdgpu-pro-18.30-641594.tar.xz for Ubuntu 18.04.1
+   
+   If you are using Ubuntu 16.04.5, amdgpu-pro-18.30-641594.tar.xz for Ubuntu 16.04.5
+   
 URL: https://www.amd.com/en/support/graphics/radeon-rx-vega-series/radeon-rx-vega-series/radeon-rx-vega-56
-5. amdgpu-pro-18.10-572953.tar.xz for Ubuntu 16.04.4
+
+5. Use amdgpu-pro-18.10-572953.tar.xz for Ubuntu 16.04.4 for both Ubuntu 18.04.1 and 16.04.5 versions.
 URL: https://support.amd.com/en-us/kb-articles/Pages/Radeon-Software-for-Linux-18.10-Release-Notes.aspx
 Click on "Radeon Software for Linux version 18.10 for Ubuntu 16.04.4" to download.
 6. xmrig-amd 2.7.3-beta(Only tested version).  Other versions may work.
