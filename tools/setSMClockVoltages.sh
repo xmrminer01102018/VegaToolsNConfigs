@@ -117,11 +117,21 @@ then
   exit;
 fi
 
-readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$1, "); unset 'a[-1]';
+#readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$1, "); unset 'a[-1]';
 #declare -p a;
+# Not all "readarray" versions act the same but "read" does
+IFS=',' read -ra a <<< "$1"
 
 #Read in sclk, mclk and mV values.
-mapfile -t MSVArray < $2 
+#mapfile -t MSVArray < $2 
+#Read in sclk, mclk and mV values.  mapfile does not work older bash versions
+I=0
+while read eachline
+do
+  echo "$eachline"
+  MSVArray[$I]=$eachline
+  (( I++ )) 
+done < $2 
 
 if [[ "$3" == "skip" ]]; then
   echo "Skipping range and error(s) checking..."
