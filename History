@@ -1,3 +1,11 @@
+10/01/2018
+Added OptimalRunningSequencesForVegas
+Added the following data files to config folder.
+XFXV56S.data_OC9_8
+XFXV56S.data_P7P3OC8_7
+XFXVega64S.data_2KOC9_7
+XFXVega64S.data_P7P3_OC9_7
+
 09/30/2018
 Ubuntu MATE 16.04.5 is working now.
 The following files have been updated for Ubuntu 18.04.1 and 16.04.5.
