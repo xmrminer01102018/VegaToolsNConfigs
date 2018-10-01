@@ -42,8 +42,10 @@ fi
 
 echo "Starting setup..."
 
-readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$1, "); unset 'a[-1]';
+#readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$1, "); unset 'a[-1]';
 #declare -p a;
+# Not all "readarray" versions act the same but "read" does
+IFS=',' read -ra a <<< "$1"
 
 
 for gpunumber in "${a[@]}"
