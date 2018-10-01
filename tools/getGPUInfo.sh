@@ -44,8 +44,10 @@ then
   echo "$0 0"
   exit;
 fi
-readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$1, "); unset 'a[-1]';
+#readarray -td '' a < <(awk '{ gsub(/,[ ]*|$/,"\0"); print }' <<<"$1, "); unset 'a[-1]';
 #declare -p a;
+# Not all "readarray" versions act the same but "read" does
+IFS=',' read -ra a <<< "$1"
 
 cinfoA=()
 sinfoA=()
