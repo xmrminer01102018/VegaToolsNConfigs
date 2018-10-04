@@ -8,18 +8,24 @@ Don't pay attention to befor and after values in OC.
 The number may not change but you will definitely see the hash rate change.
 Remember to replace the gpu sequence with your own.
 
+STEP1:
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
 ./setSMClockVoltages.sh 0 XFXV56S.data_OC9_8 skip
 ./setGPUOC.sh 0 9 8
 
 Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
-If you see zero hash rate, don't panic.  Do the next step.
+If you see zero hash rate, don't panic.  Do STEP2.
+TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
+xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
+running xmrig-amd.
 
+STEP2:
 ./setPPT.sh 0 V56PPT
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
 
 Wait about 2-3 minutes more and do the last step.
 
+STEP3:
 ./setSMClockVoltages.sh 0 XFXV56S.data_P7P3OC8_7 skip
 ./setGPUOC.sh 0 8 7
 
@@ -42,19 +48,25 @@ Don't pay attention to befor and after values in OC.
 The number may not change but you will definitely see the hash rate change.
 Remember to replace the gpu sequence with your own.
 
+STEP1:
 ./setAMDGPUFanSpeed.sh -g 0,1 -s 70
 ./setSMClockVoltages.sh 0,1 XFXVega64S.data_2KOC9_7 skip
 ./setGPUOC.sh 0,1 9 7
 
 Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
-If you see zero hash rate, don't panic.  Do the next step.
+If you see zero hash rate, don't panic.  Do STEP2.
+TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
+xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
+running xmrig-amd.
 
+STEP2:
 ./setPPT.sh 0 V64PPT
 ./setPPT.sh 1 V64PPT
 ./setAMDGPUFanSpeed.sh -g 0,1 -s 70
 
 Wait about 2-3 minutes more and do the last step.
 
+STEP3:
 ./setSMClockVoltages.sh 0,1 XFXVega64S.data_P7P3_OC9_7 skip
 ./setGPUOC.sh 0,1 9 7
 
@@ -65,14 +77,18 @@ Don't pay attention to befor and after values in OC.
 The number may not change but you will definitely see the hash rate change.
 Remember to replace the gpu sequence with your own.
 
+STEP1:
 ./setAMDGPUFanSpeed.sh -g 0,1 -s 70
 ./setSMClockVoltages.sh 0,1 VegaFE.data_OC9_8 skip
 ./setGPUOC.sh 0,1 9 7
 
 Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
-Do the next step.
+Do STEP2.
+TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
+xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
+running xmrig-amd.
 
+STEP2:
 ./setPPT.sh 0 V64PPT
 ./setPPT.sh 1 V64PPT
 ./setAMDGPUFanSpeed.sh -g 0,1 -s 70
-
