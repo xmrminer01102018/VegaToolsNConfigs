@@ -68,7 +68,9 @@ logout
 $ su -
 Password: ********  <-- Enter your root's password that you have created above
 
-Make sure that network has been configured and connected.
+NOTE:
+Make sure that network has been configured, connected and DNS and apt-get are working.
+
 Download a zip file from GitHub.
 # cd
 # unzip VegaToolsNConfigs-master.zip
