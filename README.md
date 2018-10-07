@@ -44,6 +44,15 @@ The limitations have been upgraded to 6 GPUs with risers.
 The limitations have been upgraded to 8 GPUs with Colorful's motherboard without risers.
 
 
+Tested coins:
+
+    Cryptonight V7:
+
+        Monero(XMR)
+
+        GRAFT
+
+
 Contact(s)
 
 xmrminer01102018@gmail.com
