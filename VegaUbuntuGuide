@@ -120,7 +120,7 @@ It is necessary to update during installation process.  Otherwise it may not wor
 # apt-get install -y git libuv1-dev libmicrohttpd-dev libssl-dev cmake build-essential libhwloc-dev opencl-headers
 # cd; mkdir git
 # cd git
-The xmrig-amd v2.8 does not work with amdgpu-pro 30 driver so use my fork.  I do not want to fork but I have no choice.
+The xmrig-amd v2.8 does not work with amdgpu-pro 18.30 driver so use my fork.  I do not want to fork but I have no choice.
 # git clone https://github.com/xmrminer01102018/xmrig-amd.git
 # ls
 # cd xmrig-amd
