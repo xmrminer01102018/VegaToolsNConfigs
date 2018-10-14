@@ -1,3 +1,7 @@
+10/14/2018
+automateVUG.sh will fail if network connectionis is not there upon reboot.
+Added 30 seconds pause for each reboot.
+
 09/07/2018
 setAMDGPUFanSpeed.sh
 Contributed by: phreaknik
