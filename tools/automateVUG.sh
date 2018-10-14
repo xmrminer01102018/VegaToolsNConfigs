@@ -79,7 +79,7 @@
 DRIVER_TO_RUN="amdgpu-pro-18.30-633530"
 DRIVER_TO_RUN="amdgpu-pro-18.30-641594"
 
-ECHO=/bin/echo
+ECHO=S/bin/echo
 SCRIPT=/usr/bin/script
 APTGET=/usr/bin/apt-get
 REBOOT=/sbin/reboot
@@ -153,7 +153,8 @@ if [[ "$STAGE" == "STAGE2" ]]
 then
   ${ECHO} "STAGE3" > /root/stagefile
   cd
-  ${ECHO} "Setting up stage 2" 
+  ${ECHO} "Setting up stage 2"
+  ${SLEEP} 30
   ${APTGET} update
   ${ECHO} "apt-get updated..." 
   ${APTGET} install -y lm-sensors 
@@ -175,7 +176,8 @@ if [[ "$STAGE" == "STAGE3" ]]
 then
   ${ECHO} "STAGE4" > /root/stagefile
   cd
-  ${ECHO} "Setting up stage 3" 
+  ${ECHO} "Setting up stage 3"
+  ${SLEEP} 30
   ${APTGET} update
   ${ECHO} "apt-get updated..."
   ${APTGET} install -y git libuv1-dev libmicrohttpd-dev libssl-dev cmake build-essential libhwloc-dev opencl-headers 
@@ -271,7 +273,8 @@ if [[ "$STAGE" == "STAGE4" ]]
 then
   ${ECHO} "STAGE4PROCESSING..." > /root/stagefile
   cd
-  ${ECHO} "Setting up stage 4" 
+  ${ECHO} "Setting up stage 4"
+  ${SLEEP} 30
   ${APTGET} update
   ${ECHO} "apt-get updated..."
   cd /root/Downloads
