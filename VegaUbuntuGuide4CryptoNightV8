@@ -74,11 +74,16 @@ Move all the files from config, tools and PPTDIR folders to VegaToolsNConfigs fo
 # mv config/* .
 # mv tools/* .
 # mv PPTDIR/* .
+Make sure the scripts are runnable.
+# chmod 770 *.sh
+
 Copy automateVUG.sh from ROCm folder to VegaToolsNConfigs folder if you intend to
-use xmrig-amd 2.8.1+ or xmr-stak 2.5.0+.
+use xmrig-amd 2.8.1+ or xmr-stak 2.5.0+ and run the automatic process.
 # cp ROCm/* . 
 Make sure the scripts are runnable.
 # chmod 770 *.sh
+For automatic process just run autoConfigure.sh and skip the rest of the instruction below.
+# ./autoConfigure.sh
 
 Do update
 # apt-get update
