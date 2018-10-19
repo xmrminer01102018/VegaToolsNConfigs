@@ -1,3 +1,5 @@
+# For CryptoNightV7(cn/1)
+
 NOTE: You can ignore the guide referencing OC numbers.
       I left most of the config file names the same but change the OC value to
       get the optimal value. If the OC values in the file name and comannd are
@@ -92,3 +94,29 @@ STEP2:
 ./setPPT.sh 0 V64PPT
 ./setPPT.sh 1 V64PPT
 ./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+
+*******************************************************************************************
+# For CryptoNightV8(cn/2)
+
+For Vega 56 with Hynix memory.
+cast-xmr on CryptoNightV8(aka cn/2)
+Max achieved hash rate: 1600H/s
+
+STEP1:
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+./setSMClockVoltages.sh 0 GenericV56H.data_OC8_7 skip
+./setGPUOC.sh 0 8 7
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+Start cast-xmr in another session and let it settle for 5 minutes
+Command line for cast-xmr
+./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p YOUR_RIG_NAME --intensity=10 $*
+
+STEP2:
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+./setSMClockVoltages.sh 0 MSIV56H.data_P7P3OC8_7V8 skip
+./setGPUOC.sh 0 10 7
+
+If it doe not reach to 1600H/s in 5 minutes, restart cast-xmr.
