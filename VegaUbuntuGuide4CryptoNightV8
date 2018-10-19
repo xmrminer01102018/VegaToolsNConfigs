@@ -82,6 +82,12 @@ use xmrig-amd 2.8.1+ or xmr-stak 2.5.0+ and run the automatic process.
 # cp ROCm/* . 
 Make sure the scripts are runnable.
 # chmod 770 *.sh
+Edit automateVUG.sh and change MINER to your preferred miner and save it.
+The default is XMRIGAMD.
+MINER="XMRSTAK"
+or
+MINER="XMRIGAMD"
+
 For automatic process just run autoConfigure.sh and skip the rest of the instruction below.
 # ./autoConfigure.sh
 
