@@ -5,7 +5,10 @@ AMD Vega GPU tools and configuration file(s) for Monero(XMR) mining.
 # NOTE:
 This guide will work with most cryptonight V7 coins at Windows level hash rate(s).  Most cryptonight V8 miners will not work with 18.30 driver.  Please use cast-xmr for the time being.  The hash rate is around 1250 H/s for XMR.  If you want to use xmrig-amd or xmr-stak, use ROCm 1.9.1+.  UPDATE: The cast-xmr will get you 1600 H/s on --intensity=10(default is 7).  The xmrig-amd and xmr-stak are still at 1250H/s for V8.
 
-VegaUbuntuGuide - How to manually setup Vega mining in Ubuntu.
+VegaUbuntuGuide - How to manually setup Vega mining in Ubuntu for CryptoNight V7.
+
+VegaUbuntuGuide4CryptoNightV8 - How to manually setup Vega mining in Ubuntu for CryptoNight V8.
+
 
 Working Ubuntu Versions:
 
