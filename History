@@ -1,5 +1,7 @@
 10/19/2018
 Added how to run cast-xmr in OptimalRunningSequencesForVegas.
+Added VegaUbuntuGuide4CryptoNightV8.
+Added automation script in tools/ROCm for xmrig-amd 2.8.1+ and xmr-stak 2.5.0+.
 
 10/01/2018
 Added OptimalRunningSequencesForVegas
