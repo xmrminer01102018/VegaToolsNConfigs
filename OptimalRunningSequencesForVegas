@@ -156,3 +156,20 @@ STEP3:
 ./setGPUOC.sh 0 9 7
 stable 1870 H/s @ 160 W over 70+ minutes
 
+
+
+For Vega FE.
+cast-xmr on CryptoNightV8(aka cn/2)
+Max achieved hash rate: 1960H/s.
+NOTE: intensity is lower than Vega 64
+
+STEP1:
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+Start cast-xmr in another session and let it settle for 5 minutes
+Command line for cast-xmr
+./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p YOUR_RIG_NAME --intensity=9 $*
+
+STEP2:
+./setPPT.sh 0 V64V8PPT;  ./setAMDGPUFanSpeed.sh -g 0 -s 70
+stable 1960 H/s @ 155 W over 60+ minutes
