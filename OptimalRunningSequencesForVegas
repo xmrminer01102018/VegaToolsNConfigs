@@ -127,7 +127,7 @@ If it does not reach to 1600H/s in 5 minutes, restart cast-xmr.
 
 For Vega 64.
 cast-xmr on CryptoNightV8(aka cn/2)
-Max achieved hash rate: 1790H/s
+Max achieved hash rate: 1790-1870H/s depends on power consumption.
 
 STEP1:
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
