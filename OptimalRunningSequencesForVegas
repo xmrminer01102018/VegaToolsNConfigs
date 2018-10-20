@@ -96,9 +96,12 @@ STEP2:
 ./setAMDGPUFanSpeed.sh -g 0,1 -s 70
 
 *******************************************************************************************
-# For CryptoNightV8(cn/2)
 
-For Vega 56 with Hynix memory.
+# For CryptoNightV8(cn/2)
+Tested OS: Ubuntu MATE 18.04.1
+Examples are for one GPU only.
+
+For Vega 56 with Hynix memory.  Samsung memory test TBD.
 cast-xmr on CryptoNightV8(aka cn/2)
 Max achieved hash rate: 1600H/s
 
@@ -119,4 +122,37 @@ STEP2:
 ./setSMClockVoltages.sh 0 MSIV56H.data_P7P3OC8_7V8 skip
 ./setGPUOC.sh 0 10 7
 
-If it doe not reach to 1600H/s in 5 minutes, restart cast-xmr.
+If it does not reach to 1600H/s in 5 minutes, restart cast-xmr.
+
+
+For Vega 64.
+cast-xmr on CryptoNightV8(aka cn/2)
+Max achieved hash rate: 1790H/s
+
+STEP1:
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+Start cast-xmr in another session and let it settle for 5 minutes
+Command line for cast-xmr
+./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p YOUR_RIG_NAME --intensity=10 $*
+
+STEP2:
+./setPPT.sh 0 V64PPT;  ./setAMDGPUFanSpeed.sh -g 0 -s 70
+stable 1790 H/s @ 136 W over 30+ minutes
+
+Wait 2 minutes.
+STEP3: more H/s with more power cost
+./setGPUOC.sh 0 9 7
+stable 1810 H/s @ 155 W over 30+ minutes
+
+If you use V64V8PPT for STEP2 and STEP3 you get more hashes but cost more power
+
+STEP2:
+./setPPT.sh 0 V64V8PPT;  ./setAMDGPUFanSpeed.sh -g 0 -s 70
+stable 1830 H/s @ 145 W over 70+ minutes
+
+Wait 2 minutes.
+STEP3:
+./setGPUOC.sh 0 9 7
+stable 1870 H/s @ 160 W over 70+ minutes
+
