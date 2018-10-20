@@ -29,6 +29,7 @@ mvn clean; mvn install
 Binary file checksums:
 b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
 4c9fc25157f392e9c94ab1536847b7c0  V64PPT
+ed13313360a2a4306e11a62afd111ace  V64V8PPT
 e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
 
 
