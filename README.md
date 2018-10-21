@@ -54,13 +54,13 @@ The limitations have been upgraded to 8 GPUs with Colorful's motherboard without
 
 Tested coins:
 
-    CryptoNightV7:
+    CryptoNightV7(CNV1):
 
         Monero(XMR)
 
         GRAFT
 
-    CryptoNightV8:
+    CryptoNightV8(CNV2):
 
         Monero(XMR)
 
