@@ -56,7 +56,7 @@ Tested coins:
 
     CryptoNightV7(CNV1):
 
-        Monero(XMR)(Updated to CNV2).
+        Monero(XMR)(Updated to CNV2)
 
         GRAFT
 
