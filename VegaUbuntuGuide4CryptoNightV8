@@ -157,6 +157,7 @@ For xmr-stak
 
 For CAST-XMR ONLY
 ********************************************************************************
+You can download cast-xmr from : http://www.gandalph3000.com/cast_xmr/linux/linux_version_of_cast-xmr-cryptonight-monero-miner-for-rx-vega-gpus/
 In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
 # cd ~/Downloads
 Install version 18.30 at this time. You can use  amdgpu-pro-18.30-641594 too.  Replace 633530 with 641594. 
