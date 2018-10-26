@@ -7,6 +7,7 @@ config.json_V64FECNv2
 amd.txt_V56HCNv2
 amd.txt_V56SCNv2
 amd.txt_V64FECNv2
+Added xmrig-amd and xmr-stak CryptoNightV8 running sequences for Vega 56/64/FE in OptimalRunningSequencesForVegas.
 
 10/20/2018
 Added cast-xmr CryptoNightV8 running sequences for Vega 64/FE in OptimalRunningSequencesForVegas.
