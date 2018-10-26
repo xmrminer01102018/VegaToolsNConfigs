@@ -20,9 +20,9 @@ Install amdgpu-pro 18.30.
 For cast-xmr, just run the program.
 
 For xmrig-amd and xmr-stak.
-  Compile xmr-stark as usual.  Compile xmrig-amd with "-DSTRICT_CACHE=OFF".
-  STEP1: Get the best hashrate by tweaking mem, gpu, clock speed and configs.
-         Or you can use my setting in "config" folder.
+  Compile xmr-stark as usual.  Compile xmrig-amd with "-DSTRICT_CACHE=OFF"(Thanks xmrig).
+  STEP1: Get the best hash rate by tweaking mem, gpu, clock speed and configs.
+         Or you can use my settings in "config" folder.
          IGNORE the COMPUTE ERRORS.
 
   STEP2: Uninstall 18.30 and install 18.10, reboot and run the settings per STEP1.
