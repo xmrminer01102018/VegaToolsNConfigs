@@ -1,0 +1,351 @@
+WARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RXVEGA 56/64/FE GPUs ON UBUNTU 18.04.1+ AND LINUX.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+#BSD 3-Clause License
+#
+#Copyright (c) 2018, xmrminer01102018
+#All rights reserved.
+#
+#Redistribution and use in source and binary forms, with or without
+#modification, are permitted provided that the following conditions are met:
+#
+#* Redistributions of source code must retain the above copyright notice, this
+#  list of conditions and the following disclaimer.
+#
+#* Redistributions in binary form must reproduce the above copyright notice,
+#  this list of conditions and the following disclaimer in the documentation
+#  and/or other materials provided with the distribution.
+#
+#* Neither the name of the copyright holder nor the names of its
+#  contributors may be used to endorse or promote products derived from
+#  this software without specific prior written permission.
+#
+#THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+#AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+#IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+#FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+#DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+#SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+#CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+#OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+#OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+Install Ubuntu Linux OS 18.04.1 LTS or 16.04.5.
+Assumption: Ubuntu MATE 18.04.1 installed and network has been configured.
+Install Ubuntu MATE and configure network.(If you don't know how, please google it.)
+Assuming all commands are executed as a "root" user.  If you prefer, you may use sudo.
+
+All commands are followed after "$"(for non-root user) "#"(for root user) character prompt.
+And please do not get offended that I'm going through command by command.
+I'm writing for the inexperienced user.
+
+Set up ssh and root user
+$ sudo su -
+[sudo]  password for user jdoe: ********  <-- Enter your jdoe's password
+# passwd
+Enter new UNIX password: ********  <-- Enter your root's password here
+Retype new UNIX password: ********  <-- Confirm your root's password here
+passwd: password updated successfully
+# exit
+# logout
+$ su -
+Password: ********  <-- Enter your root's password that you have created above
+Download amdgpu-pro drivers  and put them in /root/Downloads only if you are going
+to use cast-xmr 1.5.0+ miner
+NOTE: the tar.xz file name is the same for amdgpu-pro 18.30 for Ubuntu 18.04.1 and Ubuntu 16.04.5
+For Ubuntu MATE 18.04.1
+amdgpu-pro-18.30-633530.tar.xz for Ubuntu 18.04.1 
+or
+amdgpu-pro-18.30-641594.tar.xz for Ubuntu 18.04.1
+
+For Ubuntu MATE 16.04.5
+amdgpu-pro-18.30-641594.tar.xz for Ubuntu 16.04.5
+
+URL: https://www2.ati.com/drivers/
+
+Make sure that network has been configured and connected.
+Download a zip file from GitHub.
+# cd
+# unzip VegaToolsNConfigs-master.zip
+# mv VegaToolsNConfigs-master VegaToolsNConfigs
+# mv VegaToolsNConfigs /root/
+If you clone the VegaToolsNConfigs, move the directory to /root/.
+Move all the files from config, tools and PPTDIR folders to VegaToolsNConfigs folder.
+# cd VegaToolsNConfigs
+# mv config/* .
+# mv tools/* .
+# mv PPTDIR/* .
+Make sure the scripts are runnable.
+# chmod 770 *.sh
+
+Do update
+# apt-get update
+Install ssh server
+# apt-get install -y openssh-server
+# perl -i.bak -npe 's/^PermitRootLogin/\#PermitRootLogin/g' /etc/ssh/sshd_config 
+# echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+# echo  "vm.nr_hugepages = 128" >> /etc/sysctl.conf
+# reboot
+
+
+Do update
+# apt-get update
+
+Install lm-sensors
+# apt-get install -y lm-sensors 
+# sensors-detect --auto
+# reboot
+
+If you are going to use CAST-XMR, skip to "For CAST-XMR ONLY".
+
+NOTE: You may have to repeat the xmrig-amd and  xmr-stak processes for each type of Vega cards.
+If you have those different types of cards in the same rig/computer make sure to match the
+cache files properly in the later steps.  This process is only for one Vega 56 or one Vega 64 or one Vega FE.
+
+Do update
+# apt-get update
+In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
+# cd ~/Downloads
+Install version 18.30 at this time.
+# tar -Jxvf amdgpu-pro-18.30-633530.tar.xz 
+# cd amdgpu-pro-18.30-633530 
+# ./amdgpu-pro-install -y --opencl=pal
+# reboot
+
+Do update
+# apt-get update
+# apt-get install -y git libuv1-dev libmicrohttpd-dev libssl-dev cmake build-essential libhwloc-dev opencl-headers
+# cd; mkdir git
+# cd git
+
+For xmrig-amd 2.8.4+ 
+# git clone https://github.com/xmrig/xmrig-amd.git
+#cd /root/git/xmrig-amd/ 
+# mkdir build; cd build; cmake -DSTRICT_CACHE=OFF ..; make 
+
+For xmr-stak 2.5.1+
+# git clone https://github.com/fireice-uk/xmr-stak.git 
+# cd /root/git/xmr-stak/
+# mkdir build; cd build; cmake -DCMAKE_CXX_FLAGS="-march=native -O3" -DOpenCL_INCLUDE_DIR=/usr/include -DOpenCL_LIBRARY=/opt/amdgpu-pro/lib/x86_64-linux-gnu/libOpenCL.so.1 -DCUDA_ENABLE=OFF .. 
+
+Now copy your config file(s) (xmrig-amd:config.json or xmr-stak:amd.txt/pool.txt/config.txt).
+Or you can use the already optimized config files under config folder.
+NOTE: Do not forget to change your wallet ID and password.
+
+Now run the miner
+# ./xmrig-amd
+or
+# bin/xmr-stak
+Wait until the connection is established with the hash rate and stop the miner if your are using the optimized files.
+If you are optimizing yourself, do the optimization process until you get the best hash rate.
+IGNORE "COMPUTE ERRORS" in this step.
+
+Once everything has been optimized, uninstall 18.30 and install 18.10 amdgpu-pro drivers.
+
+# /usr/bin/amdgpu-pro-uninstall -y
+
+In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
+# cd ~/Downloads
+Install version 18.10 at this time.
+# tar -Jxvf amdgpu-pro-18.10-572953.tar.xz 
+# cd amdgpu-pro-18.10-572953
+# ./amdgpu-pro-install -y --opencl=pal
+# reboot
+
+Do update
+# apt-get update
+Now run the miners with 18.10 drivers, and clear the cache files before running it;
+# cd ~/git/xmrig-amd/build; rm -f .cache/*;  ./xmrig-amd
+or
+# cd ~/git/xmr-stak/build; rm -f ~/.openclcache/*; bin/xmr-stak
+
+Once you get the cache file(s), you may stop the miner.  Save the cache files.
+
+NOTE: XX is for 56 or 64 or FE
+# tar -czvf xmrigAmdCacheVegaXX.tgz .cache/
+or
+# tar -czvf xmrStakCacheVegaXX.tgz ~/.openclcache/
+
+NOTE: THIS PROCESS IS VALID UNTIL :
+1. MINER'S OPENCL CODE HAVE NOT BEEN CHANGED.
+2. YOUR CONFIGURATION FILE(S) HAVE NOT BEEN CHANGED.
+   IF CONFIGURATION SETTINGS HAVE BEEN CHANGED, YOU HAVE TO REPEAT THE PROCESS.
+
+Now uninstall 18.10 and re-install 18.30
+
+# /usr/bin/amdgpu-pro-uninstall -y
+In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
+# cd ~/Downloads
+Install version 18.30 at this time.
+# tar -Jxvf amdgpu-pro-18.30-633530.tar.xz 
+# cd amdgpu-pro-18.30-633530 
+# ./amdgpu-pro-install -y --opencl=pal
+
+
+For CAST-XMR ONLY
+********************************************************************************
+In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
+# cd ~/Downloads
+Install version 18.30 at this time. You can use  amdgpu-pro-18.30-641594 too.  Replace 633530 with 641594. 
+# tar -Jxvf amdgpu-pro-18.30-633530.tar.xz 
+# cd amdgpu-pro-18.30-633530 
+# ./amdgpu-pro-install -y --opencl=pal
+********************************************************************************
+
+Do update
+# apt-get update
+# cd /root/Downloads
+# cd /etc/default
+# mv grub grub.original
+# cp grub.original grub
+# perl -i.bak -npe 's/quiet splash/quiet splash amdgpu.ppfeaturemask=0xffffffff/g' grub
+# cat grub | grep amdgpu 
+# update-grub
+Add GPUs after powering off
+# poweroff
+
+ADD ALL THE VIDEO CARDS HERE IF NECESSARY.
+
+Restart the computer and log back into the system from console or from ssh terminal.
+
+It is necessary to update during installation process.  Otherwise it may not work.
+# apt-get update
+Now run the miners:
+
+CAST-XMR: cd to where cast-xmr is first.
+# ./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p YOUR_RIG_NAME --intensity=9 $*
+
+XMRIG-AMD:
+# cd ~/git/xmrig-amd/build
+Untar the cache file if necessary.
+# tar -xzvf xmrigAmdCacheVegaXX.tgz
+Now run the miner
+# ./xmrig-amd
+
+XMR-STAK:
+# cd ~/git/xmr-stak/build
+Run the miner.
+# bin/xmr-stak
+The xmr-stak will create two new cache files.
+Copy the saved cache files and ovewrite it over new cache files.
+# cd ~; tar -xzvf xmrStakCacheVegaXX.tgz
+Example:
+BEFORE:                
+# ls -latr .openclcache/
+total 11552
+-rw-r--r--  1 root root 2996968 Oct 23 23:39 dbf267fead10c3b818c7765b610b75b850f08f9ca017fefc8a0a5fc02b817cd5.openclbin
+-rw-r--r--  1 root root 2909560 Oct 23 23:39 13ee3bdc5669a56f449e85cf3f7e60bec9ce2c26eba5317dd29a93d5853dd18d.openclbin
+drwx------ 10 root root    4096 Oct 23 23:42 ..
+drwxr--r--  2 root root    4096 Oct 23 23:52 .
+-rw-r--r--  1 root root 3112234 Oct 23 23:44 2bb27b314b92d82c35e59cbf6590b0f4d3d3e19da2f8348598225650932b8768.openclbin
+-rw-r--r--  1 root root 3110234 Oct 23 23:44 5fc3c6555c20dfec773613c4500c1a83d652f5dd8ace423d9ffd20d819025abb.openclbin
+# cd .openclcache/
+# cp dbf267fead10c3b818c7765b610b75b850f08f9ca017fefc8a0a5fc02b817cd5.openclbin 2bb27b314b92d82c35e59cbf6590b0f4d3d3e19da2f8348598225650932b8768.openclbin
+# cp 13ee3bdc5669a56f449e85cf3f7e60bec9ce2c26eba5317dd29a93d5853dd18d.openclbin 5fc3c6555c20dfec773613c4500c1a83d652f5dd8ace423d9ffd20d819025abb.openclbin
+
+AFTER:
+# cd 
+# ls -latr .openclcache/
+total 11552
+-rw-r--r--  1 root root 2996968 Oct 23 23:39 dbf267fead10c3b818c7765b610b75b850f08f9ca017fefc8a0a5fc02b817cd5.openclbin
+-rw-r--r--  1 root root 2909560 Oct 23 23:39 13ee3bdc5669a56f449e85cf3f7e60bec9ce2c26eba5317dd29a93d5853dd18d.openclbin
+drwx------ 10 root root    4096 Oct 23 23:42 ..
+drwxr--r--  2 root root    4096 Oct 23 23:52 .
+-rw-r--r--  1 root root 2996968 Oct 23 23:53 2bb27b314b92d82c35e59cbf6590b0f4d3d3e19da2f8348598225650932b8768.openclbin
+-rw-r--r--  1 root root 2909560 Oct 23 23:53 5fc3c6555c20dfec773613c4500c1a83d652f5dd8ace423d9ffd20d819025abb.openclbin
+Now you are done setting up xmr-stak,.  Re-run the miner.
+# cd ~/git/xmr-stak/build;  bin/xmr-stak
+ 
+
+NOTE:  The following steps are to be performed after every reboot/restart.
+       OR - follw the steps in OptimalRunningSequencesForVegas.
+
+Make note of initial RPM
+# sensors | grep pci -A 6
+In this example, only one gpu is there at gpu number 0.
+If you have more than one, use "-g 0,1", "-g 0,1,2", "-g 0,1,2,3"...etc
+Set fan speed to 80%. 
+# ./setAMDGPUFanSpeed.sh -g 0 -s 80
+
+Now recheck the RPM
+# sensors | grep pci -A 6
+
+Run the GPU info script first to make sure that you can see the Vega card and follow the directions.
+
+# ./getGPUStats.sh
+
+After you get it working, run the setSMClockVoltages.sh file with your Vega card .data file.
+
+Example: If you have XFX Vega64 card in card0 run the following.  Clock and voltage file - *.data_OC8_7.
+Specific card *.data_OC8_7 files are provided.  If your card is not in the list, use any *V56*.data_OC8_7 or *V64*.data_OC8_7
+and tweak it.  VegaFE does not have that problem.  So far there are no third party VegaFEs. 
+
+Example of single GPU
+# ./setSMClockVoltages.sh 0 XFXVega64.data_OC8_7 skip
+
+Optional: Example for multiple GPUs gpu1 gpu5 gpu6
+# ./setSMClockVoltages.sh 1,5,6 XFXVega64.data_OC8_7 skip
+
+Now overclock the gpu 0 accordig to OC number in clock and voltage file name.
+
+# ./setGPUOC.sh 0 8 7
+
+Now run the miner
+
+# cd git/xmrig-amd/build
+# ./xmrig-amd
+
+You may skip the next step if the power usage is still optimal after the reboot.
+Check it with getGPUStats.sh.
+
+Apply PPT to gpu 0.  Use V64PPT for Vega 64 and Vega FE.  Use V56PPT for Vega 56.
+# ./setPPT.sh 0 V56PPT
+
+After PPT is applied, the fan will stop.  Restart the fan speed again. 
+# ./setAMDGPUFanSpeed.sh -g 0 -s 80
+
+Now monitor your gpu(s) in another terminal(s)
+
+# ./getGPUStats.sh
+
+HAPPY MINING...
+
+ps.
+Checkout OptimalRunningSequencesForVegas file for running different GPUs under
+CryptoNightV8.
+
+------------------- END OF LINUX VEGA MINING GUIDE -------------------
+
+Donations are welcome and appreciated but not necessary.
+A simple thank you would suffice.
+xmrminer01102018's XMR wallet: 41e7jNJYz2mdcRPUfJ3QrqYkKYjzgmVoabZatS77ks4mdXoahX1XQxnh2G39TMgZHB4g4LDQgyV4s6dyc5HkBEVgD1ymW2h
+
+
+CREDITS:
+
+PPT
+https://www.amdxmrminer.com/reach-stable-2000-hs-mining-xmr-on-vegas/
+
+OC
+https://linuxconfig.org/overclock-your-radeon-gpu-with-amdgpu
+https://wiki.archlinux.org/index.php/improving_performance#Overclocking_with_amdgpu
+
+GRUB
+https://askubuntu.com/questions/19486/how-do-i-add-a-kernel-boot-parameter#19487
+
+AMD
+https://www.amd.com/en/support
+
+CAST-XMR
+http://www.gandalph3000.com/cast_xmr/linux/linux_version_of_cast-xmr-cryptonight-monero-miner-for-rx-vega-gpus/
+
+XMR-STAK
+https://github.com/fireice-uk/xmr-stak
+
+XMRIG-AMD
+https://github.com/xmrig/xmrig-amd
+

@@ -1,0 +1,63 @@
+WARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RXVEGA 56/64/FE GPUs ON UBUNTU 18.04.1+ AND LINUX.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+
+For indepth sequences see "VegaUbuntuGuideForCNv2"
+For ROCm drivers see "VegaUbuntuGuide4CryptoNightV8"
+
+Enable ssh, vm.nr_hugepages = 128, lm-sensors, and amdgpu.ppfeaturemask=0xffffffff.
+
+Download tools from https://github.com/xmrminer01102018/VegaToolsNConfigs.
+
+Download amdgpu-pro 18.10 and 18.30 drivers from AMD.
+
+Download cast-xmr or xmrig-amd 2.8.4+ or xmr-stak 2.5.1+.
+
+Install amdgpu-pro 18.30.
+
+For cast-xmr, just run the program.
+
+For xmrig-amd and xmr-stak.
+  Compile xmr-stark as usual.  Compile xmrig-amd with "-DSTRICT_CACHE=OFF".
+  STEP1: Get the best hashrate by tweaking mem, gpu, clock speed and configs.
+         Or you can use my setting in "config" folder.
+         IGNORE the COMPUTE ERRORS.
+
+  STEP2: Uninstall 18.30 and install 18.10, reboot and run the settings per STEP1.
+         After running for 5 minutes, quit the miner and save the cache file(s).
+
+  STEP3: Uninstall 18.10 and re-install 18.30 and reboot.
+         xmrig-amd
+         Now run the miner.  You will stop seeing "COMPUTE ERRORS".
+         xmr-stak
+         Run the miner, until the miner connection is completed.
+         Make note of the cache file names.
+         Overwite the second set of cache files with the first set.
+         Now run the miner.  You will stop seeing "COMPUTE ERRORS".
+
+
+Example for xmr-stak:
+
+Note: Pay attention to file sizes.
+Before:                
+# ls -latr .openclcache/
+total 11552
+-rw-r--r--  1 root root 2996968 Oct 23 23:39 dbf267fead10c3b818c7765b610b75b850f08f9ca017fefc8a0a5fc02b817cd5.openclbin
+-rw-r--r--  1 root root 2909560 Oct 23 23:39 13ee3bdc5669a56f449e85cf3f7e60bec9ce2c26eba5317dd29a93d5853dd18d.openclbin
+drwx------ 10 root root    4096 Oct 23 23:42 ..
+drwxr--r--  2 root root    4096 Oct 23 23:52 .
+-rw-r--r--  1 root root 3112234 Oct 23 23:44 2bb27b314b92d82c35e59cbf6590b0f4d3d3e19da2f8348598225650932b8768.openclbin
+-rw-r--r--  1 root root 3110234 Oct 23 23:44 5fc3c6555c20dfec773613c4500c1a83d652f5dd8ace423d9ffd20d819025abb.openclbin
+
+AFTER:
+# ls -latr .openclcache/
+total 11552
+-rw-r--r--  1 root root 2996968 Oct 23 23:39 dbf267fead10c3b818c7765b610b75b850f08f9ca017fefc8a0a5fc02b817cd5.openclbin
+-rw-r--r--  1 root root 2909560 Oct 23 23:39 13ee3bdc5669a56f449e85cf3f7e60bec9ce2c26eba5317dd29a93d5853dd18d.openclbin
+drwx------ 10 root root    4096 Oct 23 23:42 ..
+drwxr--r--  2 root root    4096 Oct 23 23:52 .
+-rw-r--r--  1 root root 2996968 Oct 23 23:53 2bb27b314b92d82c35e59cbf6590b0f4d3d3e19da2f8348598225650932b8768.openclbin
+-rw-r--r--  1 root root 2909560 Oct 23 23:53 5fc3c6555c20dfec773613c4500c1a83d652f5dd8ace423d9ffd20d819025abb.openclbin
+
