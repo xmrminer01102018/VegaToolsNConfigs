@@ -7,7 +7,11 @@ This guide will work with most cryptonight V7 coins at Windows level hash rate(s
 
 VegaUbuntuGuide - How to manually setup Vega mining in Ubuntu for CryptoNight V7.
 
-VegaUbuntuGuide4CryptoNightV8 - How to manually setup Vega mining in Ubuntu for CryptoNight V8.
+VegaUbuntuGuide4CryptoNightV8 - How to manually setup Vega mining in Ubuntu for CryptoNight V8 with ROCm driver.
+
+VegaUbuntuQuickGuideForCNv2 - How to manually setup Vega mining in Ubuntu for CryptoNight V8 with AMD drivers for "Experts". 
+
+VegaUbuntuGuideForCNv2- How to manually setup Vega mining in Ubuntu for CryptoNight V8 with AMD drivers.
 
 
 Working Ubuntu Versions:
