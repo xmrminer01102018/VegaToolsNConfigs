@@ -101,6 +101,9 @@ STEP2:
 Tested OS: Ubuntu MATE 18.04.1
 Examples are for one GPU only.
 
+CAST-XMR:
+---------
+
 For Vega 56 with Hynix memory.  Samsung memory test TBD.
 cast-xmr on CryptoNightV8(aka cn/2)
 Max achieved hash rate: 1600H/s
@@ -173,3 +176,58 @@ Command line for cast-xmr
 STEP2:
 ./setPPT.sh 0 V64V8PPT;  ./setAMDGPUFanSpeed.sh -g 0 -s 70
 stable 1960 H/s @ 155 W over 60+ minutes
+
+
+XMRIG-AMD and XMR-STAK
+----------------------
+
+For Vega 56 with Hynix memory
+STEP1:
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+Start miner in another session and let it settle for 5 minutes
+
+STEP2:
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+
+For Vega 56 with Samsung memory.
+STEP1:
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+./setSMClockVoltages.sh 0 XFXV56S.data_OC9_8 skip
+./setGPUOC.sh 0 9 8;
+
+Start miner in another session and let it settle for 5 minutes.
+
+STEP2:
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+
+For Vega 64
+STEP1:
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+./setSMClockVoltages.sh 0 XFXVega64S.data_2KOC9_7 skip
+./setGPUOC.sh 0 9 7
+
+Start miner in another session and let it settle for 5 minutes.
+
+STEP2:
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+./setSMClockVoltages.sh 0 XFXVega64S.data_P7P3_OC9_7 skip
+./setGPUOC.sh 0 9 7
+
+
+For Vega FE
+STEP1:
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+Start miner in another session and let it settle for 5 minutes.
+
+STEP2:
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+
