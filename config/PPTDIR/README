@@ -1,8 +1,9 @@
-V56PPT - Soft PPT for Vega 56
-V64PPT - Soft PPT for Vega 64 and Vega Frontier Edition
+V56PPT - Soft PPT for Vega 56 (CNv1 and CNv2)
+V64PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv1)
+V64V8PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv2)
 V56PPTTEXT - Working example soft PPT hex values for Vega 56
-V64PPTTEXT - Working example soft PPT(CNV1) hex values for Vega 64 and Vega Frontier Edition
-V64V8PPTTEXT - Working example soft PPT(CNV2) hex values for Vega 64 and Vega Frontier Edition
+V64PPTTEXT - Working example soft PPT(CNv1) hex values for Vega 64 and Vega Frontier Edition
+V64V8PPTTEXT - Working example soft PPT(CNv2) hex values for Vega 64 and Vega Frontier Edition
 MULTIPPT   - Combined soft PPT hex values for Vega 56 and Vega 64
 SoftPPT-1.0.0.jar - Java program to produce binary PPT from hex numbers.
                   - Require Java 10 to be installed on the system.
