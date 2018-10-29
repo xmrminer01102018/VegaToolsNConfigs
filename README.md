@@ -21,6 +21,16 @@ Ubuntu MATE 18.04.1
 Ubuntu MATE 16.04.5
 
 
+Working amdgpu-pro and ROCm versions:
+
+amdgpu-pro 18.10/18.30
+
+amdgpu-pro 18.10/18.40
+
+ROCm 1.9.1
+
+
+
 VegaUbuntuGuideWithAutoTools - How to setup Vega mining in Ubuntu with 90% automation.  Essentially the same as VegaUbuntuGuide but after a few manual downloads, run the scripts to setup.
 
 OptimalRunningSequencesForVegas - Running sequences for maximum hash rate.
