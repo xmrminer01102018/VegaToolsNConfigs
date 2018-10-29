@@ -104,7 +104,7 @@ Examples are for one GPU only.
 CAST-XMR:
 ---------
 
-For Vega 56 with Hynix memory.  Samsung memory test TBD.
+For Vega 56 with Hynix memory.
 cast-xmr on CryptoNightV8(aka cn/2)
 Max achieved hash rate: 1600H/s
 
@@ -126,6 +126,26 @@ STEP2:
 ./setGPUOC.sh 0 10 7
 
 If it does not reach to 1600H/s in 5 minutes, restart cast-xmr.
+
+
+For Vega 56 with Samsung memory.
+cast-xmr on CryptoNightV8(aka cn/2)
+Max achieved hash rate: 1730H/s
+
+STEP1:
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+./setSMClockVoltages.sh 0 XFXV56S.data_OC9_8 skip
+./setGPUOC.sh 0 9 8
+
+Start cast-xmr in another session and let it settle for 5 minutes
+Command line for cast-xmr
+./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p YOUR_RIG_NAME --intensity=10 $*
+
+STEP2:
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+./setSMClockVoltages.sh 0 XFXV56S.data_P7P3OC8_7 skip
+./setGPUOC.sh 0 8 7
 
 
 For Vega 64.
