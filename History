@@ -1,3 +1,6 @@
+10/29/2018
+Added how to run cast-xmr in OptimalRunningSequencesForVegas for Vega 56(Samsung).
+
 10/26/2018
 Added  VegaUbuntuQuickGuideForCNv2 and VegaUbuntuGuideForCNv2.
 The followig configuration files are added to config folder.
@@ -13,7 +16,7 @@ Added xmrig-amd and xmr-stak CryptoNightV8 running sequences for Vega 56/64/FE i
 Added cast-xmr CryptoNightV8 running sequences for Vega 64/FE in OptimalRunningSequencesForVegas.
 
 10/19/2018
-Added how to run cast-xmr in OptimalRunningSequencesForVegas for Vega 56.
+Added how to run cast-xmr in OptimalRunningSequencesForVegas for Vega 56(Hynix).
 Added VegaUbuntuGuide4CryptoNightV8.
 Added automation script in tools/ROCm for xmrig-amd 2.8.1+ and xmr-stak 2.5.0+.
 
