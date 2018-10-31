@@ -17,14 +17,14 @@ VegaUbuntuGuideForCNv2- How to manually setup Vega mining in Ubuntu for CryptoNi
 If you have many rigs with the same type of Vega cards, follow the guide with one rig and tar up the xmrig-amd or xmr-stak and .openclcache directories.  On the other rig(s) just install amdgpu-pro 18.30 or 18.40 and copy the tar file from the first rig and untar them in ~/git directory and run the miners.  Dont' forget the ~/.openclcache if you are using xmr-stak.
 
 
-Working Ubuntu Versions:
+# Working Ubuntu Versions:
 
 Ubuntu MATE 18.04.1
 
 Ubuntu MATE 16.04.5
 
 
-Working amdgpu-pro and ROCm versions:
+# Working amdgpu-pro and ROCm versions:
 
 amdgpu-pro 18.10/18.30
 
@@ -54,13 +54,13 @@ tools folder - contains shell scripts for fan speed, overclocking, monitoring an
 
 tools/rigmonitor folder - contains rig monitoring scripts using passwordless ssh method.
 
-Binary file checksums:
+# Binary file checksums:
 1.   b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
 2.   4c9fc25157f392e9c94ab1536847b7c0  V64PPT
 3.   ed13313360a2a4306e11a62afd111ace  V64V8PPT
 4.   e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
 
-LIMITATIONS
+# LIMITATIONS
 
 Four Vega GPUs per motherboard for XMR mining.  Risers and extenders working with some motherboards.
 
@@ -69,7 +69,7 @@ The limitations have been upgraded to 6 GPUs with risers.
 The limitations have been upgraded to 8 GPUs with Colorful's motherboard without risers.
 
 
-Tested coins:
+# Tested coins:
 
     CryptoNightV7(CNv1):
 
@@ -84,10 +84,10 @@ Tested coins:
         GRAFT
 
 
-Contact(s)
+# Contact(s)
 
 xmrminer01102018@gmail.com
 
-Glossary
+# Glossary
 1. PPT - Soft Power Play Table
 2. Ubuntu - Linux OS
