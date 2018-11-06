@@ -1,4 +1,4 @@
-1. Install Ubuntu 18.04(tested) or any mordern linux.
+1. Install Ubuntu 18.04(tested) or any Linux that can run ROCm.
 2. Install ROCm 1.9.1 linux driver. https://github.com/RadeonOpenCompute/ROCm
 3. Download scripts from https://github.com/xmrminer01102018/VegaToolsNConfigs tools folder or write your own fan control tools.
 4. Modify grub for device control and reboot.
