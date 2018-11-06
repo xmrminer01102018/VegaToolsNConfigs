@@ -1,0 +1,123 @@
+{
+    "algo": "cryptonight",
+    "api": {
+        "port": 0,
+        "access-token": null,
+        "id": null,
+        "worker-id": null,
+        "ipv6": false,
+        "restricted": true
+    },
+    "autosave": true,
+    "background": false,
+    "cache": true,
+    "colors": true,
+    "donate-level": 1,
+    "log-file": "hashrate.log",
+    "opencl-platform": "AMD",
+    "opencl-loader": "libOpenCL.so",
+    "pools": [
+        {
+            "url": "pool.monero.hashvault.pro:7777",
+            "user": "YOUR_WALLET_ADDRESS",
+            "pass": "x",
+            "rig-id": null,
+            "nicehash": false,
+            "keepalive": false,
+            "variant": 2,
+            "tls": false,
+            "tls-fingerprint": null
+        }
+    ],
+    "print-time": 60,
+    "retries": 5,
+    "retry-pause": 5,
+    "threads": [
+        //Radeon Pro Duo
+        {
+            "index": 2,
+            "intensity": 1024,
+            "worksize": 16,
+            "strided_index": 2,
+            "mem_chunk": 2,
+            "unroll": 4,
+            "comp_mode": true,
+            "affine_to_cpu": false
+        },
+        {
+            "index": 2,
+            "intensity": 1024,
+            "worksize": 16,
+            "strided_index": 2,
+            "mem_chunk": 2,
+            "unroll": 4,
+            "comp_mode": true,
+            "affine_to_cpu": false
+        },
+        {
+            "index": 2,
+            "intensity": 1024,
+            "worksize": 16,
+            "strided_index": 2,
+            "mem_chunk": 2,
+            "unroll": 4,
+            "comp_mode": true,
+            "affine_to_cpu": false
+        },
+        //Radeon Pro Duo
+        {
+            "index": 1,
+            "intensity": 1024,
+            "worksize": 16,
+            "strided_index": 2,
+            "mem_chunk": 2,
+            "unroll": 4,
+            "comp_mode": true,
+            "affine_to_cpu": false
+        },
+        {
+            "index": 1,
+            "intensity": 1024,
+            "worksize": 16,
+            "strided_index": 2,
+            "mem_chunk": 2,
+            "unroll": 4,
+            "comp_mode": true,
+            "affine_to_cpu": false
+        },
+        {
+            "index": 1,
+            "intensity": 1024,
+            "worksize": 16,
+            "strided_index": 2,
+            "mem_chunk": 2,
+            "unroll": 4,
+            "comp_mode": true,
+            "affine_to_cpu": false
+        },
+        //R9 390X
+        {
+            "index": 0,
+            "intensity": 1408,
+            "worksize": 16,
+            "strided_index": 2,
+            "mem_chunk": 2,
+            "unroll": 4,
+            "comp_mode": true,
+            "affine_to_cpu": false
+        },
+        {
+            "index": 0,
+            "intensity": 1408,
+            "worksize": 16,
+            "strided_index": 2,
+            "mem_chunk": 2,
+            "unroll": 4,
+            "comp_mode": true,
+            "affine_to_cpu": false
+        }
+    ],
+    "user-agent": null,
+    "syslog": false,
+    "watch": false
+}
