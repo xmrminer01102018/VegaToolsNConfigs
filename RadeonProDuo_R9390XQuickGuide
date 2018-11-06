@@ -12,7 +12,7 @@
 # poweroff
 5. Find your forgotten R9 390X GPU that you cannot put along side Vega rig.
 6. And you happened to grab Radeon Pro Duo on newegg for 400 USD(the price has gone back up to 850 USD).
-7. Download/clone xmrig-amd 2.8.4 compile the miner.
+7. Download/clone xmrig-amd 2.8.4 and compile the miner.
 # git clone https://github.com/xmrig/xmrig-amd.git
 # cd /root/git/xmrig-amd/ 
 # mkdir build; cd build; cmake -DSTRICT_CACHE=OFF ..; make
