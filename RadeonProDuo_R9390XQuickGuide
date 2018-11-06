@@ -18,3 +18,7 @@
 # mkdir build; cd build; cmake -DSTRICT_CACHE=OFF ..; make
 8. Grab the config.json file from VegaToolsNConfigs github site. (GPU0: R9390X GPU1/2: Radeon Pro Duo)
 9. Run the miner.
+# ./setAMDGPUFanSpeed.sh -g 1 -s 70  <-- For Radeon Pro Duo
+# ./setAMDGPUFanSpeed.sh -g 0 -s 85  <-- For R9 390X
+# ./xmrig-amd <-- Run it in git/xmrig-amd/build)
+
