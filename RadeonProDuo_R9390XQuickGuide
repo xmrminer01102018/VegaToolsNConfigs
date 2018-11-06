@@ -1,0 +1,20 @@
+1. Install Ubuntu 18.04(tested) or any mordern linux.
+2. Install ROCm 1.9.1 linux driver. https://github.com/RadeonOpenCompute/ROCm
+3. Download scripts from https://github.com/xmrminer01102018/VegaToolsNConfigs tools folder or write your own fan control tools.
+4. Modify grub for device control and reboot.
+# apt-get update
+# cd /etc/default
+# mv grub grub.original
+# cp grub.original grub
+# perl -i.bak -npe 's/quiet splash/quiet splash amdgpu.ppfeaturemask=0xffffffff/g' grub
+# cat grub | grep amdgpu 
+# update-grub
+# poweroff
+5. Find your forgotten R9 390X GPU that you cannot put along side Vega rig.
+6. And you happened to grab Radeon Pro Duo on newegg for 400 USD(the price has gone back up to 850 USD).
+7. Download/clone xmrig-amd 2.8.4 compile the miner.
+# git clone https://github.com/xmrig/xmrig-amd.git
+# cd /root/git/xmrig-amd/ 
+# mkdir build; cd build; cmake -DSTRICT_CACHE=OFF ..; make
+8. Grab the config.json file from VegaToolsNConfigs github site. (GPU0: R9390X GPU1/2: Radeon Pro Duo)
+9. Run the miner.
