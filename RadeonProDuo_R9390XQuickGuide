@@ -1,3 +1,8 @@
+WARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RADEON PRO DUO AND R9 390X GPUs ON UBUNTU 18.04.1+ AND LINUX.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
 1. Install Ubuntu 18.04(tested) or any Linux that can run ROCm.
 2. Install ROCm 1.9.1 linux driver. https://github.com/RadeonOpenCompute/ROCm
 3. Download scripts from https://github.com/xmrminer01102018/VegaToolsNConfigs tools folder or write your own fan control tools.
