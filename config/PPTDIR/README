@@ -1,4 +1,5 @@
 V56PPT - Soft PPT for Vega 56 (CNv1 and CNv2)
+LGMV56PPT - Soft PPT for Vega 56 with lower grade memory (CNv1 and CNv2)
 V64PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv1)
 V64V8PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv2)
 V56PPTTEXT - Working example soft PPT hex values for Vega 56
@@ -26,10 +27,14 @@ tar -xzvf SoftPPTProj.tgz
 cd SoftPPTProj
 mvn clean; mvn install
 
+TIP:
+Some V56 GPU(s) will stop hashing after 1 hour to 1 day with V56PPT(I call it regular PPT for V56).
+In most cases it can be fixed by using LGMV56PPT.
 
 
 Binary file checksums:
 b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
+d6bcb2130d4050cf26e93584be742cef  LGMV56PPT
 4c9fc25157f392e9c94ab1536847b7c0  V64PPT
 ed13313360a2a4306e11a62afd111ace  V64V8PPT
 e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
