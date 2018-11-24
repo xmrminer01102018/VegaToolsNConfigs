@@ -34,6 +34,18 @@ USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR D
 #OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+cast-xmr
+http://www.gandalph3000.com/cast_xmr/linux/linux_version_of_cast-xmr-cryptonight-monero-miner-for-rx-vega-gpus/
+
+TeamRedMiner
+https://bitcointalk.org/index.php?topic=5059817.0
+
+xmrig-amd
+https://github.com/xmrig/xmrig-amd
+
+xmr-stak
+https://github.com/fireice-uk/xmr-stak
+
 Install Ubuntu Linux OS 18.04.1 LTS or 16.04.5.
 Assumption: Ubuntu MATE 18.04.1 installed and network has been configured.
 Install Ubuntu MATE and configure network.(If you don't know how, please google it.)
