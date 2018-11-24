@@ -3,7 +3,7 @@ AMD Vega GPU tools and configuration file(s) for Monero(XMR) mining.
 
 
 # NOTE:
-This guide will work with most cryptonight V7 coins at Windows level hash rate(s).  Most cryptonight V8 miners will not work with 18.30 driver.  Please use cast-xmr for the time being.  The hash rate is around 1250 H/s for XMR.  If you want to use xmrig-amd or xmr-stak, use ROCm 1.9.1+.  UPDATE: The cast-xmr with Vega 56/64/FE will get you 1600/1870/1960 H/s on --intensity=10/10/9(default is 7).  All miners(cast-xmr/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30.  ROCm 1.9.1 is still stuck with lower hash rates.
+This guide will work with most cryptonight V7 coins at Windows level hash rate(s).  Most cryptonight V8 miners will not work with 18.30 driver.  Please use cast-xmr for the time being.  The hash rate is around 1250 H/s for XMR.  If you want to use xmrig-amd or xmr-stak, use ROCm 1.9.1+.  UPDATE: The cast-xmr with Vega 56/64/FE will get you 1600/1870/1960 H/s on --intensity=10/10/9(default is 7).  All miners(cast-xmr/teamredminer/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30/18.40.  ROCm 1.9.1 is still stuck with lower hash rates.
 
 VegaUbuntuGuide - How to manually setup Vega mining in Ubuntu for CryptoNight V7.
 
@@ -68,6 +68,37 @@ Four Vega GPUs per motherboard for XMR mining.  Risers and extenders working wit
 The limitations have been upgraded to 6 GPUs with risers.
 
 The limitations have been upgraded to 8 GPUs with Colorful's motherboard without risers.
+
+# Hash rates and power usage from lm-sensors(Not from wall)
+
+V56 @ 120 +/- 10 W
+V64 @ 135 +/- 10 W
+VFE @ 155 +/- 10 W
+For TeamRedMiner, VFE is about 10 W lower. 
+
+cast-xmr
+Vega 56(Hynix): 1630 H/s
+Vega 56(Samsung): 1730 H/s
+Vega 64: 1870 H/s
+Vega FE: 1960 H/s
+
+TeamRedMiner
+Vega 56(Hynix): 1900 H/s
+Vega 56(Samsung): 1950 H/s
+Vega 64: 2020 H/s
+Vega FE: 2100 H/s
+
+xmrig-amd
+Vega 56(Hynix): 1735 H/s
+Vega 56(Samsung): 1860 H/s
+Vega 64: 1950 H/s
+Vega FE: 2035 H/s
+
+xmr-stak
+Vega 56(Hynix): 1720 H/s
+Vega 56(Samsung): 1850 H/s
+Vega 64: 1940 H/s
+Vega FE: 2040 H/s
 
 
 # Tested coins:
