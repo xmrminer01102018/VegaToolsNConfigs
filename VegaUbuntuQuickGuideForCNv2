@@ -14,6 +14,18 @@ Download tools from https://github.com/xmrminer01102018/VegaToolsNConfigs.
 Download amdgpu-pro 18.10 and 18.30/18.40 drivers from AMD.
 
 Download cast-xmr, teamredminer 0.3.7-Beta, xmrig-amd 2.8.4+ or xmr-stak 2.5.1+.
+cast-xmr
+http://www.gandalph3000.com/cast_xmr/linux/linux_version_of_cast-xmr-cryptonight-monero-miner-for-rx-vega-gpus/
+
+TeamRedMiner
+https://bitcointalk.org/index.php?topic=5059817.0
+
+xmrig-amd
+https://github.com/xmrig/xmrig-amd
+
+xmr-stak
+https://github.com/fireice-uk/xmr-stak
+
 
 Install amdgpu-pro 18.30/18.40.
 
