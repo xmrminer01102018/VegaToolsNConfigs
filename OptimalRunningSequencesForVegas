@@ -198,6 +198,36 @@ STEP2:
 stable 1960 H/s @ 155 W over 60+ minutes
 
 
+TeamRedMiner
+------------
+For Vega 56 with Hynix and Samsung memory
+STEP1:
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+STEP2:
+Run the miner
+./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+
+If the card stop hashing in less than a day, use the following. 
+STEP1:
+./setPPT.sh 0 LGMV56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+STEP2:
+Run the miner
+./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 15+15
+
+For Vega 64 and FE
+STEP1:
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+STEP2:
+Run the miner
+./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+
+
+
 XMRIG-AMD and XMR-STAK
 ----------------------
 
