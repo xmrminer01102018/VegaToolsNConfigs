@@ -43,13 +43,35 @@ CAT=/bin/cat
 SED=/bin/sed
 AWK=/usr/bin/awk
 GREP=/bin/grep
-HASHLOG=/root/git/xmrig-amd/build/hashrate.log
+PS=/bin/ps
+WC=/usr/bin/wc
+
+MINER="xmrigamd"
+COUNT=$( ${PS} -aef | ${GREP} teamred | ${WC} -l )
+
+#echo "COUNT: ${COUNT}"
+
+if [[ $COUNT > 1 ]]; then
+  MINER="teamred"
+fi
+
+if [[ "$MINER" == "xmrigamd" ]]; then
+  HASHLOG=/root/git/xmrig-amd/build/hashrate.log
+else
+  HASHLOG=/root/git/teamred/hashrate.log
+fi
+
+#echo "HASHLOG: ${HASHLOG}"
+
 if [ -e  ${HASHLOG} ]
 then
-  #HR=$( ${CAT} ${HASHLOG} | ${GREP} speed | ${TAIL} -n 1 | ${AWK} '{print $5}' | ${AWK} -F'.' '{print $1}' )
-  HR=$( ${CAT} ${HASHLOG} | ${GREP} speed | ${TAIL} -n 1 | ${SED} 's/\x1B\[[0-9;]*[JKmsu]//g' | ${AWK} '{print $5}' | ${AWK} -F'.' '{print $1}' )
+  if [[ "$MINER" == "xmrigamd" ]]; then
+    HR=$( ${CAT} ${HASHLOG} | ${GREP} speed | ${TAIL} -n 1 | ${SED} 's/\x1B\[[0-9;]*[JKmsu]//g' | ${AWK} '{print $5}' | ${AWK} -F'.' '{print $1}' )
+  else
+   HR=$(  ${CAT} ${HASHLOG} | ${GREP} Total | ${TAIL} -n 1 | ${SED} 's/\x1B\[[0-9;]*[JKmsu]//g' | ${AWK} '{print $10}' | awk -F'k' '{print $1}' ) 
+  fi
 else
-  HR="dne" #Does not exist
+  HR="dne"
 fi
 
 gpus=$( ls /sys/class/drm/ | grep 'card[0-9]$' )
@@ -64,7 +86,11 @@ HOSTNAME=$( hostname )
 
 #Remove everything after the last comma from a line
 UPTIME=$( uptime | awk -F"user" '{print $1}' | awk -F"up " '{print "up "$2}'| perl -0777pe 's/(.*)\,([^\n]+)/$1/s' )
-INFO="${HOSTNAME}: ${LY}${HR}${NC} H/s - ${UPTIME}"
+if [[ "$MINER" == "xmrigamd" ]]; then
+  INFO="${HOSTNAME}: ${LY}${HR}${NC} H/s - ${UPTIME}"
+else
+  INFO="${HOSTNAME}: ${LY}${HR}${NC} kH/s - ${UPTIME}"
+fi
 echo -e "${INFO}" 
 
 for gpunumber in "${arr[@]}"
@@ -73,5 +99,4 @@ do
     ./gpuInfo.sh ${gpunumber} 
   fi
 done
-
 

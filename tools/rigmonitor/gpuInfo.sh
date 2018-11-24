@@ -70,7 +70,13 @@ sinfo=$( sensors | grep amdgpu-pci-$PCIS -A 4 )
 #sInfo=$( echo $sinfo )
 #echo "sInfo: ${sInfo}"
 R=$( echo $sinfo | awk '{print $9}'| awk -F'.' '{print $1}' )
-printf -v R "% 5d" $R
+
+
+REGEX='^[0-9]+([.][0-9]+)?$'
+if [[ $R =~ $REGEX ]] ; then
+  printf -v R "% 5d" $R
+fi
+
 #echo "rVar: $R"
 #sInfo=$( echo $sinfo | awk '{print ", \033[1;36m"$9"\033[1;0m "$10}' )
 sInfo=" ${LC}$R${NC} RPM" 
