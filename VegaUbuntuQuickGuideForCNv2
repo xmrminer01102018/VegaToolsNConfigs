@@ -11,13 +11,13 @@ Enable ssh, vm.nr_hugepages = 128, lm-sensors, and amdgpu.ppfeaturemask=0xffffff
 
 Download tools from https://github.com/xmrminer01102018/VegaToolsNConfigs.
 
-Download amdgpu-pro 18.10 and 18.30 drivers from AMD.
+Download amdgpu-pro 18.10 and 18.30/18.40 drivers from AMD.
 
-Download cast-xmr or xmrig-amd 2.8.4+ or xmr-stak 2.5.1+.
+Download cast-xmr, teamredminer 0.3.7-Beta, xmrig-amd 2.8.4+ or xmr-stak 2.5.1+.
 
-Install amdgpu-pro 18.30.
+Install amdgpu-pro 18.30/18.40.
 
-For cast-xmr, just run the program.
+For cast-xmr and teamredminer, just run the program.
 
 For xmrig-amd and xmr-stak.
   Compile xmr-stark as usual.  Compile xmrig-amd with "-DSTRICT_CACHE=OFF"(Thanks xmrig).
