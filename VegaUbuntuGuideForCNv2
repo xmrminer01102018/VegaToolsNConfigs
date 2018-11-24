@@ -101,6 +101,7 @@ Install lm-sensors
 # reboot
 
 If you are going to use CAST-XMR, skip to "For CAST-XMR ONLY".
+If you are going to use TeamRedMiner, skip to "For TeamRedMiner ONLY".
 
 NOTE: You may have to repeat the xmrig-amd and  xmr-stak processes for each type of Vega cards.
 If you have those different types of cards in the same rig/computer make sure to match the
@@ -190,11 +191,22 @@ For CAST-XMR ONLY
 ********************************************************************************
 In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
 # cd ~/Downloads
-Install version 18.30 at this time. You can use  amdgpu-pro-18.30-641594 too.  Replace 633530 with 641594. 
+Install version 18.30 or 18.40 at this time. You can use  amdgpu-pro-18.30-641594 too.  Replace 633530 with 641594. 
 # tar -Jxvf amdgpu-pro-18.30-633530.tar.xz 
 # cd amdgpu-pro-18.30-633530 
 # ./amdgpu-pro-install -y --opencl=pal
 ********************************************************************************
+
+For TeamRedMiner ONLY
+********************************************************************************
+In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
+# cd ~/Downloads
+Install version 18.30 or 18.40 at this time. You can use  amdgpu-pro-18.30-641594 too.  Replace 633530 with 641594. 
+# tar -Jxvf amdgpu-pro-18.30-633530.tar.xz 
+# cd amdgpu-pro-18.30-633530 
+# ./amdgpu-pro-install -y --opencl=pal
+********************************************************************************
+
 
 Do update
 # apt-get update
@@ -216,8 +228,17 @@ It is necessary to update during installation process.  Otherwise it may not wor
 # apt-get update
 Now run the miners:
 
-CAST-XMR: cd to where cast-xmr is first.
+CAST-XMR: cd to where cast-xmr is first.  I usually use ~/git/castxmr/ directory.
 # ./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p YOUR_RIG_NAME --intensity=9 $*
+
+TeamRedMiner: cd to where teamredminer executable is.  I usually use ~/git/teamred/ directory.
+Single GPU
+# ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID  -p  YOUR_RIG_NAME -d 0 --cn_config 16+14
+Multiple GPUs
+# ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID  -p  YOUR_RIG_NAME -d 0,1 --cn_config 16+14,16+14
+
+If you want to use my rig monitor use the following.
+# ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID  -p YOUR_RIG_NAME -d 0 --cn_config 16+14  2>&1 | tee ~/git/teamred/hashrate.log
 
 XMRIG-AMD:
 # cd ~/git/xmrig-amd/build
