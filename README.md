@@ -81,12 +81,9 @@ For TeamRedMiner, VFE is about 10 W lower.
 
 
 cast-xmr
-
     Vega 56(Hynix): 1630 H/s
     Vega 56(Samsung): 1730 H/s
-
     Vega 64: 1870 H/s
-
     Vega FE: 1960 H/s
 
 
