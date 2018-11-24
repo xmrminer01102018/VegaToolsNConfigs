@@ -57,9 +57,10 @@ tools/rigmonitor folder - contains rig monitoring scripts using passwordless ssh
 
 # Binary file checksums:
 1.   b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
-2.   4c9fc25157f392e9c94ab1536847b7c0  V64PPT
-3.   ed13313360a2a4306e11a62afd111ace  V64V8PPT
-4.   e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
+2.   d6bcb2130d4050cf26e93584be742cef  LGMV56PPT
+3.   4c9fc25157f392e9c94ab1536847b7c0  V64PPT
+4.   ed13313360a2a4306e11a62afd111ace  V64V8PPT
+5.   e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
 
 # LIMITATIONS
 
