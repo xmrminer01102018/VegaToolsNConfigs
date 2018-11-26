@@ -43,6 +43,7 @@ Configure network settings.
 # mkdir ~/Downloads; mkdir ~/git
 
 # yum update -y
+# yum install pciutils
 # echo  "vm.nr_hugepages = 128" >> /etc/sysctl.conf
 
 
