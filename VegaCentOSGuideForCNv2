@@ -91,7 +91,7 @@ Install git and get VegaToolsNConfigs:
 
 # poweroff
 
-If you have not plug in your GPU(s) plug all of them here and re-start the computer.
+If you have not plugged in your GPU(s), plug all of them here and re-start the computer.
 
 # yum update -y
 
