@@ -79,6 +79,7 @@ The limitations have been upgraded to 8 GPUs with Colorful's motherboard without
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
+CNv2 usage below.  CNv1 usage are 20 W lower.
 V56 @ 120 +/- 10 W
 
 V64 @ 135 +/- 10 W
@@ -88,7 +89,7 @@ VFE @ 155 +/- 10 W
 For TeamRedMiner, VFE is about 10 W lower. 
 
 
-cast-xmr
+cast-xmr (Ubuntu)
 
     Vega 56(Hynix): 1630 H/s
     Vega 56(Samsung): 1730 H/s
@@ -96,7 +97,7 @@ cast-xmr
     Vega FE: 1960 H/s
 
 
-TeamRedMiner
+TeamRedMiner (Ubuntu, CentOS)
 
     Vega 56(Hynix): 1900 H/s
     Vega 56(Samsung): 1950 H/s
@@ -104,7 +105,7 @@ TeamRedMiner
     Vega FE: 2100 H/s
 
 
-xmrig-amd
+xmrig-amd (Ubuntu)
 
     Vega 56(Hynix): 1735 H/s
     Vega 56(Samsung): 1860 H/s
@@ -112,7 +113,7 @@ xmrig-amd
     Vega FE: 2035 H/s
 
 
-xmr-stak
+xmr-stak (Ubuntu)
 
     Vega 56(Hynix): 1720 H/s
     Vega 56(Samsung): 1850 H/s
