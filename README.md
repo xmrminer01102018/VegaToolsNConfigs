@@ -79,7 +79,8 @@ The limitations have been upgraded to 8 GPUs with Colorful's motherboard without
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
-CNv2 usage below.  CNv1 usage are 20 W lower.
+CNv2 power usage below.  CNv1 power usages are 20 W lower.
+
 V56 @ 120 +/- 10 W
 
 V64 @ 135 +/- 10 W
