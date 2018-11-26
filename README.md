@@ -13,6 +13,9 @@ VegaUbuntuQuickGuideForCNv2 - How to manually setup Vega mining in Ubuntu for Cr
 
 VegaUbuntuGuideForCNv2- How to manually setup Vega mining in Ubuntu for CryptoNight V8 with AMD drivers.
 
+VegaCentOSGuideForCNv2 - How to manually setup Vega mining in CentOs for CryptoNight V8 with AMD drivers.
+
+
 # Tips and Tricks
 If you have many rigs with the same type of Vega cards, follow the guide with one rig and tar up the xmrig-amd or xmr-stak and .openclcache directories.  On the other rig(s) just install amdgpu-pro 18.30 or 18.40 and copy the tar file from the first rig and untar them in ~/git directory and run the miners.  Dont' forget the ~/.openclcache if you are using xmr-stak.
 
@@ -22,6 +25,10 @@ If you have many rigs with the same type of Vega cards, follow the guide with on
 Ubuntu MATE 18.04.1
 
 Ubuntu MATE 16.04.5
+
+# Working CentOS Version:
+
+CentOS 7.5(1804)
 
 
 # Working amdgpu-pro and ROCm versions:
