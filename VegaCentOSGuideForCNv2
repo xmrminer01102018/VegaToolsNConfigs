@@ -85,6 +85,7 @@ Install git and get VegaToolsNConfigs:
 # chmod 770 *.sh
 
 # cd ~/Downloads/
+NOTE: For Vega 64 and FE, amdgpu-pro-18.30* is more stable thatn 18.40.
 # tar -Jxvf amdgpu-pro-18.40-676022-rhel-7.4.tar.xz
 # cd amdgpu-pro-18.40-676022-rhel-7.4/
 # ./amdgpu-pro-install -y --opencl=pal --headless
@@ -102,6 +103,7 @@ If you do not see the GPU information, deinstall and reinstall amdgpu-pro driver
 
 # /usr/bin/amdgpu-pro-uninstall -y
 # cd ~/Downloads/
+NOTE: For Vega 64 and FE, amdgpu-pro-18.30* is more stable thatn 18.40.
 # cd amdgpu-pro-18.40-676022-rhel-7.4/
 # ./amdgpu-pro-install -y --opencl=pal --headless
 
