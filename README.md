@@ -26,7 +26,7 @@ Ubuntu MATE 18.04.1
 
 Ubuntu MATE 16.04.5
 
-# Working CentOS Version:
+# Working CentOS Versions:
 
 CentOS 7.5(1804)
 
