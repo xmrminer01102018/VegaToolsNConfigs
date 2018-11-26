@@ -226,6 +226,14 @@ STEP2:
 Run the miner
 ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
 
+If the card stop hashing in less than a day, use the following. 
+STEP1:
+./setPPT.sh 0 V64PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+STEP2:
+Run the miner
+./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
 
 
 XMRIG-AMD and XMR-STAK
