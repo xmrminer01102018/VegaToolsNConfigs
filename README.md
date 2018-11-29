@@ -60,7 +60,7 @@ config/PPTDIR folder - contains
 
 tools folder - contains shell scripts for fan speed, overclocking, monitoring and setting PPT.
 
-tools/rigmonitor folder - contains rig monitoring scripts using passwordless ssh method.
+tools/rigmonitor folder - contains rig monitoring scripts using passwordless ssh method. (xmrig-amd and teamredminer)
 
 # Binary file checksums:
 1.   b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
