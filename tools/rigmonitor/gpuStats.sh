@@ -66,9 +66,17 @@ fi
 if [ -e  ${HASHLOG} ]
 then
   if [[ "$MINER" == "xmrigamd" ]]; then
+    #xmrig-amd
     HR=$( ${CAT} ${HASHLOG} | ${GREP} speed | ${TAIL} -n 1 | ${SED} 's/\x1B\[[0-9;]*[JKmsu]//g' | ${AWK} '{print $5}' | ${AWK} -F'.' '{print $1}' )
   else
-   HR=$(  ${CAT} ${HASHLOG} | ${GREP} Total | ${TAIL} -n 1 | ${SED} 's/\x1B\[[0-9;]*[JKmsu]//g' | ${AWK} '{print $10}' | awk -F'k' '{print $1}' ) 
+    #TeamRedMiner
+    #Report Total
+    HR=$(  ${CAT} ${HASHLOG} | ${GREP} Total | ${TAIL} -n 1 | ${SED} 's/\x1B\[[0-9;]*[JKmsu]//g' | ${AWK} '{print $10}' | awk -F'k' '{print $1}' )
+    if [[ "$HR" == "" ]]; then
+      #The rig has one gpu only
+      HR=$(  ${CAT} ${HASHLOG} | ${GREP} "kh/s" | ${TAIL} -n 1 | ${SED} 's/\x1B\[[0-9;]*[JKmsu]//g' | ${AWK} '{print $11}' | awk -F'k' '{print $1}' )
+
+    fi 
   fi
 else
   HR="dne"
