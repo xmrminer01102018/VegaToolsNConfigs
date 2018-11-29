@@ -1,3 +1,6 @@
+11/29/2018
+Added hash rate display for single gpu for TeamRedMiner in tools/rigmonitor/gpuStats.sh.
+
 11/25/2018
 Added VegaCentOSGuideForCNv2.
 Updated OptimalRunningSequencesForVegas.
