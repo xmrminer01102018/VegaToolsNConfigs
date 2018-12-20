@@ -235,6 +235,8 @@ STEP2:
 Run the miner
 ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 14+14
 
+NOTE: If you are still crashing the Vega 64 and/or FE on teamredminer, please use XMIRG-AMD and XMR-STAK.
+Some unstable 64/FE card(s) do better on XMRIG-AMD and XMR-STAK.  Please see VegaUbuntuGuideForCNv2.
 
 XMRIG-AMD and XMR-STAK
 ----------------------
