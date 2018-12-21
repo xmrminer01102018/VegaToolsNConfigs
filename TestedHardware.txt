@@ -27,6 +27,9 @@ Slot Layout from ports side: N/A
 Risers: N/A
 RAM: G.SKILL TridentZ RGB Series 16GB
 Bad Video Mode: N/A
+Fix: Replaced AMD AMD RYZEN 3 2200G with AMD RYZEN 3 1200.  Now it is working.
+     The onboard video was the problem.
+
 
 Working: Yes
 Mobo: MSI X470 GAMING PRO CARBON AM4 AMD X470
