@@ -149,4 +149,4 @@ xmrminer01102018@gmail.com
 
 # Glossary
 1. PPT - Soft Power Play Table
-2. Ubuntu - Linux OS
+2. Ubuntu/CentOS - Linux OS
