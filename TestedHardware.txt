@@ -101,7 +101,7 @@ Eight GPU Rig:
 4. G.SKILL Ripjaws Series 16GB/8GB 260-Pin DDR4 SO-DIMM DDR4 2400 (PC4 19200) Laptop Memory
 5. EVGA SuperNOVA 1600
 6. Electop 2 Pack 2 Pin SW PC Power Cable on/Off Push Button ATX Computer Switch
-7. 4 X 120mm DC 12V 2.4A 200CFM 3Wire 3Pin TAC Connector FFC1212DE CPU Cooling Fan (Almost jet engin noisy)
+7. 4 X 120mm DC 12V 2.4A 200CFM 3Wire 3Pin TAC Connector FFC1212DE CPU Cooling Fan (Almost jet engine noisy)
 8. ModTek 4-Pin Molex to 4 x 3-Pin Fan Connector Cable (Power 4 Fans from 1 Molex Connection!)
 9. Eight COMeap 6 Pin Male to Dual 2X 8 Pin (6+2) Male PCI Express Power Adapter Cable for Graphics Video Card 24-inch (62cm)
 
