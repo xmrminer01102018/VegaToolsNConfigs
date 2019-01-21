@@ -295,7 +295,7 @@ Now you are done setting up xmr-stak,.  Re-run the miner.
  
 
 NOTE:  The following steps are to be performed after every reboot/restart.
-       OR - follw the steps in OptimalRunningSequencesForVegas.
+       OR - follow the steps in OptimalRunningSequencesForVegas.
 
 Make note of initial RPM
 # sensors | grep pci -A 6
