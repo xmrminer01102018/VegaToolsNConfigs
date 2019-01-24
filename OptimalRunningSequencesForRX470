@@ -11,7 +11,7 @@ STEP2:
 Run the miner
 ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 8+7
 
-Multipke GPUs
+Multiple GPUs
 STEP1:
 ./setSMClockVoltages.sh  0 RX470.data_P7P1NoOC skip
 ./setSMClockVoltages.sh  1 RX470.data_P7P1NoOC skip
@@ -36,7 +36,7 @@ STEP2:
 Run the miner
 ./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -G 0 $*
 
-Multipke GPUs
+Multiple GPUs
 STEP1:
 ./setSMClockVoltages.sh  0 RX470.data_P7P1NoOC skip
 ./setSMClockVoltages.sh  1 RX470.data_P7P1NoOC skip
