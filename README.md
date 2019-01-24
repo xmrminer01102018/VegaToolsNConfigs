@@ -148,6 +148,8 @@ amdgpu-pro 18.50
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
+RX470 @ 60 +/- 5 W
+
 cast-xmr (Ubuntu)
 
     RX470(Hynix): 890 H/s
