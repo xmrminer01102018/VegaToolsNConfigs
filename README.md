@@ -18,9 +18,13 @@ VegaCentOSGuideForCNv2 - How to manually setup Vega mining in CentOs for CryptoN
 
 RadeonProDuo_R9390XQuickGuide - How to setup xmrig-amd miner for Radeon Pro Duo and R9 390X GPUs.
 
+RX470UbuntuGuideForCNv2 - How to setup RX470 bios, drivers and mining in Ubuntu to get 1kH/s for Monero(XMR) with CryptoNight V8 algo.
+
 VegaUbuntuGuideWithAutoTools - How to setup Vega mining in Ubuntu with 90% automation.  Essentially the same as VegaUbuntuGuide but after a few manual downloads, run the scripts to setup.
 
-OptimalRunningSequencesForVegas - Running sequences for maximum hash rate.
+OptimalRunningSequencesForVegas - Vega running sequences for maximum hash rate.
+
+OptimalRunningSequencesForRX470 - RX470 running sequences for maximum hash rate.
 
 History - Addition(s) and changes by date.
 
@@ -43,6 +47,7 @@ tools/rigmonitor folder - contains rig monitoring scripts using passwordless ssh
 For CNv2 - If you have many rigs with the same type of Vega cards, follow the guide with one rig and tar up the xmrig-amd or xmr-stak and .openclcache directories.  On the other rig(s) just install amdgpu-pro 18.30/18.40/18.50 and copy the tar file from the first rig and untar them in ~/git directory and run the miners.  Dont' forget the ~/.openclcache if you are using xmr-stak.
 
 
+# VEGA
 # Working Ubuntu Versions:
 
 Ubuntu MATE 18.04.1
@@ -126,6 +131,33 @@ xmr-stak (Ubuntu)
     Vega 56(Samsung): 1850 H/s
     Vega 64: 1940 H/s
     Vega FE: 2040 H/s
+
+
+# RX470
+# Working Ubuntu Versions:
+
+Ubuntu MATE 18.04.1
+
+# Working amdgpu-pro versions:
+
+amdgpu-pro 18.30
+
+amdgpu-pro 18.40 should work(to be tested).
+
+amdgpu-pro 18.50
+
+# Hash rates and power usage from lm-sensors(Not from wall)
+
+cast-xmr (Ubuntu)
+
+    RX470(Hynix): 890 H/s
+    RX470(Micron): 890 H/s
+
+
+TeamRedMiner (Ubuntu)
+
+    RX470(Hynix): 1008/1003 H/s (driver 18.30/18.50)
+    RX470(Micron): 1008/1003 H/s (driver 18.30/18.50)
 
 
 # Tested coins:
