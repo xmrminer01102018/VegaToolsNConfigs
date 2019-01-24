@@ -1,0 +1,188 @@
+WARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RX470 GPUs ON UBUNTU 18.04.1+ AND LINUX.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+#BSD 3-Clause License
+#
+#Copyright (c) 2019, xmrminer01102018
+#All rights reserved.
+#
+#Redistribution and use in source and binary forms, with or without
+#modification, are permitted provided that the following conditions are met:
+#
+#* Redistributions of source code must retain the above copyright notice, this
+#  list of conditions and the following disclaimer.
+#
+#* Redistributions in binary form must reproduce the above copyright notice,
+#  this list of conditions and the following disclaimer in the documentation
+#  and/or other materials provided with the distribution.
+#
+#* Neither the name of the copyright holder nor the names of its
+#  contributors may be used to endorse or promote products derived from
+#  this software without specific prior written permission.
+#
+#THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+#AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+#IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+#FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+#DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+#SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+#CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+#OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+#OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+As far as I know bios flashing cannot be done in Linux.
+I used the Windows 10 machine with Adrenalin 2019 edition 19.1.1 driver.
+
+Please work with one card at a time.  I am including all the version numbers.  It may or may not work if the version number(s) are different.
+Plug in RX470 and power up Windows 10.
+Start AMD/ATI ATIWinFlash 2.8.4 (https://www.techpowerup.com/download/ati-atiflash/)
+Select RX470, enter Filename and press "Save" button.  (Example Filename: RX470OriginalBiosGPU1)
+
+Start GPU-Z v2.16.0 and make note of Memory Type and save it to file RX470OirginalBiosMemTypeGPU1.rom where MemType is Micron, Samsung, or Hynix...etc.
+Save to file icon is next to "UEFI" checkbox.
+RepeJunat the process with filename RX470ModifiedBiosMemTypeGPU1.rom (This file will be used in SRB Polaris Bios Editor)
+
+Start SRBPolaris Bios Editor V3.5 (https://bitcointalk.org/index.php?topic=1882656.0)
+Click on "Open BIOS" button and select RX470ModifiedBiosMemTypeGPU1.rom.
+Click on "Mem.Timings" Tab/Button to display Timings page.
+Click on "PIMP MY STRAPS" blue button.  Make sure you see "Pimping successful" dialog box.
+Click on "Save BIOS" button overwrite RX470ModifiedBiosMemTypeGPU1.rom.
+
+Go back to already opened ATIFlash 2.8.4 application.
+Click on "Load Image" button and select RX470ModifiedBiosMemTypeGPU1.rom and press "Program" button.
+Repeat the process until all your cards are ready for Linux rig.
+
+Note: I am saving the original bios using ATIFlash and GPU-Z so that you have two copies of bios just in case if you want to re-flash to the original bios.
+
+
+Install Ubuntu Linux OS 18.04.1 LTS.
+Assumption: Ubuntu MATE 18.04.1 installed and network has been configured.
+Install Ubuntu MATE and configure network.(If you don't know how, please google it.)
+Assuming all commands are executed as a "root" user.  If you prefer, you may use sudo.
+
+All commands are followed after "$"(for non-root user) "#"(for root user) character prompt.
+And please do not get offended that I'm going through command by command.
+I'm writing for the inexperienced user.
+
+Set up ssh and root user
+$ sudo su -
+[sudo]  password for user jdoe: ********  <-- Enter your jdoe's password
+# passwd
+Enter new UNIX password: ********  <-- Enter your root's password here
+Retype new UNIX password: ********  <-- Confirm your root's password here
+passwd: password updated successfully
+# exit
+# logout
+$ su -
+Password: ********  <-- Enter your root's password that you have created above
+Download amdgpu-pro drivers  and put them in /root/Downloads only if you are going
+to use TeamRedMiner mining software.
+
+Tested drivers:
+amdgpu-pro-18.30-633530.tar.xz for Ubuntu 18.04.1
+amdgpu-pro-18.50-708488-ubuntu-18.04.tar.xz for Ubuntu 18.04.1
+
+URL: https://www.amd.com/en/support
+
+Make sure that network has been configured and connected.
+Download a VegaToolsNConfigs zip file from GitHub.
+# cd
+# unzip VegaToolsNConfigs-master.zip
+# mv VegaToolsNConfigs-master VegaToolsNConfigs
+# mv VegaToolsNConfigs /root/
+If you clone the VegaToolsNConfigs, move the directory to /root/.
+Move all the files from config, tools and PPTDIR folders to VegaToolsNConfigs folder.
+# cd VegaToolsNConfigs
+# mv config/* .
+# mv tools/* .
+# mv PPTDIR/* .
+Make sure the scripts are runnable.
+# chmod 770 *.sh
+
+Do update
+# apt-get update
+Install ssh server
+# apt-get install -y openssh-server
+# perl -i.bak -npe 's/^PermitRootLogin/\#PermitRootLogin/g' /etc/ssh/sshd_config 
+# echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+# echo  "vm.nr_hugepages = 128" >> /etc/sysctl.conf
+# reboot
+
+
+Do update
+# apt-get update
+
+Install lm-sensors
+# apt-get install -y lm-sensors 
+# sensors-detect --auto
+# reboot
+
+Do update
+# apt-get update
+In my case amdgpu-pro drivers are in ~/Downloads directory.   Replace it with your own directory.
+# cd ~/Downloads
+Install version 18.30 or 18.50 at this time.
+# tar -Jxvf amdgpu-pro-18.30-633530.tar.xz 
+# cd amdgpu-pro-18.30-633530 
+# ./amdgpu-pro-install -y --opencl=legacy
+# reboot
+
+Do update
+# apt-get update
+# cd /root/Downloads
+# cd /etc/default
+# mv grub grub.original
+# cp grub.original grub
+# perl -i.bak -npe 's/quiet splash/quiet splash amdgpu.ppfeaturemask=0xffffffff/g' grub
+# cat grub | grep amdgpu 
+# update-grub
+Add GPUs after powering off
+# poweroff
+
+ADD ALL THE VIDEO CARDS HERE IF NECESSARY.
+
+Restart the computer and log back into the system from console or from ssh terminal.
+
+It is necessary to update during installation process.  Otherwise it may not work.
+# apt-get update
+Now run the miners:
+
+TeamRedMiner
+https://bitcointalk.org/index.php?topic=5059817.0
+
+TeamRedMiner: cd to where teamredminer executable is.  I usually use ~/git/teamred/ directory.
+Single GPU
+# ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID  -p  YOUR_RIG_NAME -d 0 --cn_config 8+7
+Multiple GPUs
+# ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID  -p  YOUR_RIG_NAME -d 0,1,2,3 --cn_config 8+7,8+7,8+7,8+7
+
+If you want to use my rig monitor use the following.
+# ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID  -p YOUR_RIG_NAME -d 0,1,2,3 --cn_config 8+7,8+7,8+7,8+7  2>&1 | tee ~/git/teamred/hashrate.log
+
+Follow the steps in OptimalRunningSequencesForRX470.
+
+HAPPY MINING...
+
+------------------- END OF LINUX RX470 MINING GUIDE -------------------
+
+Donations are welcome and appreciated but not necessary.
+A simple thank you would suffice.
+xmrminer01102018's XMR wallet: 41e7jNJYz2mdcRPUfJ3QrqYkKYjzgmVoabZatS77ks4mdXoahX1XQxnh2G39TMgZHB4g4LDQgyV4s6dyc5HkBEVgD1ymW2h
+
+
+CREDITS:
+
+GRUB
+https://askubuntu.com/questions/19486/how-do-i-add-a-kernel-boot-parameter#19487
+
+AMD
+https://www.amd.com/en/support
+
+TeamRedMiner
+https://bitcointalk.org/index.php?topic=5059817.0
+
+
