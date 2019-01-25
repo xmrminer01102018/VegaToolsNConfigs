@@ -142,7 +142,7 @@ Ubuntu MATE 18.04.1
 
 amdgpu-pro 18.30
 
-amdgpu-pro 18.40 should work(to be tested).
+amdgpu-pro 18.40
 
 amdgpu-pro 18.50
 
@@ -158,8 +158,10 @@ cast-xmr (Ubuntu)
 
 TeamRedMiner (Ubuntu)
 
-    RX470(Hynix): 1008/1003 H/s (driver 18.30/18.50)
-    RX470(Micron): 1008/1003 H/s (driver 18.30/18.50)
+For the same setup 18.40 got additional 10+ H/s
+
+    RX470(Hynix): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
+    RX470(Micron): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
 
 
 # Tested coins:
