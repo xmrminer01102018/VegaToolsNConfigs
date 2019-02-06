@@ -37,7 +37,12 @@ USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR D
 As far as I know bios flashing cannot be done in Linux.
 I used the Windows 10 machine with Adrenalin 2019 edition 19.1.1 driver.
 
-Please work with one card at a time.  I am including all the version numbers.  It may or may not work if the version
+Please work with one card at a time.  
+
+WARNING: The procedure may brick the graphics card!!!!
+NOTE: If you have many graphics cards to flash and you are confident enough, you may flash multiple cards at at time.
+
+I am including all the version numbers.  It may or may not work if the version
 number(s) are different.
 Plug in RX470 and power up Windows 10.
 Start AMD/ATI ATIWinFlash 2.8.4 (https://www.techpowerup.com/download/ati-atiflash/)
@@ -46,7 +51,7 @@ Select RX470, enter Filename and press "Save" button.  (Example Filename: RX470O
 Start GPU-Z v2.16.0 and make note of Memory Type and save it to file RX470OirginalBiosMemTypeGPU1.rom where MemType is Micron,
 Samsung, or Hynix...etc.
 Save to file icon is next to "UEFI" checkbox.
-RepeJunat the process with filename RX470ModifiedBiosMemTypeGPU1.rom (This file will be used in SRB Polaris Bios Editor)
+Repeat the process with filename RX470ModifiedBiosMemTypeGPU1.rom (This file will be used in SRB Polaris Bios Editor)
 
 Start SRBPolaris Bios Editor V3.5 (https://bitcointalk.org/index.php?topic=1882656.0)
 Click on "Open BIOS" button and select RX470ModifiedBiosMemTypeGPU1.rom.
@@ -188,4 +193,8 @@ https://www.amd.com/en/support
 TeamRedMiner
 https://bitcointalk.org/index.php?topic=5059817.0
 
+ATIWinFlash
+https://www.techpowerup.com/download/ati-atiflash/
 
+SRBPolaris Bios Editor
+https://bitcointalk.org/index.php?topic=1882656.0
