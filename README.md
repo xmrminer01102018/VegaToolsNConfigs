@@ -166,12 +166,6 @@ For the same setup 18.40 got additional 10+ H/s
 
 # Tested coins:
 
-    CryptoNightV7(CNv1):
-
-        Monero(XMR)(Updated to CNv2)
-
-        GRAFT (Updated to CNv2)
-
     CryptoNightV8/V9(CNv2):
 
         Monero(XMR)
