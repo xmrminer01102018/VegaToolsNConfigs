@@ -123,6 +123,8 @@ Install lm-sensors
 If you are going to use CAST-XMR, skip to "For CAST-XMR ONLY".
 
 # wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | ${APTKEY} add -
+If it doesn't work use
+# wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
 # echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | tee /etc/apt/sources.list.d/rocm.list
 Do update
 # apt-get update
