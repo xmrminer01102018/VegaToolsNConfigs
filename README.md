@@ -104,7 +104,7 @@ CNv4 power usage below.
 
 V56 @ 140 +/- 10 W
 
-V64 @ TBD +/- 10 W
+V64 @ 145 +/- 10 W
 
 VFE @ TBD +/- 10 W
 
