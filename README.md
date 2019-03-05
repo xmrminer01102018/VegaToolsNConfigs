@@ -101,7 +101,7 @@ VFE @ 155 +/- 10 W
 For TeamRedMiner, VFE is about 10 W lower. 
 
 
-cast-xmr (Ubuntu)
+cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
     Vega 56(Hynix): 1630 H/s
     Vega 56(Samsung): 1730 H/s
@@ -109,7 +109,7 @@ cast-xmr (Ubuntu)
     Vega FE: 1960 H/s
 
 
-TeamRedMiner (Ubuntu, CentOS)
+TeamRedMiner (Ubuntu, CentOS) (CNv4 - Waiting for update)
 
     Vega 56(Hynix): 1900 H/s
     Vega 56(Samsung): 1950 H/s
@@ -117,7 +117,7 @@ TeamRedMiner (Ubuntu, CentOS)
     Vega FE: 2100 H/s
 
 
-xmrig-amd (Ubuntu)
+xmrig-amd (Ubuntu) (CNv4 - Use latest version)
 
     Vega 56(Hynix): 1735 H/s
     Vega 56(Samsung): 1860 H/s
@@ -125,7 +125,7 @@ xmrig-amd (Ubuntu)
     Vega FE: 2035 H/s
 
 
-xmr-stak (Ubuntu)
+xmr-stak (Ubuntu) (CNv4 - rough draft is out)
 
     Vega 56(Hynix): 1720 H/s
     Vega 56(Samsung): 1850 H/s
@@ -150,13 +150,13 @@ amdgpu-pro 18.50
 
 RX470 @ 60 +/- 5 W
 
-cast-xmr (Ubuntu)
+cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
     RX470(Hynix): 890 H/s
     RX470(Micron): 890 H/s
 
 
-TeamRedMiner (Ubuntu)
+TeamRedMiner (Ubuntu) (CNv4 - Waiting for update)
 
 For the same setup 18.40 got additional 10+ H/s
 
@@ -172,6 +172,13 @@ For the same setup 18.40 got additional 10+ H/s
         
         GRAFT
 
+    CryptoNight(CNv4):
+
+        Monero(XMR)
+        
+
+    
+        
 
 # Contact(s)
 
