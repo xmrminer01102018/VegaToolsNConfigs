@@ -100,6 +100,16 @@ VFE @ 155 +/- 10 W
 
 For TeamRedMiner, VFE is about 10 W lower. 
 
+CNv4 power usage below.
+
+V56 @ 140 +/- 10 W
+
+V64 @ TBD +/- 10 W
+
+VFE @ TBD +/- 10 W
+
+
+
 
 cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
