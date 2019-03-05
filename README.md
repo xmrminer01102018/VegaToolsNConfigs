@@ -61,6 +61,9 @@ CentOS 7.5(1804)
 
 # Working amdgpu-pro and ROCm versions:
 
+
+For xmrig-amd 2.13.0+, amdgpu-pro 18.10 is no longer needed to compile and run the miner.
+
 amdgpu-pro 18.10/18.30
 
 amdgpu-pro 18.10/18.40
