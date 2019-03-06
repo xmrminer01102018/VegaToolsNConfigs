@@ -11,7 +11,7 @@
     "cache": true,
     "colors": true,
     "donate-level": 1,
-    "log-file": null,
+    "log-file": "/var/log/hashrate.log",
     "opencl-platform": 0,
     "opencl-loader": "libOpenCL.so",
     "pools": [
