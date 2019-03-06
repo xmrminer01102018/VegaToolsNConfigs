@@ -6,17 +6,12 @@ Run "rigMon.sh rigList.txt".
 
 You may tailor it for other miners.
 
-#Supported Miners
-
-xmrig-amd
-
-xmr-stak
-
-teamreadminer
-
-cast-xmr
-
-claymore duel miner for ethereum
+Supported Miners:
+1. xmrig-amd
+2. xmr-stak
+3. teamreadminer
+4. cast-xmr
+5. claymore duel miner for ethereum
 
 
 Default log file: /var/log/hashrate.log
