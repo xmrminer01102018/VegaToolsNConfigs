@@ -4,9 +4,21 @@ Copy all the files in rigmonitor to VegaToolsNConfigs directory in each rig.
 Edit rigList.txt file to reflect your rig ip address(es).
 Run "rigMon.sh rigList.txt".
 
-The rigMon.sh can be use for xmrig-amd and TeamRedMiner out of the box with default directories.
 You may tailor it for other miners.
 
+#Supported Miners
+
+xmrig-amd
+
+xmr-stak
+
+teamreadminer
+
+cast-xmr
+
+claymore duel miner for ethereum
+
+
+Default log file: /var/log/hashrate.log
+
 Note: If you use my default directories, no need to change the script(s).
-Default for xmrig-amd - ~/git/xmrig-amd/build/
-Default for TeamRedMiner - ~/git/teamred/
