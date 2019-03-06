@@ -8,12 +8,28 @@ You may tailor it for other miners.
 
 Supported Miners:
 1. xmrig-amd
+Add/Edit the following to config.json file.
+"log-file": "/var/log/hashrate.log",
+
 2. xmr-stak
+Add/Edit the following to config.txt file.
+"output_file" : "/var/log/hashrate.log",
+
 3. teamreadminer
+Add the following to command line.
+./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p your_password -d 0 --cn_config 16+14 2>&1 | tee /var/log/hashrate.log
+
 4. cast-xmr
+Add the following to run.sh or command line.
+--log /var/log/hashrate.log
+
 5. claymore duel miner for ethereum
+Add/Edit the following to start.bash file.
+-logfile /var/log/hashrate.log
+ 
+ 
 
 
 Default log file: /var/log/hashrate.log
 
-Note: If you use my default directories, no need to change the script(s).
+Note: If you use my default log file, no need to change the script(s).
