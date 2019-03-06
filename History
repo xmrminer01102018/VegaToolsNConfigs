@@ -1,3 +1,7 @@
+3/6/2019
+Added rig monitoring support for xmrig-amd, xmr-stak, cast-xmr, teamredminer and claymore duel miner for ethereum.
+Changed hash rate location to /var/log/hashrate.log.
+
 1/24/2019
 Added RX470UbuntuGuideForCNv2 and OptimalRunningSequencesForRX470.
 Added RX470.data_P7P1NoOC to config directory.
