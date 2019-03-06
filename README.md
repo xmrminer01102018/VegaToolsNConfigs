@@ -130,7 +130,7 @@ TeamRedMiner (Ubuntu, CentOS) (CNv4 - Waiting for update)
     Vega FE: 2100 H/s
 
 
-xmrig-amd (Ubuntu) (CNv4 - Use latest version)
+xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0)
 
     Vega 56(Hynix): 1735 H/s
     Vega 56(Samsung): 1860 H/s
@@ -138,7 +138,7 @@ xmrig-amd (Ubuntu) (CNv4 - Use latest version)
     Vega FE: 2035 H/s
 
 
-xmr-stak (Ubuntu) (CNv4 - rough draft is out)
+xmr-stak (Ubuntu) (CNv4 - rough draft is out.  Testing in progress)
 
     Vega 56(Hynix): 1720 H/s
     Vega 56(Samsung): 1850 H/s
