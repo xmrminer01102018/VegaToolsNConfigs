@@ -113,7 +113,7 @@ VFE @ 155 +/- 10 W (xmrig-amd 2.13.0)
 
 V56 @ 120 +/- 10 W (xmrig-amd 2.14.0)
 
-V64 @ TBD +/- 10 W (xmrig-amd 2.14.0)
+V64 @ 140 +/- 10 W (xmrig-amd 2.14.0)
 
 VFE @ 150 +/- 10 W (xmrig-amd 2.14.0)
 
