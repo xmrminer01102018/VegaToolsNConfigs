@@ -150,8 +150,8 @@ xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 u
 
 xmrig-amd (Ubuntu) (CN rwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
 
-    Vega 56(Hynix): 2010 H/s
-    Vega 56(Samsung): 2050 H/s
+    Vega 56(Hynix): 2100 H/s
+    Vega 56(Samsung): 2400 H/s
     Vega 64: 2600 H/s
     Vega FE: 2630 H/s
 
