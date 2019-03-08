@@ -104,7 +104,7 @@ Four Vega GPUs per motherboard for XMR mining.  Risers and extenders working wit
 
 The limitations have been upgraded to 6 GPUs with risers.
 
-The limitations have been upgraded to 8 GPUs with Colorful's motherboard without risers.
+The limitations have been upgraded to 8 GPUs with Colorful's and Biostar TB250-BTC D+ motherboards without risers.
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
