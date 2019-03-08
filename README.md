@@ -10,7 +10,7 @@ Mar 8, 2019 update:
 
 cast-xmr: development has stopped and CNv4 will not be supported.
 
-xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNv4(XMR).
+xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with test net CNv4(XMR).
 
 xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with cn/rwz(GRAFT).
 
@@ -160,7 +160,7 @@ xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0)
     Vega FE: 2035 H/s
 
 
-xmr-stak (Ubuntu) (CNv4 - rough draft is out.  2.9.0 having OpenCL device not found problem)
+xmr-stak (Ubuntu) (CNv4 and CN rwz - 2.10.0 working with some invalid results.)
 
     Vega 56(Hynix): 1720 H/s
     Vega 56(Samsung): 1850 H/s
@@ -210,6 +210,10 @@ For the same setup 18.40 got additional 10+ H/s
     CryptoNight(CNv4):
 
         Monero(XMR)
+        
+    CryptoNight(CN rwz):
+
+        GRAFT
         
 
     
