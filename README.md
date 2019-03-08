@@ -185,7 +185,7 @@ cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
 TeamRedMiner (Ubuntu) (CNv4 - Waiting for update)
 
-For CNv2 the same setup 18.40 got additional 10+ H/s
+CNv2: For the same setup 18.40 got additional 10+ H/s
 
     RX470(Hynix): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
     RX470(Micron): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
