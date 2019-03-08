@@ -18,7 +18,7 @@ xmr-stak: Testing
 teamredminer: Waiting for CNv4.
 
 
-
+# GUIDES
 
 VegaUbuntuGuide - How to manually setup Vega mining in Ubuntu for CryptoNight V7.
 
