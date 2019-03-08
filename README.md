@@ -1,5 +1,6 @@
 # VegaToolsNConfigs
-AMD Vega GPU tools and configuration file(s) for Monero(XMR) mining.
+AMD Vega GPU tools and configuration file(s) mostly for Monero(XMR) mining.
+I will be expanding to other miners/coins/algos/gpus but the main focous will be for XMR and Vega+ GPUs.
 
 
 # NOTE:
@@ -13,9 +14,9 @@ xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18
 
 xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with cn/rwz(GRAFT).
 
-xmr-stak: Testing
+xmr-stak: Testing version 2.10.0.
 
-teamredminer: Waiting for CNv4.
+teamredminer: Waiting for CNv4 update.
 
 
 # GUIDES
