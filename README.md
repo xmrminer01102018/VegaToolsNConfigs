@@ -6,10 +6,15 @@ AMD Vega GPU tools and configuration file(s) for Monero(XMR) mining.
 This guide will work with most cryptonight V7 coins at Windows level hash rate(s).  Most cryptonight V8 miners will not work with 18.30 drivers.  Please use cast-xmr for the time being.  The hash rate is around 1250 H/s for XMR.  If you want to use xmrig-amd or xmr-stak, use ROCm 1.9.1+.  UPDATE: The cast-xmr with Vega 56/64/FE will get you 1600/1870/1960 H/s on --intensity=10/10/9(default is 7).  All miners(cast-xmr/teamredminer/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30/18.40/18.50.  ROCm 1.9.1, 1.9.2, 2.0.0 and 2.1.0 are still stuck with lower hash rates.
 
 Mar2019 update:
+
 cast-xmr: development has stopped and CNv4 will not be supported.
+
 xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNv4(XMR).
+
 xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with cn/rwz(GRAFT).
+
 xmr-stak: Testing
+
 teamredminer: Waiting for CNv4.
 
 
