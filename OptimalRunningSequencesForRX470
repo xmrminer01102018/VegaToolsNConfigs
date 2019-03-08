@@ -1,7 +1,7 @@
 NOTE: The following miners/settings were tested with the following RX470.
 Sapphire VCX 11256-28-21G Radeon RX 470 4GB GDDR5 PCI Express DVI-D - OEM
 
-TeamRedMiner
+TeamRedMiner (pre-CNv4)
 ------------
 For RX470 with Micron, Hynix and Samsung memory
 
@@ -26,7 +26,7 @@ STEP2:
 Run the miner
 ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0,1,2,3 --cn_config 8+7,8+7,8+7,8+7
 
-CAST-XMR:
+CAST-XMR (pre-CNv4)
 ---------
 For RX470 with Micron, Hynix and Samsung memory
 
@@ -50,4 +50,30 @@ STEP1:
 STEP2:
 Run the miner
 ./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -G 0,1,2,3 $*
+
+
+xmrig-amd
+---------
+For RX470 with Micron, Hynix and Samsung memory
+
+Single GPU
+STEP1:
+./setSMClockVoltages.sh  0 RX470.data_P7P1NoOC skip
+./setAMDGPUFanSpeed.sh -g 0 -s 65
+
+STEP2:
+Run the miner
+./xmrig-amd
+
+Multiple GPUs
+STEP1:
+./setSMClockVoltages.sh  0 RX470.data_P7P1NoOC skip
+./setSMClockVoltages.sh  1 RX470.data_P7P1NoOC skip
+./setSMClockVoltages.sh  2 RX470.data_P7P1NoOC skip
+./setSMClockVoltages.sh  3 RX470.data_P7P1NoOC skip
+./setAMDGPUFanSpeed.sh -g 0,1,2,3 -s 65
+
+STEP2:
+Run the miner
+./xmrig-amd
 
