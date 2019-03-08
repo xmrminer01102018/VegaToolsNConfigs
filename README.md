@@ -200,6 +200,17 @@ For the same setup 18.40 got additional 10+ H/s
     RX470(Hynix): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
     RX470(Micron): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
 
+xmrig-amd (Ubuntu) (CNv4)
+
+    RX470(Hynix): TBD H/s
+    RX470(Micron): TBD H/s
+
+xmrig-amd (Ubuntu) (CN rwz Version: 2.14.0)
+
+    RX470(Hynix): 1225 H/s
+    RX470(Micron): 1225 H/s
+
+
 
 # Tested coins:
 
@@ -216,9 +227,6 @@ For the same setup 18.40 got additional 10+ H/s
     CryptoNight(CN rwz):
 
         GRAFT
-        
-
-    
         
 
 # Contact(s)
