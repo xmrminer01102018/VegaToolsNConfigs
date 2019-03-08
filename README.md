@@ -121,12 +121,6 @@ For TeamRedMiner, VFE is about 10 W lower.
 
 CNv4 power usage below.
 
-V56 @ 140 +/- 10 W (xmrig-amd 2.13.0)
-
-V64 @ 145 +/- 10 W (xmrig-amd 2.13.0)
-
-VFE @ 155 +/- 10 W (xmrig-amd 2.13.0)
-
 V56 @ 120 +/- 10 W (xmrig-amd 2.14.0)
 
 V64 @ 140 +/- 10 W (xmrig-amd 2.14.0)
@@ -152,7 +146,7 @@ TeamRedMiner (Ubuntu, CentOS) (CNv4 - Waiting for update)
     Vega FE: 2100 H/s
 
 
-xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0)
+xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
 
     Vega 56(Hynix): 1735 H/s
     Vega 56(Samsung): 1860 H/s
@@ -160,12 +154,20 @@ xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0)
     Vega FE: 2035 H/s
 
 
+xmrig-amd (Ubuntu) (CN rwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
+
+    Vega 56(Hynix): 2010 H/s
+    Vega 56(Samsung): 2050 H/s
+    Vega 64: 2600 H/s
+    Vega FE: 2630 H/s
+
+
 xmr-stak (Ubuntu) (CNv4 and CN rwz - 2.10.0 working with some invalid results.)
 
-    Vega 56(Hynix): 1720 H/s
-    Vega 56(Samsung): 1850 H/s
-    Vega 64: 1940 H/s
-    Vega FE: 2040 H/s
+    Vega 56(Hynix): TBD H/s
+    Vega 56(Samsung): TBD H/s
+    Vega 64: TBD H/s
+    Vega FE: TBD H/s
 
 
 # RX470
