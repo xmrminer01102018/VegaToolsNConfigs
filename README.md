@@ -132,18 +132,12 @@ VFE @ 150 +/- 10 W (xmrig-amd 2.14.0)
 
 cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
-    Vega 56(Hynix): 1630 H/s
-    Vega 56(Samsung): 1730 H/s
-    Vega 64: 1870 H/s
-    Vega FE: 1960 H/s
-
-
 TeamRedMiner (Ubuntu, CentOS) (CNv4 - Waiting for update)
 
-    Vega 56(Hynix): 1900 H/s
-    Vega 56(Samsung): 1950 H/s
-    Vega 64: 2020 H/s
-    Vega FE: 2100 H/s
+    Vega 56(Hynix): TBD H/s
+    Vega 56(Samsung): TBD H/s
+    Vega 64: TBD H/s
+    Vega FE: TBD H/s
 
 
 xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
@@ -189,13 +183,9 @@ RX470 @ 60 +/- 5 W
 
 cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
-    RX470(Hynix): 890 H/s
-    RX470(Micron): 890 H/s
-
-
 TeamRedMiner (Ubuntu) (CNv4 - Waiting for update)
 
-For the same setup 18.40 got additional 10+ H/s
+For CNv2 the same setup 18.40 got additional 10+ H/s
 
     RX470(Hynix): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
     RX470(Micron): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
