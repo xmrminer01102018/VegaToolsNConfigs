@@ -135,8 +135,8 @@ cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 TeamRedMiner (Ubuntu, CentOS) (CNv4 - 0.4.0 beta - Test in progress)
 
     Vega 56(Hynix): 1800-1900 H/s
-    Vega 56(Samsung): TBD H/s
-    Vega 64: TBD H/s
+    Vega 56(Samsung): 1850-1950 H/s
+    Vega 64: 1980-2100 H/s
     Vega FE: TBD H/s
 
 
