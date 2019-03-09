@@ -132,7 +132,7 @@ VFE @ 150 +/- 10 W (xmrig-amd 2.14.0)
 
 cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
-TeamRedMiner (Ubuntu, CentOS) (CNv4 - 0.4.0 beta Test in progress)
+TeamRedMiner (Ubuntu, CentOS) (CNv4 - 0.4.0 beta - Test in progress)
 
     Vega 56(Hynix): TBD H/s
     Vega 56(Samsung): TBD H/s
@@ -183,7 +183,7 @@ RX470 @ 60 +/- 5 W
 
 cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
-TeamRedMiner (Ubuntu) (CNv4 - 0.4.0 beta Test in progress)
+TeamRedMiner (Ubuntu) (CNv4 - 0.4.0 beta - Test in progress)
 
 CNv2: For the same setup 18.40 got additional 10+ H/s
 
