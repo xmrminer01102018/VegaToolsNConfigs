@@ -134,7 +134,7 @@ cast-xmr (Ubuntu) (CNv4+ - no longer supported)
 
 TeamRedMiner (Ubuntu, CentOS) (CNv4 - 0.4.0 beta - Test in progress)
 
-    Vega 56(Hynix): TBD H/s
+    Vega 56(Hynix): 1800-1900 H/s
     Vega 56(Samsung): TBD H/s
     Vega 64: TBD H/s
     Vega FE: TBD H/s
@@ -156,7 +156,7 @@ xmrig-amd (Ubuntu) (CN rwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0
     Vega FE: 2630 H/s
 
 
-xmr-stak (Ubuntu) (CNv4 and CN rwz - 2.10.0 working with some invalid results.)
+xmr-stak (Ubuntu) (CNv4 and CN rwz - 2.10.0 working with some invalid results for both pre-compiled binaries and native binaries.)
 
     Vega 56(Hynix): TBD H/s
     Vega 56(Samsung): TBD H/s
