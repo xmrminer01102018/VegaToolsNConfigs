@@ -137,7 +137,7 @@ TeamRedMiner (Ubuntu, CentOS) (CNv4 - 0.4.0 beta - Test in progress)
     Vega 56(Hynix): 1800-1900 H/s
     Vega 56(Samsung): 1850-1950 H/s
     Vega 64: 1980-2100 H/s
-    Vega FE: TBD H/s
+    Vega FE: 2.1 kH/s
 
 
 xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
