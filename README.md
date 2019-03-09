@@ -196,10 +196,10 @@ CNv4:
     RX470(Micron): 1008 H/s
 
 
-xmrig-amd (Ubuntu) (CNv4 - Test in progress)
+xmrig-amd (Ubuntu) (CNv4 - Version: 2.14.0)
 
-    RX470(Hynix): TBD H/s
-    RX470(Micron): TBD H/s
+    RX470(Hynix): 930 H/s
+    RX470(Micron): 930 H/s
 
 xmrig-amd (Ubuntu) (CN rwz Version: 2.14.0)
 
