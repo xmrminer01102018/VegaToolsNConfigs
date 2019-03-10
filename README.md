@@ -29,7 +29,7 @@ teamredminer: Version 0.4.0 beta works on ALL VEGA GPUs under amdgpu-pro 18.30/1
 
 Cryptonight V7:
 
-This guide will work with most cryptonight V7 coins at Windows level hash rate(s).
+VegaUbuntuGuide will work with most cryptonight V7 coins at Windows level hash rate(s).
 
 Cryptonight V8:
 
