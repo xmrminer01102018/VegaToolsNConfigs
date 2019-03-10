@@ -7,7 +7,7 @@ I will be expanding to other miners/coins/algos/gpus but the main focous will be
 
 Confusing terms:
 
-Depending on the miner, pool...etc the folloing will be use interchangeably.
+Depending on the miner, pool...etc the folloing will be used interchangeably.
 
 Cryptonight r AKA cn/r AKA CNr
 
