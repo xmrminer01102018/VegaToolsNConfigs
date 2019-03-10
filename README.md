@@ -73,7 +73,13 @@ config/PPTDIR folder - contains
 
 tools folder - contains shell scripts for fan speed, overclocking, monitoring and setting PPT.
 
-tools/rigmonitor folder - contains rig monitoring scripts using passwordless ssh method. (xmrig-amd and teamredminer)
+tools/rigmonitor folder - contains rig monitoring scripts using passwordless ssh method.
+    Supported miners:
+        xmrig-amd
+        xmr-stak
+        cast-xmr
+        teamredminer
+        claymore duel miner(ETH)
 
 
 # Tips and Tricks
