@@ -1,7 +1,7 @@
-V56PPT - Soft PPT for Vega 56 (CNv1 and CNv2)
-LGMV56PPT - Soft PPT for Vega 56 with lower grade memory (CNv1 and CNv2)
-V64PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv1)
-V64V8PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv2)
+V56PPT - Soft PPT for Vega 56 (CNv1, CNv2, CNr and CNrwz)
+LGMV56PPT - Soft PPT for Vega 56 with lower grade memory (CNv1, CNv2, CNr and CNrwz)
+V64PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv1, CNr and CNrwz
+V64V8PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv2, CNr and CNrwz)
 V56PPTTEXT - Working example soft PPT hex values for Vega 56
 V64PPTTEXT - Working example soft PPT(CNv1) hex values for Vega 64 and Vega Frontier Edition
 V64V8PPTTEXT - Working example soft PPT(CNv2) hex values for Vega 64 and Vega Frontier Edition
