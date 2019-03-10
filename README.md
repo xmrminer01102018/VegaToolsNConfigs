@@ -8,8 +8,11 @@ I will be expanding to other miners/coins/algos/gpus but the main focous will be
 UPDATE
 
 Confusing terms:
+
 Depending on the miner, pool...etc the folloing will be use interchangeably.
+
 Cryptonight r AKA cn/r AKA CNr
+
 Cryptonight rwz AKA cn/rwz AKA CNrwz AKA Cryptonight V8 ReverseWaltz
 
 For cn/wrz(GRAFT) and cn/r(XMR), use the CNv2 guides skip amdgpu-pro 18.10 section for latest xmrig-amd and xmr-stak.  Will be updating the guides.
