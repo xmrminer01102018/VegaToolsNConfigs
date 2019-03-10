@@ -1,6 +1,6 @@
 # VegaToolsNConfigs
 AMD Vega GPU tools and configuration file(s) mostly for Monero(XMR) mining.
-I will be expanding to other miners/coins/algos/gpus but the main focous will be for XMR and Vega+ GPUs.
+I will be expanding to other miners/coins/algos/gpus but the main focus will be for XMR and Vega+ GPUs.
 
 
 # NOTE:
