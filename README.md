@@ -5,8 +5,6 @@ I will be expanding to other miners/coins/algos/gpus but the main focous will be
 
 # NOTE:
 
-UPDATE
-
 Confusing terms:
 
 Depending on the miner, pool...etc the folloing will be use interchangeably.
@@ -16,6 +14,8 @@ Cryptonight r AKA cn/r AKA CNr
 Cryptonight rwz AKA cn/rwz AKA CNrwz AKA Cryptonight V8 ReverseWaltz
 
 For cn/wrz(GRAFT) and cn/r(XMR), use the CNv2 guides and skip amdgpu-pro 18.10 section for latest xmrig-amd and xmr-stak.  Will be updating the guides.
+
+Crpytonight R and ReverseWaltz:
 
 cast-xmr: development has stopped and CNr and CNrwz will not be supported.
 
@@ -27,8 +27,13 @@ xmr-stak: Testing version 2.10.0.
 
 teamredminer: Version 0.4.0 beta works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR).
 
+Cryptonight V7:
 
-This guide will work with most cryptonight V7 coins at Windows level hash rate(s).  Most cryptonight V8 miners will not work with 18.30 drivers.  Please use cast-xmr for the time being.  The hash rate is around 1250 H/s for XMR.  If you want to use xmrig-amd or xmr-stak, use ROCm 1.9.1+.  UPDATE: The cast-xmr with Vega 56/64/FE will get you 1600/1870/1960 H/s on --intensity=10/10/9(default is 7).  All miners(cast-xmr/teamredminer/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30/18.40/18.50.  ROCm 1.9.1, 1.9.2, 2.0.0 and 2.1.0 are still stuck with lower hash rates.
+This guide will work with most cryptonight V7 coins at Windows level hash rate(s).
+
+Cryptonight V8:
+
+The xmrig-amd and xmr-stark cryptonight V8 miners will not work with amdgpu-pro 18.30/18.40/18.50 drivers alone you have to use then in conjuction with 18.10.  However, they will work with ROCm 1.9.1+ with low has rate.  All miners(cast-xmr/teamredminer/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30/18.40/18.50.  ROCm 1.9.1, 1.9.2, 2.0.0 and 2.1.0 are still stuck with lower hash rates.
 
 # GUIDES
 
