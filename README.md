@@ -199,7 +199,7 @@ amdgpu-pro 18.50
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
-RX470 @ 60 +/- 5 W
+RX470 @ 68 +/- 5 W
 
 cast-xmr (Ubuntu) (CNr+ - no longer supported)
 
