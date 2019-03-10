@@ -110,6 +110,8 @@ ROCm 1.9.2
 
 ROCm 2.0.0
 
+ROCm 2.1.0
+
 # Binary file checksums:
 1.   b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
 2.   d6bcb2130d4050cf26e93584be742cef  LGMV56PPT
