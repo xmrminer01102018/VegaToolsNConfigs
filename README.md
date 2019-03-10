@@ -27,13 +27,14 @@ xmr-stak: Testing version 2.10.0.
 
 teamredminer: Version 0.4.0 beta works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR).
 
+Cryptonight V8:
+
+The xmrig-amd and xmr-stark cryptonight V8 miners will not work with amdgpu-pro 18.30/18.40/18.50 drivers alone you have to use then in conjuction with 18.10.  However, they will work with ROCm 1.9.1+ with low has rate.  All miners(cast-xmr/teamredminer/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30/18.40/18.50.  ROCm 1.9.1, 1.9.2, 2.0.0 and 2.1.0 are still stuck with lower hash rates.
+
 Cryptonight V7:
 
 VegaUbuntuGuide will work with most cryptonight V7 coins at Windows level hash rate(s).
 
-Cryptonight V8:
-
-The xmrig-amd and xmr-stark cryptonight V8 miners will not work with amdgpu-pro 18.30/18.40/18.50 drivers alone you have to use then in conjuction with 18.10.  However, they will work with ROCm 1.9.1+ with low has rate.  All miners(cast-xmr/teamredminer/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30/18.40/18.50.  ROCm 1.9.1, 1.9.2, 2.0.0 and 2.1.0 are still stuck with lower hash rates.
 
 # GUIDES
 
