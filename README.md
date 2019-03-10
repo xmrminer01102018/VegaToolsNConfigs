@@ -4,20 +4,28 @@ I will be expanding to other miners/coins/algos/gpus but the main focous will be
 
 
 # NOTE:
-This guide will work with most cryptonight V7 coins at Windows level hash rate(s).  Most cryptonight V8 miners will not work with 18.30 drivers.  Please use cast-xmr for the time being.  The hash rate is around 1250 H/s for XMR.  If you want to use xmrig-amd or xmr-stak, use ROCm 1.9.1+.  UPDATE: The cast-xmr with Vega 56/64/FE will get you 1600/1870/1960 H/s on --intensity=10/10/9(default is 7).  All miners(cast-xmr/teamredminer/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30/18.40/18.50.  ROCm 1.9.1, 1.9.2, 2.0.0 and 2.1.0 are still stuck with lower hash rates.
 
-Mar 8, 2019 update:
+UPDATE
 
-cast-xmr: development has stopped and CNv4 will not be supported.
+Confusing terms:
+Depending on the miner, pool...etc the folloing will be use interchangeably.
+Cryptonight r AKA cn/r AKA CNr
+Cryptonight rwz AKA cn/rwz AKA CNrwz AKA Cryptonight V8 ReverseWaltz
 
-xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with test net CNv4(XMR).
+For cn/wrz(GRAFT) and cn/r(XMR), use the CNv2 guides skip amdgpu-pro 18.10 section for latest xmrig-amd and xmr-stak.  Will be updating the guides.
 
-xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with cn/rwz(GRAFT).
+cast-xmr: development has stopped and CNr and CNrwz will not be supported.
+
+xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR).
+
+xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNrwz(GRAFT).
 
 xmr-stak: Testing version 2.10.0.
 
-teamredminer: Waiting for CNv4 update.
+teamredminer: Version 0.4.0 beta works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR).
 
+
+This guide will work with most cryptonight V7 coins at Windows level hash rate(s).  Most cryptonight V8 miners will not work with 18.30 drivers.  Please use cast-xmr for the time being.  The hash rate is around 1250 H/s for XMR.  If you want to use xmrig-amd or xmr-stak, use ROCm 1.9.1+.  UPDATE: The cast-xmr with Vega 56/64/FE will get you 1600/1870/1960 H/s on --intensity=10/10/9(default is 7).  All miners(cast-xmr/teamredminer/xmrig-amd/xmr-stak) have the very close hash rates on ALL VEGA GPUs under amdgpu-pro 18.10/18.30/18.40/18.50.  ROCm 1.9.1, 1.9.2, 2.0.0 and 2.1.0 are still stuck with lower hash rates.
 
 # GUIDES
 
@@ -38,7 +46,7 @@ RX470UbuntuGuideForCNv2 - How to setup RX470 bios, drivers and mining in Ubuntu 
 
 VegaUbuntuGuideWithAutoTools - How to setup Vega mining in Ubuntu with 90% automation.  Essentially the same as VegaUbuntuGuide but after a few manual downloads, run the scripts to setup.
 
-OptimalRunningSequencesForVegas - Vega running sequences for maximum hash rate(pre-CNv4).
+OptimalRunningSequencesForVegas - Vega running sequences for maximum hash rate(pre-CNr).
 
 OptimalRunningSequencesForRX470 - RX470 running sequences for maximum hash rate.
 
@@ -119,7 +127,7 @@ VFE @ 155 +/- 10 W
 
 For TeamRedMiner, VFE is about 10 W lower. 
 
-CNv4 power usage below.
+CNr power usage below.
 
 V56 @ 120 +/- 10 W (xmrig-amd 2.14.0)
 
@@ -130,9 +138,9 @@ VFE @ 150 +/- 10 W (xmrig-amd 2.14.0)
 
 
 
-cast-xmr (Ubuntu) (CNv4+ - no longer supported)
+cast-xmr (Ubuntu) (CNr+ - no longer supported)
 
-TeamRedMiner (Ubuntu, CentOS) (CNv4 - 0.4.0 beta - Test in progress)
+TeamRedMiner (Ubuntu, CentOS) (CNr - 0.4.0 beta - Test in progress)
 
     Vega 56(Hynix): 1800-1900 H/s
     Vega 56(Samsung): 1850-1950 H/s
@@ -140,7 +148,7 @@ TeamRedMiner (Ubuntu, CentOS) (CNv4 - 0.4.0 beta - Test in progress)
     Vega FE: 2.1 kH/s
 
 
-xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
+xmrig-amd (Ubuntu) (CNr - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
 
     Vega 56(Hynix): 1735 H/s
     Vega 56(Samsung): 1860 H/s
@@ -148,7 +156,7 @@ xmrig-amd (Ubuntu) (CNv4 - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 u
     Vega FE: 2035 H/s
 
 
-xmrig-amd (Ubuntu) (CN rwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
+xmrig-amd (Ubuntu) (CNrwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
 
     Vega 56(Hynix): 2100 H/s
     Vega 56(Samsung): 2400 H/s
@@ -156,7 +164,7 @@ xmrig-amd (Ubuntu) (CN rwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0
     Vega FE: 2630 H/s
 
 
-xmr-stak (Ubuntu) (CNv4 and CN rwz - 2.10.0 working with some invalid results for both pre-compiled binaries and native binaries.)
+xmr-stak (Ubuntu) (CNr and CNrwz - 2.10.0 working with some invalid results for both pre-compiled binaries and native binaries.)
 
     Vega 56(Hynix): TBD H/s
     Vega 56(Samsung): TBD H/s
@@ -181,27 +189,27 @@ amdgpu-pro 18.50
 
 RX470 @ 60 +/- 5 W
 
-cast-xmr (Ubuntu) (CNv4+ - no longer supported)
+cast-xmr (Ubuntu) (CNr+ - no longer supported)
 
-TeamRedMiner (Ubuntu) (CNv4 - 0.4.0 beta)
+TeamRedMiner (Ubuntu) (CNr - 0.4.0 beta)
 
 CNv2: For the same setup 18.40 got additional 10+ H/s
 
     RX470(Hynix): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
     RX470(Micron): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
 
-CNv4:
+CNr:
 
     RX470(Hynix): 1008 H/s
     RX470(Micron): 1008 H/s
 
 
-xmrig-amd (Ubuntu) (CNv4 - Version: 2.14.0)
+xmrig-amd (Ubuntu) (CNr - Version: 2.14.0)
 
     RX470(Hynix): 930 H/s
     RX470(Micron): 930 H/s
 
-xmrig-amd (Ubuntu) (CN rwz Version: 2.14.0)
+xmrig-amd (Ubuntu) (CNrwz Version: 2.14.0)
 
     RX470(Hynix): 1225 H/s
     RX470(Micron): 1225 H/s
@@ -216,11 +224,11 @@ xmrig-amd (Ubuntu) (CN rwz Version: 2.14.0)
         
         GRAFT
 
-    CryptoNight(CNv4):
+    CryptoNight(CNr):
 
         Monero(XMR)
         
-    CryptoNight(CN rwz):
+    CryptoNight(CNrwz):
 
         GRAFT
         
