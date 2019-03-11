@@ -51,6 +51,8 @@ VegaCentOSGuideForCNv2 - How to manually setup Vega mining in CentOs for CryptoN
 
 RadeonProDuo_R9390XQuickGuide - How to setup xmrig-amd miner for Radeon Pro Duo and R9 390X GPUs(CryptoNight V8).
 
+RadeonProDuoCNrCNrwzQuickGuide - How to setup xmrig-amd miner for Radeon Pro Duo GPU(CNr and CNrwz).
+
 RX470UbuntuGuideForCNv2 - How to setup RX470 bios, drivers and mining in Ubuntu to get 1kH/s for Monero(XMR) with CryptoNight V8 algo.
 
 VegaUbuntuGuideWithAutoTools - How to setup Vega mining in Ubuntu with 90% automation.  Essentially the same as VegaUbuntuGuide but after a few manual downloads, run the scripts to setup.
