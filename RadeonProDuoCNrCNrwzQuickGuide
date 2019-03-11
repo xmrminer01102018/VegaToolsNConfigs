@@ -4,7 +4,9 @@ THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY F
 USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
 
 1. Install Ubuntu 18.04(tested) or any Linux that can run ROCm or amdgpu-pro-18.50-721419-ubuntu-18.04.
-2. Install ROCm 2.1.0 linux driver. https://github.com/RadeonOpenCompute/ROCm
+2. Install driver.
+   ROCm 2.1.0 linux driver. https://github.com/RadeonOpenCompute/ROCm
+   Use ./amdgpu-pro-install -y --opencl=legacy for amdgpu-pro driver.
 3. Download scripts from https://github.com/xmrminer01102018/VegaToolsNConfigs tools folder or write your own fan control tools.
 4. Modify grub for device control and reboot.
 # apt-get update
