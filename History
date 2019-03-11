@@ -1,3 +1,6 @@
+3/11/2019
+Added RadeonProDuoCNrCNrwzQuickGuide and config.json_RadeonProDuoCNrCNrwz files.
+
 3/6/2019
 Added rig monitoring support for xmrig-amd, xmr-stak, cast-xmr, teamredminer and claymore duel miner for ethereum.
 Changed hash rate location to /var/log/hashrate.log.
