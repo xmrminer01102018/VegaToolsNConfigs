@@ -1,0 +1,34 @@
+WARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RADEON PRO DUO ON UBUNTU 18.04.1+ AND LINUX.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+1. Install Ubuntu 18.04(tested) or any Linux that can run ROCm or amdgpu-pro-18.50-721419-ubuntu-18.04.
+2. Install ROCm 2.1.0 linux driver. https://github.com/RadeonOpenCompute/ROCm
+3. Download scripts from https://github.com/xmrminer01102018/VegaToolsNConfigs tools folder or write your own fan control tools.
+4. Modify grub for device control and reboot.
+# apt-get update
+# cd /etc/default
+# mv grub grub.original
+# cp grub.original grub
+# perl -i.bak -npe 's/quiet splash/quiet splash amdgpu.ppfeaturemask=0xffffffff/g' grub
+# cat grub | grep amdgpu 
+# update-grub
+# poweroff
+5. Download/clone xmrig-amd 2.14.0 and compile the miner.
+# apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev libssl-dev
+# git clone https://github.com/xmrig/xmrig-amd.git
+# cd /root/git/xmrig-amd/ 
+# mkdir build; cd build; cmake -DSTRICT_CACHE=OFF ..; make
+6. Grab the config.json file fro RadeonProDuo from VegaToolsNConfigs github site.
+   Change the folloing to reflect your account.
+   CNr:
+   "url": "pool.hashvault.pro:7777",
+   CNrwz
+   "url": "pool.graft.hashvault.pro:7777",
+   "user": "YOUR_WALLET_ADDRESS",
+   "pass": "YOUR_MACHINE_WORKER_NAME",
+7. Run the miner assuming GPU0.
+# ./setAMDGPUFanSpeed.sh -g 0 -s 70 
+# ./xmrig-amd <-- Run it in git/xmrig-amd/build)
+
