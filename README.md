@@ -131,6 +131,15 @@ The limitations have been upgraded to 8 GPUs with Colorful's and Biostar TB250-B
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
+CNr power usage below for xmrig-amd 2.14.0 and teamredminer 0.4.0 beta.
+
+V56 @ 120 +/- 10 W
+
+V64 @ 140 +/- 10 W
+
+VFE @ 150 +/- 10 W
+
+
 CNv2 power usage below.  CNv1 power usages are 20 W lower.
 
 V56 @ 120 +/- 10 W
@@ -140,16 +149,6 @@ V64 @ 135 +/- 10 W
 VFE @ 155 +/- 10 W
 
 For TeamRedMiner, VFE is about 10 W lower. 
-
-CNr power usage below.
-
-V56 @ 120 +/- 10 W (xmrig-amd 2.14.0)
-
-V64 @ 140 +/- 10 W (xmrig-amd 2.14.0)
-
-VFE @ 150 +/- 10 W (xmrig-amd 2.14.0)
-
-
 
 
 cast-xmr (Ubuntu) (CNr+ - no longer supported)
