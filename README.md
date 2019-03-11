@@ -241,7 +241,7 @@ ROCm 2.1.0
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
-RX470 @ 85 +/- 5 W
+85 +/- 5 W
 
 xmrig-amd (Ubuntu) (CNr - Version: 2.14.0)
 
