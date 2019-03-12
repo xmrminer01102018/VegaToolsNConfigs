@@ -9,7 +9,7 @@ Confusing terms:
 
 Depending on the miner, pool...etc the folloing will be used interchangeably.
 
-Cryptonight r AKA cn/r AKA CNr
+Cryptonight r AKA cn/r AKA CNr AKA CNv4
 
 Cryptonight rwz AKA cn/rwz AKA CNrwz AKA Cryptonight V8 ReverseWaltz
 
