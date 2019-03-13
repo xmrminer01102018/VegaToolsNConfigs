@@ -23,7 +23,7 @@ xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18
 
 xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNrwz(GRAFT).
 
-xmr-stak: Testing version 2.10.1.
+xmr-stak: Testing version 2.10.1.(Getting "AMD Invalid Result GPU ID 0" for pre-compiled binaries and native binaries)
 
 teamredminer: Version 0.4.0 beta works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR).
 
