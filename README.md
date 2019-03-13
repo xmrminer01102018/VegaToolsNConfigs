@@ -177,12 +177,12 @@ xmrig-amd (Ubuntu) (CNrwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 
     Vega FE: 2630 H/s
 
 
-xmr-stak (Ubuntu) (CNr - 2.10.0 working with some invalid results for both pre-compiled binaries and native binaries.)
+xmr-stak (Ubuntu) (CNr - 2.10.1 working with some invalid results for both pre-compiled binaries and native binaries.)
 
     Vega 56(Hynix): TBD H/s
     Vega 56(Samsung): TBD H/s
     Vega 64: TBD H/s
-    Vega FE: TBD H/s
+    Vega FE: 2000 H/s(miner) 1700 H/s(pool)
 
 
 # RX470
