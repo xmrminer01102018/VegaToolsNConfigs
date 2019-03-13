@@ -182,7 +182,7 @@ xmr-stak (Ubuntu) (CNr - 2.10.1 working with some invalid results for both pre-c
     Vega 56(Hynix): TBD H/s
     Vega 56(Samsung): TBD H/s
     Vega 64: TBD H/s
-    Vega FE: 2000 H/s(miner) 1700 H/s(pool)
+    Vega FE: 2000 H/s(miner) 1700 H/s(pool) 300 H/s(Fee+Invalid)
 
 
 # RX470
