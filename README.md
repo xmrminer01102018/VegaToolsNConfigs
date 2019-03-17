@@ -23,7 +23,7 @@ xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18
 
 xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNrwz(GRAFT).
 
-xmr-stak: Testing version 2.10.1.(Getting "AMD Invalid Result GPU ID 0" for pre-compiled binaries and native binaries)
+xmr-stak: Testing version 2.10.0/1/2.(Getting "AMD Invalid Result GPU ID 0" for pre-compiled binaries and native binaries)
 
 teamredminer: Version 0.4.0 beta works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR).
 
@@ -177,7 +177,7 @@ xmrig-amd (Ubuntu) (CNrwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 
     Vega FE: 2630 H/s
 
 
-xmr-stak (Ubuntu) (CNr - 2.10.1 working with some invalid results for both pre-compiled binaries and native binaries.)
+xmr-stak (Ubuntu) (CNr - 2.10.0/1/2 working with some invalid results for both pre-compiled binaries and native binaries.)
 
     Vega 56(Hynix): TBD H/s
     Vega 56(Samsung): TBD H/s
