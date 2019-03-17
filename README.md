@@ -48,6 +48,7 @@ VegaUbuntuGuideForCNv2- How to manually setup Vega mining in Ubuntu for CryptoNi
 
 VegaCentOSGuideForCNv2 - How to manually setup Vega mining in CentOs for CryptoNight V8 with AMD drivers.
 
+VegaCentOSGuideForCNrCNrwz - How to manually setup Vega mining in CentOs for CNr and CNrwz with AMD drivers.
 
 RadeonProDuo_R9390XQuickGuide - How to setup xmrig-amd miner for Radeon Pro Duo and R9 390X GPUs(CryptoNight V8).
 
