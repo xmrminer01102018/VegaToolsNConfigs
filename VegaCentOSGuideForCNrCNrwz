@@ -1,0 +1,177 @@
+WARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RXVEGA 56/64/FE GPUs ON CentOS 7.5+. It may also work on older
+CentOS versions(Not tested).
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+#BSD 3-Clause License
+#
+#Copyright (c) 2018, xmrminer01102018
+#All rights reserved.
+#
+#Redistribution and use in source and binary forms, with or without
+#modification, are permitted provided that the following conditions are met:
+#
+#* Redistributions of source code must retain the above copyright notice, this
+#  list of conditions and the following disclaimer.
+#
+#* Redistributions in binary form must reproduce the above copyright notice,
+#  this list of conditions and the following disclaimer in the documentation
+#  and/or other materials provided with the distribution.
+#
+#* Neither the name of the copyright holder nor the names of its
+#  contributors may be used to endorse or promote products derived from
+#  this software without specific prior written permission.
+#
+#THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+#AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+#IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+#FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+#DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+#SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+#CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+#OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+#OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+Assuming that you have done the next two tasks.
+
+Install CenotOS(Minimal) to usb key. This should not take more than 15 minutes.
+Configure network settings.
+
+# mkdir ~/Downloads; mkdir ~/git
+
+# yum update -y
+# yum install pciutils
+# echo  "vm.nr_hugepages = 128" >> /etc/sysctl.conf
+
+
+Disable selinux:
+# cd /etc/selinux/; sed -i 's/\(SELINUX\=\)\(.*\)/\1disabled/g' config
+# cat /etc/selinux/config | grep disabled
+
+Update grub:
+# cd /etc/default
+# mv grub grub.original
+# cp grub.original grub
+# sed -i 's/\(quiet\)/\1 amdgpu.ppfeaturemask=0xffffffff/g' grub
+# cat grub | grep amdgpu 
+# grub2-mkconfig -o /boot/grub2/grub.cfg
+
+NOTE: You may use xmr-stak binar(ies) instead of teamreadminer binar(ies).
+      As of xmr-stark 2.10.2 invalid resuls are being generated and losing hash rate at the pool.
+      Replace teamredminer with xmr-stark in the guide, if you are using xmr-stak binar(ies).
+
+Download VegaToolsNConfigs, teamredminer*.tgz and amdgpu-pro driver to ~/Downloads folder.
+
+TeamRedMinerURL: https://bitcointalk.org/index.php?topic=5059817.0
+xmr-stak: https://github.com/fireice-uk/xmr-stak/releases/tag/2.10.2
+
+Prepare TeamRedMiner:
+# cd git
+# cp ~/Downloads/teamredminer-v0.3.7-linux.tgz .
+# tar -xzvf teamredminer-v0.4.2-linux.tgz
+# ln -s teamredminer-v0.4.2-linux teamred
+
+Prepare xmr-stak
+# cd git
+# mkdir xmr-stak
+# cd xmr-stak
+# cp ~/Downloads/xmr-stak-linux-2.10.2-cpu_opencl-amd.tar.xz .
+# tar -Jxvf xmr-stak-linux-2.10.2-cpu_opencl-amd.tar.xz
+
+Install lm_sensors:
+# yum install -y lm_sensors
+# sensors-detect --auto
+
+Install git and get VegaToolsNConfigs:
+# yum install -y git
+# git clone https://github.com/xmrminer01102018/VegaToolsNConfigs.git
+
+# cd VegaToolsNConfigs
+# mv README.md README.main
+# mv config/* .
+# mv tools/* .
+# mv PPTDIR/* .
+# mv rigmonitor/* .
+# chmod 770 *.sh
+
+# cd ~/Downloads/
+# tar -Jxvf amdgpu-pro-18.50-725072-rhel-7.6.tar.xz 
+# cd amdgpu-pro-18.50-725072-rhel-7.6
+# ./amdgpu-pro-install -y --opencl=pal --headless
+
+# poweroff
+
+If you have not plugged in your GPU(s), plug all of them here and re-start the computer.
+
+# yum update -y
+
+# cd VegaToolsNConfigs
+# ./getGPUStats.sh
+
+If you do not see the GPU information, deinstall and reinstall amdgpu-pro driver as follows.  NOTE:  Most of the time, second try will work.
+
+# /usr/bin/amdgpu-pro-uninstall -y
+# cd ~/Downloads/
+# cd amdgpu-pro-18.50-725072-rhel-7.6
+# ./amdgpu-pro-install -y --opencl=pal --headless
+
+# reboot
+
+# cd VegaToolsNConfigs
+# ./getGPUStats.sh
+
+You should see the GPU information now.
+
+Prepare GPU for the TeamRedMiner:
+NOTE: All PPT from CNv1 and CNv2 should work for CNr and CNrwz
+# ./setPPT.sh 0 V56PPT; ./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+Now run the TeamRedMiner or xmr-stak: 
+# cd ~/git/teamred/ 
+OR
+# cd ~/git/xmr-stak
+
+TeamRedMiner:
+For Monero(XMR)
+# ./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID  -p RIG_NAME -d 0 --cn_config 16+14
+
+For GRAFT
+# ./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID  -p RIG_NAME -d 0 --cn_config 16+14
+
+xmr-stak: Enter appropriate values when asked. Use cryptonight_r for XMR and cryptonight_v8_reversewaltz for GRAFT.
+
+./xmr-stak
+
+For running sequences, please see OptimalRunningSequencesForVegas.
+And you can make ISO for the usb key installation and use it on many machines by makeing usb key bootable miner/OS(That's another write up).
+
+HAPPY MINING...
+
+------------------- END OF LINUX VEGA MINING GUIDE -------------------
+
+Donations are welcome and appreciated but not necessary.
+A simple thank you would suffice.
+xmrminer01102018's XMR wallet: 41e7jNJYz2mdcRPUfJ3QrqYkKYjzgmVoabZatS77ks4mdXoahX1XQxnh2G39TMgZHB4g4LDQgyV4s6dyc5HkBEVgD1ymW2h
+
+
+CREDITS:
+
+PPT
+https://www.amdxmrminer.com/reach-stable-2000-hs-mining-xmr-on-vegas/
+
+OC
+https://linuxconfig.org/overclock-your-radeon-gpu-with-amdgpu
+https://wiki.archlinux.org/index.php/improving_performance#Overclocking_with_amdgpu
+
+GRUB
+https://askubuntu.com/questions/19486/how-do-i-add-a-kernel-boot-parameter#19487
+
+AMD
+https://www.amd.com/en/support
+
+TeamRedMiner
+https://bitcointalk.org/index.php?topic=5059817.0
+
