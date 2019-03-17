@@ -96,24 +96,41 @@ Ubuntu MATE 16.04.5
 CentOS 7.5(1804)
 
 
-# Working amdgpu-pro and ROCm versions:
+# Working/Tested amdgpu-pro and ROCm versions:
 
 
 For xmrig-amd 2.13.0+, amdgpu-pro 18.10 is no longer needed to compile and run the miner.
 
-amdgpu-pro 18.10/18.30
+CNv1/CNv2:
 
-amdgpu-pro 18.10/18.40
+amdgpu-pro 18.10/18.30 (Ubuntu, CentOS)
 
-amdgpu-pro 18.10/18.50
+amdgpu-pro 18.10/18.40 (Ubuntu, CentOS)
 
-ROCm 1.9.1
+amdgpu-pro 18.10/18.50 (Ubuntu, CentOS)
 
-ROCm 1.9.2
+ROCm 1.9.1 (Ubuntu)
 
-ROCm 2.0.0
+ROCm 1.9.2 (Ubuntu)
 
-ROCm 2.1.0
+ROCm 2.0.0 (Ubuntu)
+
+ROCm 2.1.0 (Ubuntu)
+
+
+CNr/CNrwz:
+
+amdgpu-pro 18.30 (Ubuntu)
+
+amdgpu-pro 18.40 (Ubuntu)
+
+amdgpu-pro 18.50 (Ubuntu, CentOS)
+
+ROCm 2.0.0 (Ubuntu)
+
+ROCm 2.1.0 (Ubuntu)
+
+
 
 # Binary file checksums:
 1.   b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
@@ -152,21 +169,22 @@ VFE @ 155 +/- 10 W
 For TeamRedMiner, VFE is about 10 W lower. 
 
 
+
 cast-xmr (Ubuntu) (CNr+ - no longer supported)
 
-TeamRedMiner (Ubuntu, CentOS) (CNr - 0.4.0+ beta - Test in progress)
+TeamRedMiner (Ubuntu, CentOS) (CNr - 0.4.0+ beta)
 
     Vega 56(Hynix): 1800-1900 H/s
     Vega 56(Samsung): 1850-1950 H/s
     Vega 64: 1980-2100 H/s
     Vega FE: 2.1 kH/s
 
-TeamRedMiner (Ubuntu, CentOS) (CNrwz - 0.4.2 beta - Test in progress)
+TeamRedMiner (Ubuntu, CentOS) (CNrwz - 0.4.2 beta)
 
-    Vega 56(Hynix): TBD H/s
-    Vega 56(Samsung): 2400+ H/s
+    Vega 56(Hynix): 2450+ H/s
+    Vega 56(Samsung): 2450+ H/s
     Vega 64: 2600+ H/s
-    Vega FE: TBD kH/s
+    Vega FE: 2750+ kH/s
 
 
 xmrig-amd (Ubuntu) (CNr - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
