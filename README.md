@@ -102,6 +102,7 @@ CentOS 7.5(1804)
 For xmrig-amd 2.13.0+, amdgpu-pro 18.10 is no longer needed to compile and run the miner.
 
 CNv1/CNv2:
+----------
 
 amdgpu-pro 18.10/18.30 (Ubuntu, CentOS)
 
@@ -119,6 +120,7 @@ ROCm 2.1.0 (Ubuntu)
 
 
 CNr/CNrwz:
+----------
 
 amdgpu-pro 18.30 (Ubuntu)
 
