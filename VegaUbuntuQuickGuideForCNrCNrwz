@@ -1,0 +1,38 @@
+WARNING!!!!!!!
+THIS GUIDE IS FOR THOSE WHO WANTS TO TRY XMR MINING WITH AMD RXVEGA 56/64/FE GPUs ON UBUNTU 18.04.1+ AND LINUX.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+
+For indepth sequences see "VegaUbuntuGuideForCNrCNrwz". 
+
+Enable ssh, vm.nr_hugepages = 128, lm-sensors, and amdgpu.ppfeaturemask=0xffffffff.
+
+Download tools from https://github.com/xmrminer01102018/VegaToolsNConfigs.
+
+Download amdgpu-pro 18.30, 18.40, and 18.50 drivers from AMD.
+
+Download teamredminer 0.4.2-Beta, xmrig-amd 2.14.0+ or xmr-stak 2.10.2+.
+cast-xmr
+
+TeamRedMiner
+https://bitcointalk.org/index.php?topic=5059817.0
+
+xmrig-amd
+https://github.com/xmrig/xmrig-amd
+
+xmr-stak
+https://github.com/fireice-uk/xmr-stak
+
+
+Install amdgpu-pro 18.30/18.40/18.50.
+
+For teamredminer, just run the program.
+
+For xmrig-amd and xmr-stak.
+  Compile xmr-stark as usual.  Compile xmrig-amd with "-DSTRICT_CACHE=OFF"
+  STEP1: Get the best hash rate by tweaking mem, gpu, clock speed and configs.
+         Or you can use my settings in "config" folder.
+
+  STEP3: Run xmrig-amd or xmr-stak miner. 
+
