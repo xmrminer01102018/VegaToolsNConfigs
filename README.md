@@ -17,9 +17,7 @@ Crpytonight R and ReverseWaltz:
 
 cast-xmr: development has stopped and CNr and CNrwz will not be supported.
 
-xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR).
-
-xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNrwz(GRAFT).
+xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR) and CNrwz(GRAFT).
 
 xmr-stak: Testing version 2.10.0/1/2.(Getting "AMD Invalid Result GPU ID 0" for pre-compiled binaries and native binaries)
 
