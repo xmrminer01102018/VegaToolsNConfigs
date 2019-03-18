@@ -42,6 +42,10 @@ VegaUbuntuGuide - How to manually setup Vega mining in Ubuntu for CryptoNight V7
 
 VegaUbuntuGuide4CryptoNightV8 - How to manually setup Vega mining in Ubuntu for CryptoNight V8 with ROCm driver.
 
+VegaUbuntuQuickGuideForCNrCNrwz - How to manually setup Vega mining in Ubuntu for CNr/CNrwz with AMD drivers for "Experts". 
+
+
+
 VegaUbuntuQuickGuideForCNv2 - How to manually setup Vega mining in Ubuntu for CryptoNight V8 with AMD drivers for "Experts". 
 
 VegaUbuntuGuideForCNv2- How to manually setup Vega mining in Ubuntu for CryptoNight V8 with AMD drivers.
