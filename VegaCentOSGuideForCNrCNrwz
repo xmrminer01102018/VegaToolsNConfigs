@@ -70,7 +70,7 @@ xmr-stak: https://github.com/fireice-uk/xmr-stak/releases/tag/2.10.2
 
 Prepare TeamRedMiner:
 # cd git
-# cp ~/Downloads/teamredminer-v0.3.7-linux.tgz .
+# cp ~/Downloads/teamredminer-v0.4.2-linux.tgz
 # tar -xzvf teamredminer-v0.4.2-linux.tgz
 # ln -s teamredminer-v0.4.2-linux teamred
 
@@ -142,7 +142,7 @@ For Monero(XMR)
 For GRAFT
 # ./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID  -p RIG_NAME -d 0 --cn_config 16+14
 
-xmr-stak: Enter appropriate values when asked. Use cryptonight_r for XMR and cryptonight_v8_reversewaltz for GRAFT.
+xmr-stak: Enter appropriate values. Use cryptonight_r for XMR and cryptonight_v8_reversewaltz for GRAFT.
 
 ./xmr-stak
 
