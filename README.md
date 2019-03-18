@@ -13,8 +13,6 @@ Cryptonight r AKA cn/r AKA CNr AKA CNv4
 
 Cryptonight rwz AKA cn/rwz AKA CNrwz AKA Cryptonight V8 ReverseWaltz
 
-For cn/wrz(GRAFT) and cn/r(XMR), use the CNv2 guides and skip amdgpu-pro 18.10 section for latest xmrig-amd and xmr-stak.  Will be updating the guides.
-
 Crpytonight R and ReverseWaltz:
 
 cast-xmr: development has stopped and CNr and CNrwz will not be supported.
