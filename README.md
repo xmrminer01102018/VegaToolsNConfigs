@@ -155,7 +155,7 @@ The limitations have been upgraded to 8 GPUs with Colorful's and Biostar TB250-B
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
-CNr power usage below for xmrig-amd 2.14.0 and teamredminer 0.4.0 beta.
+CNr power usage below for xmrig-amd 2.14.0+ and teamredminer 0.4.0+ beta.
 
 V56 @ 120 +/- 10 W
 
