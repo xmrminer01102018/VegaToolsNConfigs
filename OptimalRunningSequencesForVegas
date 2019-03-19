@@ -291,3 +291,94 @@ STEP2:
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
 
 
+*******************************************************************************************
+
+# For CryptoNight R(CNr) and  V8 ReverseWaltz(CNrwz)
+Tested OS: Ubuntu MATE 18.04.1 and CentOS 7.5(1804).
+Examples are for one GPU only.
+
+TeamRedMiner
+------------
+For Vega 56 with Hynix and Samsung memory
+STEP1:
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+STEP2:
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+
+If the card stop hashing in less than a day, use the following. 
+STEP1:
+./setPPT.sh 0 LGMV56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+STEP2:
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 15+15
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 15+15
+
+For Vega 64 and FE
+For CNr and CNrwz, V64PPT and V64V8PPT can be used.
+STEP1:
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+STEP2:
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+
+If the card stop hashing in less than a day, use the following. 
+For CNr and CNrwz, V64PPT and V64V8PPT can be used.
+STEP1:
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+STEP2:
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 14+14
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 14+14
+
+NOTE: If you are still crashing the Vega 64 and/or FE on teamredminer, please use XMIRG-AMD.
+Some unstable 64/FE card(s) do better on XMRIG-AMD.  Please see VegaUbuntuGuideForCNrCNrwz.
+
+XMRIG-AMD and XMR-STAK
+----------------------
+
+For Vega 56 with Hynix memory
+
+STEP1:
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+For Vega 56 with Samsung memory.
+
+STEP1:
+For CNr and CNrwz, V56PPT and LGMV56PPT can be used.
+./setPPT.sh 0 V56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+Start the miner.
+
+
+For Vega 64
+STEP1:
+For CNr and CNrwz, V64PPT and V64V8PPT can be used.
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+Start the miner.
+
+For Vega FE
+For CNr and CNrwz, V64PPT and V64V8PPT can be used.
+STEP1:
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+Start the miner.
