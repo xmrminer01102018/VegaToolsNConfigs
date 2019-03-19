@@ -58,9 +58,9 @@ RX470UbuntuGuideForCNv2 - How to setup RX470 bios, drivers and mining in Ubuntu 
 
 VegaUbuntuGuideWithAutoTools - How to setup Vega mining in Ubuntu with 90% automation.  Essentially the same as VegaUbuntuGuide but after a few manual downloads, run the scripts to setup.
 
-OptimalRunningSequencesForVegas - Vega running sequences for maximum hash rate(pre-CNr).
+OptimalRunningSequencesForVegas - Vega running sequences for maximum hash rate(CNv2/CNr/CNrwz).
 
-OptimalRunningSequencesForRX470 - RX470 running sequences for maximum hash rate.
+OptimalRunningSequencesForRX470 - RX470 running sequences for maximum hash rate(CNv2/CNr/CNrwz).
 
 History - Addition(s) and changes by date.
 
