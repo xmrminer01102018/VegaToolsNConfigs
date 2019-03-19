@@ -1,7 +1,7 @@
 NOTE: The following miners/settings were tested with the following RX470.
 Sapphire VCX 11256-28-21G Radeon RX 470 4GB GDDR5 PCI Express DVI-D - OEM
 
-TeamRedMiner (CNv4/CNr/CNrwz)
+TeamRedMiner (CNv2/CNr/CNrwz)
 ------------
 For RX470 with Micron, Hynix and Samsung memory
 
@@ -12,7 +12,7 @@ STEP1:
 
 STEP2:
 Run the miner
-CNv4:
+CNv2:
 ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 8+7
 CNr:
 ./teamredminer -a cnr -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 8+7
@@ -32,7 +32,7 @@ STEP2:
 Run the miner
 ./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0,1,2,3 --cn_config 8+7,8+7,8+7,8+7
 
-CAST-XMR (Pre-CNv4)
+CAST-XMR (CNv2)
 ---------
 For RX470 with Micron, Hynix and Samsung memory
 
@@ -58,7 +58,7 @@ Run the miner
 ./cast_xmr-vega --algo=-1 -S pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -G 0,1,2,3 $*
 
 
-xmrig-amd (CNv4/CNr/CNrwz)
+xmrig-amd (CNv2/CNr/CNrwz)
 ---------
 For RX470 with Micron, Hynix and Samsung memory
 
