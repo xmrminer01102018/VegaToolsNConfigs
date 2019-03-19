@@ -1,99 +1,92 @@
-# For CryptoNightV7(cn/1)
+# For CryptoNight R(CNr) and  V8 ReverseWaltz(CNrwz)
+Tested OS: Ubuntu MATE 18.04.1 and CentOS 7.5(1804).
+Examples are for one GPU only.
 
-NOTE: You can ignore the guide referencing OC numbers.
-      I left most of the config file names the same but change the OC value to
-      get the optimal value. If the OC values in the file name and comannd are
-      different they are "intentional".
-
-For Samsung V56 use the following steps for optimal hash rate.
-Don't pay attention to befor and after values in OC.
-The number may not change but you will definitely see the hash rate change.
-Remember to replace the gpu sequence with your own.
-
+TeamRedMiner
+------------
+For Vega 56 with Hynix and Samsung memory
 STEP1:
+./setPPT.sh 0 V56PPT
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
-./setSMClockVoltages.sh 0 XFXV56S.data_OC9_8 skip
-./setGPUOC.sh 0 9 8
+STEP2:
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
 
-Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
-If you see zero hash rate, don't panic.  Do STEP2.
-TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
-xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
-running xmrig-amd.
+If the card stop hashing in less than a day, use the following. 
+STEP1:
+./setPPT.sh 0 LGMV56PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
 
 STEP2:
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 15+15
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 15+15
+
+For Vega 64 and FE
+For CNr and CNrwz, V64PPT and V64V8PPT can be used.
+STEP1:
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+STEP2:
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+
+If the card stop hashing in less than a day, use the following. 
+For CNr and CNrwz, V64PPT and V64V8PPT can be used.
+STEP1:
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+
+STEP2:
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 14+14
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 14+14
+
+NOTE: If you are still crashing the Vega 64 and/or FE on teamredminer, please use XMIRG-AMD.
+Some unstable 64/FE card(s) do better on XMRIG-AMD.  Please see VegaUbuntuGuideForCNrCNrwz.
+
+XMRIG-AMD and XMR-STAK
+----------------------
+
+For Vega 56 with Hynix memory
+
+STEP1:
 ./setPPT.sh 0 V56PPT
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
 
-Wait about 2-3 minutes more and do the last step.
+For Vega 56 with Samsung memory.
 
-STEP3:
-./setSMClockVoltages.sh 0 XFXV56S.data_P7P3OC8_7 skip
-./setGPUOC.sh 0 8 7
-
-
-For Hynix V56 use the following steps for optimal hash rate.
-Don't pay attention to befor and after values in OC.
-The number may not change but you will definitely see the hash rate change.
-Remember to replace the gpu sequence with your own.
-
-./setSMClockVoltages.sh 0,1 MSIV56H.data_OC8_7 skip
-./setGPUOC.sh 0,1 7 6
+STEP1:
+For CNr and CNrwz, V56PPT and LGMV56PPT can be used.
 ./setPPT.sh 0 V56PPT
-./setPPT.sh 1 V56PPT
-./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+Start the miner.
 
 
-
-For V64 use the following steps for optimal hash rate.
-Don't pay attention to befor and after values in OC.
-The number may not change but you will definitely see the hash rate change.
-Remember to replace the gpu sequence with your own.
-
+For Vega 64
 STEP1:
-./setAMDGPUFanSpeed.sh -g 0,1 -s 70
-./setSMClockVoltages.sh 0,1 XFXVega64S.data_2KOC9_7 skip
-./setGPUOC.sh 0,1 9 7
+For CNr and CNrwz, V64PPT and V64V8PPT can be used.
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+Start the miner.
 
-Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
-If you see zero hash rate, don't panic.  Do STEP2.
-TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
-xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
-running xmrig-amd.
-
-STEP2:
-./setPPT.sh 0 V64PPT
-./setPPT.sh 1 V64PPT
-./setAMDGPUFanSpeed.sh -g 0,1 -s 70
-
-Wait about 2-3 minutes more and do the last step.
-
-STEP3:
-./setSMClockVoltages.sh 0,1 XFXVega64S.data_P7P3_OC9_7 skip
-./setGPUOC.sh 0,1 9 7
-
-
-
-For FE use the following steps for optimal hash rate.
-Don't pay attention to befor and after values in OC.
-The number may not change but you will definitely see the hash rate change.
-Remember to replace the gpu sequence with your own.
-
+For Vega FE
+For CNr and CNrwz, V64PPT and V64V8PPT can be used.
 STEP1:
-./setAMDGPUFanSpeed.sh -g 0,1 -s 70
-./setSMClockVoltages.sh 0,1 VegaFE.data_OC9_8 skip
-./setGPUOC.sh 0,1 9 7
-
-Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
-Do STEP2.
-TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
-xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
-running xmrig-amd.
-
-STEP2:
-./setPPT.sh 0 V64PPT
-./setPPT.sh 1 V64PPT
-./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+./setPPT.sh 0 V64V8PPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+Start the miner.
 
 *******************************************************************************************
 
@@ -290,95 +283,102 @@ STEP2:
 ./setPPT.sh 0 V64V8PPT
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
 
-
 *******************************************************************************************
 
-# For CryptoNight R(CNr) and  V8 ReverseWaltz(CNrwz)
-Tested OS: Ubuntu MATE 18.04.1 and CentOS 7.5(1804).
-Examples are for one GPU only.
+# For CryptoNightV7(cn/1)
 
-TeamRedMiner
-------------
-For Vega 56 with Hynix and Samsung memory
+NOTE: You can ignore the guide referencing OC numbers.
+      I left most of the config file names the same but change the OC value to
+      get the optimal value. If the OC values in the file name and comannd are
+      different they are "intentional".
+
+For Samsung V56 use the following steps for optimal hash rate.
+Don't pay attention to befor and after values in OC.
+The number may not change but you will definitely see the hash rate change.
+Remember to replace the gpu sequence with your own.
+
 STEP1:
-./setPPT.sh 0 V56PPT
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
-STEP2:
-Run the miner
-CNr:
-./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
-CNrwz:
-./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
+./setSMClockVoltages.sh 0 XFXV56S.data_OC9_8 skip
+./setGPUOC.sh 0 9 8
 
-If the card stop hashing in less than a day, use the following. 
-STEP1:
-./setPPT.sh 0 LGMV56PPT
-./setAMDGPUFanSpeed.sh -g 0 -s 70
-
-STEP2:
-Run the miner
-CNr:
-./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 15+15
-CNrwz:
-./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 15+15
-
-For Vega 64 and FE
-For CNr and CNrwz, V64PPT and V64V8PPT can be used.
-STEP1:
-./setPPT.sh 0 V64V8PPT
-./setAMDGPUFanSpeed.sh -g 0 -s 70
+Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
+If you see zero hash rate, don't panic.  Do STEP2.
+TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
+xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
+running xmrig-amd.
 
 STEP2:
-Run the miner
-CNr:
-./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
-CNrwz:
-./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 16+14
-
-If the card stop hashing in less than a day, use the following. 
-For CNr and CNrwz, V64PPT and V64V8PPT can be used.
-STEP1:
-./setPPT.sh 0 V64V8PPT
-./setAMDGPUFanSpeed.sh -g 0 -s 70
-
-STEP2:
-Run the miner
-CNr:
-./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 14+14
-CNrwz:
-./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0 --cn_config 14+14
-
-NOTE: If you are still crashing the Vega 64 and/or FE on teamredminer, please use XMIRG-AMD.
-Some unstable 64/FE card(s) do better on XMRIG-AMD.  Please see VegaUbuntuGuideForCNrCNrwz.
-
-XMRIG-AMD and XMR-STAK
-----------------------
-
-For Vega 56 with Hynix memory
-
-STEP1:
 ./setPPT.sh 0 V56PPT
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
 
-For Vega 56 with Samsung memory.
+Wait about 2-3 minutes more and do the last step.
 
-STEP1:
-For CNr and CNrwz, V56PPT and LGMV56PPT can be used.
+STEP3:
+./setSMClockVoltages.sh 0 XFXV56S.data_P7P3OC8_7 skip
+./setGPUOC.sh 0 8 7
+
+
+For Hynix V56 use the following steps for optimal hash rate.
+Don't pay attention to befor and after values in OC.
+The number may not change but you will definitely see the hash rate change.
+Remember to replace the gpu sequence with your own.
+
+./setSMClockVoltages.sh 0,1 MSIV56H.data_OC8_7 skip
+./setGPUOC.sh 0,1 7 6
 ./setPPT.sh 0 V56PPT
-./setAMDGPUFanSpeed.sh -g 0 -s 70
-Start the miner.
+./setPPT.sh 1 V56PPT
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
 
 
-For Vega 64
+
+For V64 use the following steps for optimal hash rate.
+Don't pay attention to befor and after values in OC.
+The number may not change but you will definitely see the hash rate change.
+Remember to replace the gpu sequence with your own.
+
 STEP1:
-For CNr and CNrwz, V64PPT and V64V8PPT can be used.
-./setPPT.sh 0 V64V8PPT
-./setAMDGPUFanSpeed.sh -g 0 -s 70
-Start the miner.
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+./setSMClockVoltages.sh 0,1 XFXVega64S.data_2KOC9_7 skip
+./setGPUOC.sh 0,1 9 7
 
-For Vega FE
-For CNr and CNrwz, V64PPT and V64V8PPT can be used.
+Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
+If you see zero hash rate, don't panic.  Do STEP2.
+TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
+xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
+running xmrig-amd.
+
+STEP2:
+./setPPT.sh 0 V64PPT
+./setPPT.sh 1 V64PPT
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+
+Wait about 2-3 minutes more and do the last step.
+
+STEP3:
+./setSMClockVoltages.sh 0,1 XFXVega64S.data_P7P3_OC9_7 skip
+./setGPUOC.sh 0,1 9 7
+
+
+
+For FE use the following steps for optimal hash rate.
+Don't pay attention to befor and after values in OC.
+The number may not change but you will definitely see the hash rate change.
+Remember to replace the gpu sequence with your own.
+
 STEP1:
-./setPPT.sh 0 V64V8PPT
-./setAMDGPUFanSpeed.sh -g 0 -s 70
-Start the miner.
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+./setSMClockVoltages.sh 0,1 VegaFE.data_OC9_8 skip
+./setGPUOC.sh 0,1 9 7
+
+Start xmrig-amd in another terminal and let it settle down about 3-5 minutes.
+Do STEP2.
+TIP: If you are experiencing the GPU(s) shutting down the machine after runnng
+xmrig-amd at this stage, restart it and run STEP1 and STEP2 together befor
+running xmrig-amd.
+
+STEP2:
+./setPPT.sh 0 V64PPT
+./setPPT.sh 1 V64PPT
+./setAMDGPUFanSpeed.sh -g 0,1 -s 70
+
