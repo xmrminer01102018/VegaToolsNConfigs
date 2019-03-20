@@ -87,9 +87,11 @@ For CNv2 - If you have many rigs with the same type of Vega cards, follow the gu
 # VEGA
 # Working Ubuntu Versions:
 
-Ubuntu MATE 18.04.1
+Ubuntu MATE 18.04.1 (up to latest amdgpu-pro)
 
-Ubuntu MATE 16.04.5
+Ubuntu MATE 16.04.5 (up to amdgpu-pro 18.30)
+
+Ubuntu Desktop 16.04.6 (up to amdgpu-pro 18.30)
 
 # Working CentOS Versions:
 
