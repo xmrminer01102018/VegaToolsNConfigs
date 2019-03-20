@@ -127,7 +127,7 @@ Install version 18.30 or 18.40 or 18.5 at this time.
 
 Do update
 # apt-get update
-# apt-get install -y git libuv1-dev libmicrohttpd-dev libssl-dev cmake build-essential libhwloc-dev opencl-headers
+# apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev libssl-dev -y
 # cd; mkdir git
 # cd git
 
