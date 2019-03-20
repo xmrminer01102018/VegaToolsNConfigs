@@ -88,6 +88,8 @@ Risers: N/A
 RAM: G.SKILL Ripjaws Series 8GB 260-Pin DDR4 SO-DIMM DDR4 2400 (PC4 19200) Laptop Memory
 Bad Video Mode: No
 
+BIOSTAR TB250-BTC PRO LGA 1151 
+
 Quick List for complex builds
 -----------------------------
 
