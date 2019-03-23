@@ -1,5 +1,7 @@
-NOTE: The following miners/settings were tested with the following RX470.
+NOTE: The following miners/settings were tested with the following RX470(s).
 Sapphire VCX 11256-28-21G Radeon RX 470 4GB GDDR5 PCI Express DVI-D - OEM
+MSI RX 470 ARMOR OC 8 GB GDDR5 PCI Express DVI-D - OEM
+Both of them yeild the best result(s) when using the following configuration(s).
 
 TeamRedMiner (CNv2/CNr/CNrwz)
 ------------
