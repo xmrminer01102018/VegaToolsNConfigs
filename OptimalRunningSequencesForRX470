@@ -9,7 +9,9 @@ For RX470 with Micron, Hynix and Samsung memory
 
 Single GPU
 STEP1:
+Replace RX470.data_P7P1NoOC with RX470.data_P7P1NoOCS(Sapphire RX470) and RX470.data_P7P1NoOCM(MSI RX470)
 ./setSMClockVoltages.sh  0 RX470.data_P7P1NoOC skip
+
 ./setAMDGPUFanSpeed.sh -g 0 -s 65
 
 STEP2:
@@ -24,6 +26,7 @@ CNrwz:
 
 Multiple GPUs
 STEP1:
+Replace RX470.data_P7P1NoOC with RX470.data_P7P1NoOCS(Sapphire RX470) and RX470.data_P7P1NoOCM(MSI RX470)
 ./setSMClockVoltages.sh  0 RX470.data_P7P1NoOC skip
 ./setSMClockVoltages.sh  1 RX470.data_P7P1NoOC skip
 ./setSMClockVoltages.sh  2 RX470.data_P7P1NoOC skip
@@ -66,6 +69,7 @@ For RX470 with Micron, Hynix and Samsung memory
 
 Single GPU
 STEP1:
+Replace RX470.data_P7P1NoOC with RX470.data_P7P1NoOCS(Sapphire RX470) and RX470.data_P7P1NoOCM(MSI RX470)
 ./setSMClockVoltages.sh  0 RX470.data_P7P1NoOC skip
 ./setAMDGPUFanSpeed.sh -g 0 -s 65
 
@@ -75,6 +79,7 @@ Run the miner
 
 Multiple GPUs
 STEP1:
+Replace RX470.data_P7P1NoOC with RX470.data_P7P1NoOCS(Sapphire RX470) and RX470.data_P7P1NoOCM(MSI RX470)
 ./setSMClockVoltages.sh  0 RX470.data_P7P1NoOC skip
 ./setSMClockVoltages.sh  1 RX470.data_P7P1NoOC skip
 ./setSMClockVoltages.sh  2 RX470.data_P7P1NoOC skip
