@@ -217,7 +217,9 @@ xmr-stak (Ubuntu) (CNr - 2.10.0/1/2 working with some invalid results for both p
 
 # RX470
 Tested card(s):
+
 SAP: Sapphire VCX 11256-28-21G Radeon RX 470 4GB GDDR5 PCI Express DVI-D - OEM
+
 MSI: MSI RX 470 ARMOR OC 8 GB GDDR5 PCI Express DVI-D - OEM (Not stable with 18.40 and 18.30)
 
 # Working Ubuntu Versions:
