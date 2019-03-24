@@ -95,7 +95,7 @@ Ubuntu Desktop 16.04.6 (up to amdgpu-pro 18.30)
 
 # Working CentOS Versions:
 
-CentOS 7.5(1804)
+CentOS 7.5(1804) (amdgpu-pro 18.50)
 
 
 # Working/Tested amdgpu-pro and ROCm versions:
