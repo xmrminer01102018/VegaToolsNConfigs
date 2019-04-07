@@ -89,6 +89,8 @@ For CNv2 - If you have many rigs with the same type of Vega cards, follow the gu
 
 Ubuntu MATE 18.04.1 (up to latest amdgpu-pro)
 
+Ubuntu MATE 18.04.2 (up to latest amdgpu-pro NOTE:Video driver is broken VNC and ssh sessions only)
+
 Ubuntu MATE 16.04.5 (up to amdgpu-pro 18.30)
 
 Ubuntu Desktop 16.04.6 (up to amdgpu-pro 18.30)
