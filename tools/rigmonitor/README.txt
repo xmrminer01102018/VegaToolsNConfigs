@@ -17,7 +17,7 @@ Add/Edit the following to config.txt file.
 
 3. teamreadminer
 Add the following to command line.
-./teamredminer -a cnv8 -o stratum+tcp://pool.monero.hashvault.pro:7777 -u YOUR_WALLET_ID -p your_password -d 0 --cn_config 16+14 2>&1 | tee /var/log/hashrate.log
+./teamredminer -a cnv8 -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p your_password -d 0 --cn_config 16+14 2>&1 | tee /var/log/hashrate.log
 
 4. cast-xmr
 Add the following to run.sh or command line.
