@@ -11,7 +11,7 @@ CNr/CNrwz/C29/Ethash:
 amdgpu-pro 18.50 (Ubuntu)
 
 
-# Binary file checksums:
+# Binary file checksum(s):
 1.   2113fa2c4f096ba327c6098b356e0df4  REFRVIIPPT
 
 # Hash rates and power usage from lm-sensors(Not from wall)
