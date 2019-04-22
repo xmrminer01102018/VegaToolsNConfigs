@@ -107,7 +107,7 @@ For CNv2 - If you have many rigs with the same type of Vega cards, follow the gu
 
         ETH
         
-    Cuckroo29(C29):
+    Cuckaroo29(C29):
 
         Grin
         
