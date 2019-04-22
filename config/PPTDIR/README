@@ -6,6 +6,7 @@ V56PPTTEXT - Working example soft PPT hex values for Vega 56
 V64PPTTEXT - Working example soft PPT(CNv1) hex values for Vega 64 and Vega Frontier Edition
 V64V8PPTTEXT - Working example soft PPT(CNv2) hex values for Vega 64 and Vega Frontier Edition
 MULTIPPT   - Combined soft PPT hex values for Vega 56 and Vega 64
+REFRVIIPPT - Soft PPT for Radeon VII (CNr, CNrwz, Ethash, and Cuckaroo29)
 SoftPPT-1.0.0.jar - Java program to produce binary PPT from hex numbers.
                   - Require Java 10 to be installed on the system.
 How to use SoftPPT-1.0.0.jar.  Run the program with V56PPTTEXT(input text file)  V56PPT(output binary file).
@@ -33,11 +34,12 @@ In most cases it can be fixed by using LGMV56PPT.
 
 
 Binary file checksums:
-b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
-d6bcb2130d4050cf26e93584be742cef  LGMV56PPT
-4c9fc25157f392e9c94ab1536847b7c0  V64PPT
-ed13313360a2a4306e11a62afd111ace  V64V8PPT
-e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
+1.   b959ad1ffd296a8c5c75d1eb9e11e467  V56PPT
+2.   d6bcb2130d4050cf26e93584be742cef  LGMV56PPT
+3.   4c9fc25157f392e9c94ab1536847b7c0  V64PPT
+4.   ed13313360a2a4306e11a62afd111ace  V64V8PPT
+5.   2113fa2c4f096ba327c6098b356e0df4  REFRVIIPPT
+6.   e30d9cd42cfe2190e263cd7f04aaef6f  SoftPPT-1.0.0.jar
 
 
 CREDIT: V56PPTTEXT and V64PPTTEXT numbers are from https://www.amdxmrminer.com/reach-stable-2000-hs-mining-xmr-on-vegas/.  The numbers are the same but format is totally different.
