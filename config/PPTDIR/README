@@ -2,11 +2,12 @@ V56PPT - Soft PPT for Vega 56 (CNv1, CNv2, CNr and CNrwz)
 LGMV56PPT - Soft PPT for Vega 56 with lower grade memory (CNv1, CNv2, CNr and CNrwz)
 V64PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv1, CNr and CNrwz
 V64V8PPT - Soft PPT for Vega 64 and Vega Frontier Edition (CNv2, CNr and CNrwz)
+REFRVIIPPT - Soft PPT for Radeon VII (CNr, CNrwz, Ethash, and Cuckaroo29)
 V56PPTTEXT - Working example soft PPT hex values for Vega 56
 V64PPTTEXT - Working example soft PPT(CNv1) hex values for Vega 64 and Vega Frontier Edition
 V64V8PPTTEXT - Working example soft PPT(CNv2) hex values for Vega 64 and Vega Frontier Edition
+REFRVIIPPTTEXT - Working example soft PPT hex values for Radeon VII
 MULTIPPT   - Combined soft PPT hex values for Vega 56 and Vega 64
-REFRVIIPPT - Soft PPT for Radeon VII (CNr, CNrwz, Ethash, and Cuckaroo29)
 SoftPPT-1.0.0.jar - Java program to produce binary PPT from hex numbers.
                   - Require Java 10 to be installed on the system.
 How to use SoftPPT-1.0.0.jar.  Run the program with V56PPTTEXT(input text file)  V56PPT(output binary file).
