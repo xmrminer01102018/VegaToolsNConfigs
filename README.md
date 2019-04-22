@@ -21,7 +21,7 @@ xmrig-amd: Version 2.14.0 works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18
 
 xmr-stak: Testing version 2.10.0/1/2.(Getting "AMD Invalid Result GPU ID 0" for pre-compiled binaries and native binaries)
 
-teamredminer: Version 0.4.2 beta works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR) and CNrwz(GRAFT).
+teamredminer: Version 0.4.2-0.4.4 beta works on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR) and CNrwz(GRAFT).
 
 Cryptonight V8:
 
@@ -185,7 +185,7 @@ TeamRedMiner (Ubuntu, CentOS) (CNr - 0.4.0+ beta)
     Vega 64: 1980-2100 H/s
     Vega FE: 2.1 kH/s
 
-TeamRedMiner (Ubuntu, CentOS) (CNrwz - 0.4.2 beta)
+TeamRedMiner (Ubuntu, CentOS) (CNrwz - 0.4.2-0.4.4 beta)
 
     Vega 56(Hynix): 2450+ H/s
     Vega 56(Samsung): 2450+ H/s
