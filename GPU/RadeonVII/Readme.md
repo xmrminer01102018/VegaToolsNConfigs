@@ -5,7 +5,7 @@ Ubuntu MATE 18.04.1
 
 # Working/Tested amdgpu-pro and ROCm versions:
 
-CNr/CNrwz/c29/Ethash:
+CNr/CNrwz/C29/Ethash:
 ---------------------
 
 amdgpu-pro 18.50 (Ubuntu)
