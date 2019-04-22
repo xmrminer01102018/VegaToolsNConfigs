@@ -69,7 +69,7 @@ TestedHarware - Limited hardware list working or not.
 config folder - contains gpu and mem clock settings.
 
 config/PPTDIR folder - contains
-1. PPT binary files for Vega 56/64/FE.
+1. PPT binary files for Vega 56/64/FE and Radeon VII.
 2. PPT hex table in text format to generate binary PPT file.
 3. SoftPPT-1.0.0.jar to convert hex table to binary PPT file.
 4. SoftPPTProj.tgz(The maven java project to make SoftPPT-1.0.0.jar program).
