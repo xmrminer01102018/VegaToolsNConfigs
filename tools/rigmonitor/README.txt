@@ -27,7 +27,7 @@ Add the following to run.sh or command line.
 Add/Edit the following to start.bash file.
 -logfile /var/log/hashrate.log
  
-6. nano miner for Cuckaroo29(C29)
+6. nanominer for Cuckaroo29(C29)
 Change the command line to:
 ./nanominer  2>&1 | tee /var/log/hashrate.log
 
