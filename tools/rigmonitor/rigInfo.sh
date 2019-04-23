@@ -40,7 +40,12 @@ fi
 while read rig 
 do
   #echo ${rig}
-  RESULT=$( ssh -n -o ConnectTimeout=5 ${rig} "cd; cd VegaToolsNConfigs; ./gpuStats.sh" )
-  echo "${RESULT}"
+    R=$( echo  ${rig} | grep "^\#.*$" )
+  if [ "${R}" == "" ]
+  then
+    RESULT=$( ssh -n -o ConnectTimeout=5 ${rig} "cd; cd VegaToolsNConfigs; ./gpuStats.sh" )
+    echo "${RESULT}"
+  fi
+
 done < $1 
 

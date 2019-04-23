@@ -49,16 +49,19 @@ fi
 
 PCIS=$( cat  /sys/kernel/debug/dri/$1/name | awk '{print $2}' | awk -F':' '{print $2$3}' | sed 's/\..*//g' )
 gpunumber=$1
-cinfo=$( cat /sys/kernel/debug/dri/${gpunumber}/amdgpu_pm_info | grep GFX -A 10 )
+##cinfo=$( cat /sys/kernel/debug/dri/${gpunumber}/amdgpu_pm_info | grep GFX -A 10 )
 #wInfo=$( echo $cinfo )
 #echo "wInfo: ${wInfo}"
-W=$( echo $cinfo | awk '{print $20}'| awk -F'.' '{print $1}' )
+##W=$( echo $cinfo | awk '{print $20}'| awk -F'.' '{print $1}' )
+W=$( cat /sys/kernel/debug/dri/${gpunumber}/amdgpu_pm_info | grep "average GPU" |awk '{print $1}' | awk -F'.' '{print $1}' )
 printf -v W "% 4d" $W
 #echo "wVar: $W"
-T=$( echo $cinfo | awk '{print $26}'| awk -F'.' '{print $1}' )
+##T=$( echo $cinfo | awk '{print $26}'| awk -F'.' '{print $1}' )
+T=$( cat /sys/kernel/debug/dri/${gpunumber}/amdgpu_pm_info | grep Temperature |awk '{print $3}' )
 printf -v T "% 4d" $T
 #echo "tVar: $T"
-L=$( echo $cinfo | awk '{print $30}'| awk -F'.' '{print $1}' )
+##L=$( echo $cinfo | awk '{print $30}'| awk -F'.' '{print $1}' )
+L=$( cat /sys/kernel/debug/dri/${gpunumber}/amdgpu_pm_info | grep Load |awk '{print $3}' )
 printf -v L "% 4d" $L
 #echo "lVar: $L"
 #wInfo=$( echo $cinfo | awk -v z="$lVar" '{print "\033[1;31m"$20"\033[1;0m "$21", \033[1;32m"$26"\033[1;0m "$27", \033[1;34m"$z"\033[1;0m "$31}' )
@@ -66,10 +69,11 @@ wInfo="${LR}$W${NC} W ${LG}$T${NC} C ${LB}$L${NC} %"
 #echo "wInfo: ${wInfo}"
 
 
-sinfo=$( sensors | grep amdgpu-pci-$PCIS -A 4 )
+sinfo=$( sensors | grep amdgpu-pci-$PCIS -A 4 | grep fan )
 #sInfo=$( echo $sinfo )
 #echo "sInfo: ${sInfo}"
-R=$( echo $sinfo | awk '{print $9}'| awk -F'.' '{print $1}' )
+#R=$( echo $sinfo | awk '{print $6}'| awk -F'.' '{print $1}' )
+R=$( echo $sinfo | awk '{print $2}'| awk -F'.' '{print $1}' )
 
 
 REGEX='^[0-9]+([.][0-9]+)?$'
