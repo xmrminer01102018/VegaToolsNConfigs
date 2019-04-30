@@ -11,7 +11,7 @@ ROCm 2.1.0
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
-85 +/- 5 W
+85*2 +/- 10 W (each unit has two gpus)
 
 xmrig-amd (Ubuntu) (CNr - Version: 2.14.0)
 
