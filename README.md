@@ -62,7 +62,7 @@ OptimalRunningSequencesForVegas - Vega running sequences for maximum hash rate(C
 
 OptimalRunningSequencesForRX470 - RX470 running sequences for maximum hash rate(CNv2/CNr/CNrwz).
 
-OptimalRunningSequencesForRadeonVII - Radeon VII running sequences for maximum hash rate(CNr/CNrwz/Ethash/C29).
+OptimalRunningSequencesForRadeonVII - Radeon VII running sequences for maximum hash rate(CNr/CNrwz/C29/Ethash).
 
 History - Addition(s) and changes by date.
 
