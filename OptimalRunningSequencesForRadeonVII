@@ -13,6 +13,8 @@ For Radeon VII
 STEP1:
 ./setPPT.sh 0 REFRVIIPPT
 ./setAMDGPUFanSpeed.sh -g 0 -s 70
+NOTE: Adjust the voltage to your GPU.  The following settings has been working on 4 different Radeon VIIs.
+      You can get more hashrate by leaving it alone but power usage is optimized by the following settings.
 echo "s 1 1750" > /sys/class/drm/card0/device/pp_od_clk_voltage
 echo "m 1 1200" > /sys/class/drm/card0/device/pp_od_clk_voltage
 
