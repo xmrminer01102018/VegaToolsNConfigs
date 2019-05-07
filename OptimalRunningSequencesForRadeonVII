@@ -1,0 +1,51 @@
+WARNING!!!!!!!
+THE OPTIMIZED SETTING(S) IS/AR WORKING FORM MY SETUP(S).
+IT MAY NOT BE OPTIMIZED FOR YOUR MOTHERBOARD, CPU, RAM, GPU COMBINATION.
+THE XMRMINER01102018 IS NOT RESPONSIBLE FOR ANY DAMAGE THAT MAY HAVE CAUSED BY FOLLOWING THIS GUID.
+USE IT AT YOUR OWN RISK/DISCRETION. PLEASE READ THE WHOLE DOCUMENT FIRST BEFOR DOING ANYTHING.
+
+# For CryptoNight R(CNr) and  V8 ReverseWaltz(CNrwz)
+Tested OS: Ubuntu MATE 18.04.1.
+amdgpu-pro version: 18.50+  (Radeon VII does not work on previous driver versions)
+Examples are for one GPU only.
+
+For Radeon VII
+STEP1:
+./setPPT.sh 0 REFRVIIPPT
+./setAMDGPUFanSpeed.sh -g 0 -s 70
+echo "s 1 1750" > /sys/class/drm/card0/device/pp_od_clk_voltage
+echo "m 1 1200" > /sys/class/drm/card0/device/pp_od_clk_voltage
+
+
+STEP2:
+TeamRedMiner (v0.4.3b+)
+----------------------
+Run the miner
+CNr:
+./teamredminer -a cnr -o stratum+tcp://pool.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0
+CNrwz:
+./teamredminer -a cnv8_rwz -o stratum+tcp://pool.graft.hashvault.pro:7777 -u YOUR_WALLET_ID -p RIG_NAME -d 0
+
+XMRIG-AMD(v2.14.1+)
+------------------
+For both CNr and CNrwz set the algo to auto as follows in config.json file.
+
+"variant": -1,  <-- auto algo
+
+Example config file in VegaToolsNConfigs/config/config.json_RVII
+Configure setting(s) in config.json and start the miner.
+
+GrinPro(v2.0+)
+-------------
+Start the miner.
+
+
+ClaymoreDuelMiner(v12.0)
+------------------------
+Run the miner with 90 C temp limit.
+./ethdcrminer64 -epool  us1.ethermine.org:4444 -ewal YOUR_WALLET_ID.RIG_NAME -epsw RIG_NAME -tt 1 -ttli 90  -logfile /var/log/hashrate.log
+
+PhoenixMiner(v4.2c+)
+--------------------
+Run the miner.
+./PhoenixMiner -pool ssl://us1.ethermine.org:5555 -wal YOUR_WALLET_ID.RIG_NAME -pass YOUR_WALLET_ID.RIG_NAME -tt 1 -logfile /var/log/hashrate.log
