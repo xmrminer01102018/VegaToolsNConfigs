@@ -1,6 +1,6 @@
 5/7/2019
 Added OptimalRunningSequencesForRadeonVII.
-Added config.json_RVII config file in VegaToolsNConfigs/config folder.
+Added config.json_RVII xmrig-amd config file in VegaToolsNConfigs/config folder.
 
 4/23/2019
 Added rig monitoring support for nanominer and GrinPro miner for grin coin(Cuckaroo29).
