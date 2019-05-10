@@ -5,9 +5,10 @@ Ubuntu MATE 18.04.1
 
 # Working amdgpu-pro and ROCm versions:
 
-amdgpu-pro 18.50
+amdgpu-pro 18.50(amdgp1)
+amdgpu-pro-19.10(amdgp2)
 
-ROCm 2.1.0
+ROCm 2.1.0(rocm1)
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
@@ -15,10 +16,12 @@ ROCm 2.1.0
 
 xmrig-amd (Ubuntu) (CNr - Version: 2.14.0)
 
-    amdgpu-pro: 1000 H/s
+    amdgp1: 1000 H/s
+    amdgp2: Testing...
     ROCm: 1100 H/s
 
 xmrig-amd (Ubuntu) (CNrwz - Version: 2.14.0)
 
-    amdgpu-pro: 1350 H/s
+    amdgp1: 1350 H/s
+    amdgp2: 1860 H/s
     ROCm: 1800 H/s
