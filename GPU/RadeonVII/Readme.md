@@ -43,11 +43,11 @@ GrinPro (Ubuntu) (C29 2.0 RC)
 
     RVII: ~5.7 gps
 
-Claymore's Dual GPU Miner (Ubuntu) (v12.0)
+Claymore's Dual GPU Miner (Ubuntu) (ETH v12.0)
 
     RVII: ~89 MH/s
 
-PhoenixMiner (Ubuntu) (v4.2c+)
+PhoenixMiner (Ubuntu) (ETH v4.2c+)
 
     RVII: ~89 MH/s
 
