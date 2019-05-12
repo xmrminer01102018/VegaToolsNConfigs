@@ -32,3 +32,19 @@ xmrig-amd (Ubuntu) (CNrwz - Version: 2.14.0+)
     amdgp2: 1860 H/s
     rocm1: 1800 H/s
     rocm4: 1800 H/s
+
+teamredminer (Ubuntu) (CNr - Version: 0.4.4b)
+
+    amdgp2: 1420 H/s
+    
+teamredminer (Ubuntu) (CNrwz - Version: 0.4.4b)
+
+    amdgp2: 1885 H/s
+    
+claymoreduelminer (Ubuntu) (ETH - Version: 12.0)
+
+    amdgp2: 48.3 Mh/s
+    
+GrinPro (Ubuntu) (C29 - Version: 2.1)
+
+    amdgp2: 4.75 gps
