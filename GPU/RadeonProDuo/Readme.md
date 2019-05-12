@@ -7,7 +7,7 @@ Ubuntu MATE 18.04.1
 
 amdgpu-pro 18.50(amdgp1)
 
-amdgpu-pro-19.10(amdgp2)
+amdgpu-pro 19.10(amdgp2)
 
 ROCm 2.1.0(rocm1)
 
