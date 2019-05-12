@@ -16,7 +16,10 @@ ROCm 2.4.0(rocm4)
 
 # Hash rates and power usage from lm-sensors(Not from wall)
 
-85*2 +/- 10 W (each unit has two gpus)
+CNr/CNrwz: 85*2 +/- 10 W (each unit has two gpus)
+
+Ethash/C29: 97*2 W (each unit has two gpus)
+
 
 xmrig-amd (Ubuntu) (CNr - Version: 2.14.0+)
 
@@ -41,7 +44,7 @@ teamredminer (Ubuntu) (CNrwz - Version: 0.4.4b)
 
     amdgp2: 1885 H/s
     
-Claymore's Dual GPU Miner (Ubuntu) (ETH - Version: 12.0)
+Claymore's Dual GPU Miner (Ubuntu) (Ethash - Version: 12.0)
 
     amdgp2: 48.3 Mh/s
     
