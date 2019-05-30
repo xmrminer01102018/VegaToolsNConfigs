@@ -58,6 +58,9 @@ Update grub:
 # sed -i 's/\(quiet\)/\1 amdgpu.ppfeaturemask=0xffffffff/g' grub
 # cat grub | grep amdgpu 
 # grub2-mkconfig -o /boot/grub2/grub.cfg
+NOTE:If grub2 does not work auto update may have changed it as of 05/2019.  Use grub.
+# grub-mkconfig -o /boot/grub/grub.cfg
+
 
 NOTE: You may use xmr-stak binar(ies) instead of teamreadminer binar(ies).
       As of xmr-stark 2.10.2 invalid resuls are being generated and losing hash rate at the pool.
