@@ -229,10 +229,6 @@ Do update
 # perl -i.bak -npe 's/quiet splash/quiet splash amdgpu.ppfeaturemask=0xffffffff/g' grub
 # cat grub | grep amdgpu 
 # update-grub
-# gru2b-mkconfig -o /boot/grub2/grub.cfg
-NOTE:If grub2 does not work auto update may have changed it as of 05/2019.  Use grub.
-# grub-mkconfig -o /boot/grub/grub.cfg
-
 Add GPUs after powering off
 # poweroff
 
