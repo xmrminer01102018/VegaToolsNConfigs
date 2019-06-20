@@ -92,14 +92,14 @@ For TeamRedMiner, VFE is about 10 W lower.
 
 cast-xmr (Ubuntu) (CNr+ - no longer supported)
 
-TeamRedMiner (Ubuntu, CentOS) (CNr - 0.4.0+ beta)
+TeamRedMiner (Ubuntu, CentOS) (CNr - V0.4.0+ beta)
 
     Vega 56(Hynix): 1800-1900 H/s
     Vega 56(Samsung): 1850-1950 H/s
     Vega 64: 1980-2100 H/s
     Vega FE: 2.1 kH/s
 
-TeamRedMiner (Ubuntu, CentOS) (CNrwz - 0.4.2-0.4.4 beta)
+TeamRedMiner (Ubuntu, CentOS) (CNrwz - V0.4.2-0.4.4 beta)
 
     Vega 56(Hynix): 2450+ H/s
     Vega 56(Samsung): 2450+ H/s
@@ -107,7 +107,7 @@ TeamRedMiner (Ubuntu, CentOS) (CNrwz - 0.4.2-0.4.4 beta)
     Vega FE: 2750+ kH/s
 
 
-xmrig-amd (Ubuntu) (CNr - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
+xmrig-amd (Ubuntu) (CNr - Use V2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
 
     Vega 56(Hynix): 1735 H/s
     Vega 56(Samsung): 1860 H/s
@@ -115,7 +115,7 @@ xmrig-amd (Ubuntu) (CNr - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 us
     Vega FE: 2035 H/s
 
 
-xmrig-amd (Ubuntu) (CNrwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
+xmrig-amd (Ubuntu) (CNrwz - Use V2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 uses 10Watt less power than 2.13.0)
 
     Vega 56(Hynix): 2100 H/s
     Vega 56(Samsung): 2400 H/s
@@ -123,16 +123,25 @@ xmrig-amd (Ubuntu) (CNrwz - Use 2.13.0+ Tested version: 2.13.0, 2.14.0.  2.14.0 
     Vega FE: 2630 H/s
 
 
-xmr-stak (Ubuntu) (CNr - 2.10.0-2.10.5 working with some invalid results for both pre-compiled binaries and native binaries.)
+xmr-stak (Ubuntu) (CNr - V2.10.0-2.10.5 working with some invalid results for both pre-compiled binaries and native binaries.)
 
     Vega 56(Hynix): TBD H/s
     Vega 56(Samsung): TBD H/s
     Vega 64: TBD H/s
     Vega FE: 2000 H/s(miner) 1700 H/s(pool) 300 H/s(Fee+Invalid)
 
-xmr-stak (Ubuntu) (CNrwz - 2.10.0-2.10.5 working with some invalid results for both pre-compiled binaries and native binaries.)
+xmr-stak (Ubuntu) (CNrwz - V2.10.0-2.10.5 working with some invalid results for both pre-compiled binaries and native binaries.)
 
     Vega 56(Hynix): TBD H/s
     Vega 56(Samsung): 2200 H/s(miner) 1800 H/s(pool) 400 H/s(Fee+Invalid)
     Vega 64: TBD H/s
     Vega FE: TBD H/s
+
+GrinPro (Ubuntu) (C29 V2.2)
+
+    Vega 56(Hynix): TBD gps
+    Vega 56(Samsung): TBD gps
+    Vega 64: TBD gps
+    Vega FE: 4.55 gps
+    Vega FE(LC): 4.75 gps
+
