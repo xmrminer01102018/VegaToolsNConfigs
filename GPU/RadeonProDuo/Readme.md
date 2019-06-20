@@ -48,6 +48,6 @@ Claymore's Dual GPU Miner (Ubuntu) (Ethash - Version: 12.0)
 
     amdgp2: 48.3 Mh/s
     
-GrinPro (Ubuntu) (C29 - Version: 2.1)
+GrinPro (Ubuntu) (C29 - Version: 2.1/2.2)
 
-    amdgp2: 4.75 gps
+    amdgp2: 4.75 gps/ 5.0 gps
