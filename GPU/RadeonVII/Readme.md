@@ -8,7 +8,7 @@ Ubuntu MATE 18.04.1
 CNr/CNrwz/C29/Ethash:
 ---------------------
 
-amdgpu-pro 18.50 (Ubuntu)
+amdgpu-pro 19.10 (Ubuntu)
 
 
 # Binary file checksum(s):
