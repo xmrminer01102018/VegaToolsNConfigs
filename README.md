@@ -17,11 +17,16 @@ Crpytonight R and ReverseWaltz:
 
 cast-xmr: development has stopped and CNr and CNrwz will not be supported.
 
-xmrig-amd: Version 2.14.0-2.14.4 work on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50/19.10 with CNr(XMR) and CNrwz(GRAFT).
+xmrig-amd: Version 2.14.0-2.14.4 work on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR) and CNrwz(GRAFT).
+
+xmrig-amd: Version 2.14.0-2.14.4 work on Radeon VII under amdgpu-pro 19.10 with CNr(XMR) and CNrwz(GRAFT).
 
 xmr-stak: Testing version 2.10.0/1/2/3/4/5.(Getting "AMD Invalid Result GPU ID 0" for pre-compiled binaries and native binaries)
 
-teamredminer: Version 0.4.2-0.5.2 beta work on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50/19.10 with CNr(XMR) and CNrwz(GRAFT).
+teamredminer: Version 0.4.2-0.5.2 beta work on ALL VEGA GPUs under amdgpu-pro 18.30/18.40/18.50 with CNr(XMR) and CNrwz(GRAFT).
+
+teamredminer: Version 0.4.2-0.5.2 beta work on Radeon VII under amdgpu-pro 19.10 with CNr(XMR) and 
+CNrwz(GRAFT).
 
 Cryptonight V8:
 
