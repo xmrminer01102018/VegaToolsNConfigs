@@ -8,7 +8,9 @@ import re
 import sys, signal
 import time
 import argparse
+import string
 from os.path import isfile, join
+import re
 
 FNULL = open(os.devnull, 'w')
 XMRIG_AMD_BIN="/root/VegaToolsNConfigs/xmrig-amd.bin"
@@ -81,7 +83,7 @@ def set_ppt_table(n):
 
 
 def run_xmrig(binary, config, log, pid):
-    execute_xmrig_amd_command = binary + " -B -c " + config + " -l " + log
+    execute_xmrig_amd_command = binary + " -S -B --no-color -c " + config + " -l " + log
     args = execute_xmrig_amd_command.split(" ")
     try:
         process = subprocess.Popen(args, stdout=subprocess.PIPE, shell=False, preexec_fn=os.setsid)
@@ -102,20 +104,22 @@ def kill_xmrig(pid):
         print("could not kill pid {}".format(pid))
         raise e
 
-def monitor_xmrig_amd(log):
-    f = subprocess.Popen(['tail','-F', log],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    p = select.poll()
-    p.register(f.stdout)
+def get_last_lines(filename):
+    p = os.popen('tail -n 10 ' + filename).read()
+    ansi_escape = re.compile(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]')
+    p = ansi_escape.sub('', p)
+    lines = p.split('\n')
+    return(lines)
 
-    while True:
-        if p.poll(1):
-            print(f.stdout.readline())
-        time.sleep(1)
+def monitor_xmrig_amd(log):
+    lastlines = get_last_lines(log)
+    print(lastlines[-1])
+
+
 
 # RUNNING THE SCRIPT
 parser = argparse.ArgumentParser(description="Run xmrig, monitor, reboot machine.")
-group = parser.add_mutually_exclusive_group()
+#group = parser.add_mutually_exclusive_group()
 #group.add_argument("-v", "--verbose", action="store_true")
 # parser.add_argument("-n", "--nGPU", required=True, type=str, help="number of GPU cards")
 parser.add_argument("-t", "--threshold", required=True, type=str, help="Hash rate threshold (H/s) for rebooting. Default is 1900 H/s.", default="1900")
@@ -168,9 +172,12 @@ print("Fan return codes {}".format(retcode_fan))
 
 time.sleep(60)
 
-monitor_xmrig_amd(XMRIG_AMD_LOG)
+#monitor_xmrig_amd(XMRIG_AMD_LOG)
 
 print("Group killing AMD pid {}".format(xmrig_amd_pid))
 kill_xmrig(xmrig_amd_pid)
 print("Group killing CPU pid {}".format(xmrig_cpu_pid))
 kill_xmrig(xmrig_cpu_pid)
+
+for i in amd_gpus:
+    retcode_fan.append(set_fan_speed(i, str(15)))
