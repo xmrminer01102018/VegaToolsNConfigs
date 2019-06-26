@@ -3,7 +3,7 @@
 """Run xmrig, monitor, reboot machine."""
 import os
 #from subprocess import call
-import subprocess
+import subprocess, select
 import re
 import sys, signal
 import time
@@ -12,9 +12,11 @@ from os.path import isfile, join
 
 FNULL = open(os.devnull, 'w')
 XMRIG_AMD_BIN="/root/VegaToolsNConfigs/xmrig-amd.bin"
+XMRIG_AMD_PID="/root/VegaToolsNConfigs/xmrig-amd.pid"
 XMRIG_AMD_CONFIG="/root/VegaToolsNConfigs/xmrig-amd.config.json"
 XMRIG_AMD_LOG="/root/VegaToolsNConfigs/xmrig-amd.config.log"
 XMRIG_CPU_BIN="/root/VegaToolsNConfigs/xmrig-cpu.bin"
+XMRIG_CPU_PID="/root/VegaToolsNConfigs/xmrig-cpu.pid"
 XMRIG_CPU_CONFIG="/root/VegaToolsNConfigs/xmrig-cpu.config.json"
 XMRIG_CPU_LOG="/root/VegaToolsNConfigs/xmrig-cpu.config.log"
 SET_FAN_SPEED_BIN='/root/VegaToolsNConfigs/setAMDGPUFanSpeed.sh'
@@ -78,19 +80,20 @@ def set_ppt_table(n):
     return(retcode)
 
 
-def run_xmrig_amd():
-    execute_xmrig_amd_command = XMRIG_AMD_BIN + " -B -c " + XMRIG_AMD_CONFIG + " -l " + XMRIG_AMD_LOG
+def run_xmrig(binary, config, log, pid):
+    execute_xmrig_amd_command = binary + " -B -c " + config + " -l " + log
     args = execute_xmrig_amd_command.split(" ")
-    process = subprocess.Popen(args, stdout=subprocess.PIPE, shell=False, preexec_fn=os.setsid)
-    pid = process.pid
-    return(pid)
-
-def run_xmrig_cpu():
-    execute_xmrig_cpu_command = XMRIG_CPU_BIN + " -B -c " + XMRIG_CPU_CONFIG + " -l " + XMRIG_CPU_LOG
-    args = execute_xmrig_cpu_command.split(" ")
-    process = subprocess.Popen(args, stdout=subprocess.PIPE, shell=False, preexec_fn=os.setsid)
-    pid = process.pid
-    return(pid)
+    try:
+        process = subprocess.Popen(args, stdout=subprocess.PIPE, shell=False, preexec_fn=os.setsid)
+    except OSError as e:
+        raise e
+    try:
+        outpidfile = open(pid, 'w')
+        outpidfile.write(str(process.pid))
+        outpidfile.close()
+    except OSError as e:
+        raise e
+    return(process.pid)
 
 def kill_xmrig(pid):
     try:
@@ -99,8 +102,16 @@ def kill_xmrig(pid):
         print("could not kill pid {}".format(pid))
         raise e
 
-def silence():
-    subprocess.call("setAMDGPUFanSpeed.sh","-g","0,1,2", "-s", "25")
+def monitor_xmrig_amd(log):
+    f = subprocess.Popen(['tail','-F', log],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = select.poll()
+    p.register(f.stdout)
+
+    while True:
+        if p.poll(1):
+            print(f.stdout.readline())
+        time.sleep(1)
 
 # RUNNING THE SCRIPT
 parser = argparse.ArgumentParser(description="Run xmrig, monitor, reboot machine.")
@@ -133,20 +144,33 @@ print("Altering fan speeds and starting XMRIG AMD GPUS..")
 for i in amd_gpus:
     retcode_fan.append(set_fan_speed(i, str(85)))
 print("Fan return codes {}".format(retcode_fan))
-xmrig_amd_pid = run_xmrig_amd()
+
+xmrig_amd_pid = run_xmrig(binary=XMRIG_AMD_BIN,
+        config=XMRIG_AMD_CONFIG,
+        log=XMRIG_AMD_LOG,
+        pid=XMRIG_AMD_PID)
 print("Xmrig AMD pid {}". format(xmrig_amd_pid))
-xmrig_cpu_pid = run_xmrig_cpu()
+
+xmrig_cpu_pid = run_xmrig(binary=XMRIG_CPU_BIN,
+        config=XMRIG_CPU_CONFIG,
+        log=XMRIG_CPU_LOG,
+        pid=XMRIG_CPU_PID)
 print("Xmrig CPU pid {}". format(xmrig_cpu_pid))
+
 time.sleep(40)
+
+print("Altering PPT tables..")
 for i in amd_gpus:
     retcode_ppt.append(set_ppt_table(i))
     retcode_fan.append(set_fan_speed(i, str(85)))
 print("PPT return codes {}".format(retcode_ppt))
 print("Fan return codes {}".format(retcode_fan))
+
 time.sleep(60)
+
+monitor_xmrig_amd(XMRIG_AMD_LOG)
+
 print("Group killing AMD pid {}".format(xmrig_amd_pid))
 kill_xmrig(xmrig_amd_pid)
 print("Group killing CPU pid {}".format(xmrig_cpu_pid))
 kill_xmrig(xmrig_cpu_pid)
-for i in amd_gpus:
-    set_fan_speed(i, str(25))
