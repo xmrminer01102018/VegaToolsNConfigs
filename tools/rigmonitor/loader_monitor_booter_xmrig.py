@@ -18,6 +18,7 @@ LOG = open('/root/VegaToolsNConfigs/loader_monitor_booter.log', 'w')
 XMRIG_AMD_BIN="/root/VegaToolsNConfigs/xmrig-amd.bin"
 XMRIG_AMD_PID="/root/VegaToolsNConfigs/xmrig-amd.pid"
 XMRIG_AMD_CONFIG="/root/VegaToolsNConfigs/xmrig-amd.config.json"
+# TO DO : REMOVE LOG FILES BEFORE STARTING
 XMRIG_AMD_LOG="/root/VegaToolsNConfigs/xmrig-amd.config.log"
 XMRIG_CPU_BIN="/root/VegaToolsNConfigs/xmrig-cpu.bin"
 XMRIG_CPU_PID="/root/VegaToolsNConfigs/xmrig-cpu.pid"
@@ -139,7 +140,7 @@ def get_time_and_speeds(lastlines):
 def reboot(time_speeds:list):
     print('TimeStarted: {:%Y-%m-%d %H:%M:%S}'.format(TIME_STARTED))
     print('Datetime: {:%Y-%m-%d %H:%M:%S}'.format(time_speeds[0]))
-    elapsed_minutes = (datetime_obj - TIME_STARTED).days * 24 * 60
+    elapsed_minutes = (time_speeds[0] - TIME_STARTED).days * 24 * 60
     print('Elapsed minutes: {}'.format(elapsed_minutes))
     if elapsed_minutes < 20:
         return 0
@@ -169,26 +170,26 @@ def monitor_xmrig_amd(log, amd_pid, cpu_pid):
         cicles += 1 # each cicle is 2 min
         print("Cicle number {}:".format(cicles))
         print("Sleeping for {}:".format(sleeptime))
-        LOG.write("Cicle number {}:".format(cicles))
-        LOG.write("Sleeping for {}:".format(sleeptime))
+        LOG.write("Cicle number {}:" + str(cicles) + "\n")
+        LOG.write("Sleeping for {}:" + str(sleeptime) + "\n")
         time.sleep(sleeptime)
         lastlines = get_last_lines(log)
         time_speeds = get_time_and_speeds(lastlines)
         if time_speeds is not None:
             print("Time and speeds:{}".format(time_speeds))
-            LOG.write("Time and speeds:{}".format(time_speeds))
+            LOG.write("Time and speeds " + str(time_speeds) + "\n")
 
             ## will reboot every 3 hours anyways....
             if reboot(time_speeds) or (cicles > 90):
                 print("Got a reboot signal. Rebooting because you said so...")
-                LOG.write("Got a reboot signal. Rebooting because you said so...")
+                LOG.write("Got a reboot signal. Rebooting because you said so..." + "\n")
                 LOG.close()
                 FNULL.close()
                 terminate(amd_pid, cpu_pid)
                 #os.system('reboot')
         else:
             print("Could not get time and speeds, rebooting...")
-            LOG.write("Could not get time and speeds, rebooting...")
+            LOG.write("Could not get time and speeds, rebooting..."+ "\n")
             terminate(amd_pid, cpu_pid)
             LOG.close()
             FNULL.close()
@@ -220,34 +221,34 @@ except OSError as e:
 print("done.")
 
 print("Getting number of AMD GPU cards available... ")
-LOG.write("Getting number of AMD GPU cards available... ")
+LOG.write("Getting number of AMD GPU cards available... "+ "\n")
 amd_gpus = get_amd_gpus()
 print("done.")
-LOG.write("done.")
+LOG.write("done."+ "\n")
 
 print("Altering fan speeds and starting XMRIG AMD GPUS..")
 LOG.write("Altering fan speeds and starting XMRIG AMD GPUS..")
 for i in amd_gpus:
     retcode_fan.append(set_fan_speed(i, str(85)))
 print("Fan return codes {}".format(retcode_fan))
-LOG.write("Fan return codes {}".format(retcode_fan))
+LOG.write("Fan return codes " + str(retcode_fan) + "\n")
 
 xmrig_amd_pid = run_xmrig(binary=XMRIG_AMD_BIN,
         config=XMRIG_AMD_CONFIG,
         log=XMRIG_AMD_LOG,
         pid=XMRIG_AMD_PID)
 print("Xmrig AMD pid {}". format(xmrig_amd_pid))
-LOG.write("Xmrig AMD pid {}". format(xmrig_amd_pid))
+LOG.write("Xmrig AMD pid " + str(xmrig_amd_pid) + "\n")
 
 xmrig_cpu_pid = run_xmrig(binary=XMRIG_CPU_BIN,
         config=XMRIG_CPU_CONFIG,
         log=XMRIG_CPU_LOG,
         pid=XMRIG_CPU_PID)
 print("Xmrig CPU pid {}". format(xmrig_cpu_pid))
-LOG.write("Xmrig CPU pid {}". format(xmrig_cpu_pid))
+LOG.write("Xmrig CPU pid " + str(xmrig_cpu_pid) + "\n")
 
 print("Sleeping for {}s".format(str(40)))
-LOG.write("Sleeping for {}s".format(str(40)))
+LOG.write("Sleeping for " + str(40) + "\n")
 time.sleep(40)
 
 print("Altering PPT tables..")
@@ -256,12 +257,12 @@ for i in amd_gpus:
     retcode_ppt.append(set_ppt_table(i))
     retcode_fan.append(set_fan_speed(i, str(85)))
 print("PPT return codes {}".format(retcode_ppt))
-LOG.write("PPT return codes {}".format(retcode_ppt))
+LOG.write("PPT return codes " + str(retcode_ppt))
 print("Fan return codes {}".format(retcode_fan))
-LOG.write("Fan return codes {}".format(retcode_fan))
+LOG.write("Fan return codes " + str(retcode_fan))
 
 print("Sleeping for {}s".format(str(120)))
-LOG.write("Sleeping for {}s".format(str(120)))
+LOG.write("Sleeping for " + str(120))
 time.sleep(120)
 
 print("Started monitoring...")
