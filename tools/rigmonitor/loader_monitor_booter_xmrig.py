@@ -14,6 +14,7 @@ import re
 import time, datetime
 
 FNULL = open(os.devnull, 'w')
+LOG = open('/root/VegaToolsNConfigs/loader_monitor_booter.log', 'w')
 XMRIG_AMD_BIN="/root/VegaToolsNConfigs/xmrig-amd.bin"
 XMRIG_AMD_PID="/root/VegaToolsNConfigs/xmrig-amd.pid"
 XMRIG_AMD_CONFIG="/root/VegaToolsNConfigs/xmrig-amd.config.json"
@@ -106,7 +107,7 @@ def kill_xmrig(pid):
         raise e
 
 def get_last_lines(filename):
-    p = os.popen('tail -n 10 ' + filename).read()
+    p = os.popen('tail -n 15 ' + filename).read()
     ansi_escape = re.compile(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]')
     p = ansi_escape.sub('', p)
     lines = p.split('\n')
@@ -140,13 +141,12 @@ def reboot(time_speeds:list):
     print('Datetime: {:%Y-%m-%d %H:%M:%S}'.format(time_speeds[0]))
     elapsed_minutes = (datetime_obj - TIME_STARTED).days * 24 * 60
     print('Elapsed minutes: {}'.format(elapsed_minutes))
-    if elapsed_minutes < 15:
+    if elapsed_minutes < 20:
         return 0
     else:
+        # if 15m == n/a means rig is not working for 15 min straight
         if time_speeds[3] == 'n/a':
             return 1
-    #elapsed_hours = (datetime_obj - TIME_STARTED).days * 24
-    #print('Elapsed hours: {}'.format(elapsed_hours))
 
 def terminate(amd_pid, cpu_pid):
     os.kill(int(amd_pid), signal.SIGTERM)
@@ -157,35 +157,43 @@ def terminate(amd_pid, cpu_pid):
        #raise Exception("""wasn't able to kill the process 
        #                   HINT:use signal.SIGKILL or signal.SIGABORT""")
        return 0
-   except OSError as ex:
+    except OSError as e:
+       print(e)
        return 1
     
-def monitor_xmrig_amd(log):
+def monitor_xmrig_amd(log, amd_pid, cpu_pid):
     running = 1
     sleeptime = 120
     cicles = 0
-    nonstop_times = ['0', '0', '0']
     while running:
         cicles += 1 # each cicle is 2 min
+        print("Cicle number {}:".format(cicles))
+        print("Sleeping for {}:".format(sleeptime))
+        LOG.write("Cicle number {}:".format(cicles))
+        LOG.write("Sleeping for {}:".format(sleeptime))
         time.sleep(sleeptime)
         lastlines = get_last_lines(log)
         time_speeds = get_time_and_speeds(lastlines)
-        if time_speeds not None:
-            if reboot(time_speeds) or (cicles == 90):
-               #erminate(XMRIG_AMD_PID, XMRIG_CPU_PID)
-               # os.system('reboot')
+        if time_speeds is not None:
+            print("Time and speeds:{}".format(time_speeds))
+            LOG.write("Time and speeds:{}".format(time_speeds))
+
+            ## will reboot every 3 hours anyways....
+            if reboot(time_speeds) or (cicles > 90):
+                print("Got a reboot signal. Rebooting because you said so...")
+                LOG.write("Got a reboot signal. Rebooting because you said so...")
+                LOG.close()
+                FNULL.close()
+                terminate(amd_pid, cpu_pid)
+                #os.system('reboot')
         else:
-               terminate(XMRIG_AMD_PID, XMRIG_CPU_PID)
-               running = 0
-               # os.system('reboot')
-            
-
-
-                
-
-
-
-
+            print("Could not get time and speeds, rebooting...")
+            LOG.write("Could not get time and speeds, rebooting...")
+            terminate(amd_pid, cpu_pid)
+            LOG.close()
+            FNULL.close()
+            running = 0
+            #os.system('reboot')
 
 # RUNNING THE SCRIPT
 parser = argparse.ArgumentParser(description="Run xmrig, monitor, reboot machine.")
@@ -200,6 +208,7 @@ retcode_ppt = []
 xmrig_amd_pid = 0
 xmrig_cpu_pid = 0
 print("Checking files ... ")
+LOG.write("Checking files ... ")
 try:
     validate(XMRIG_AMD_BIN)
     validate(XMRIG_AMD_CONFIG)
@@ -211,38 +220,53 @@ except OSError as e:
 print("done.")
 
 print("Getting number of AMD GPU cards available... ")
+LOG.write("Getting number of AMD GPU cards available... ")
 amd_gpus = get_amd_gpus()
 print("done.")
+LOG.write("done.")
 
 print("Altering fan speeds and starting XMRIG AMD GPUS..")
+LOG.write("Altering fan speeds and starting XMRIG AMD GPUS..")
 for i in amd_gpus:
     retcode_fan.append(set_fan_speed(i, str(85)))
 print("Fan return codes {}".format(retcode_fan))
+LOG.write("Fan return codes {}".format(retcode_fan))
 
 xmrig_amd_pid = run_xmrig(binary=XMRIG_AMD_BIN,
         config=XMRIG_AMD_CONFIG,
         log=XMRIG_AMD_LOG,
         pid=XMRIG_AMD_PID)
 print("Xmrig AMD pid {}". format(xmrig_amd_pid))
+LOG.write("Xmrig AMD pid {}". format(xmrig_amd_pid))
 
 xmrig_cpu_pid = run_xmrig(binary=XMRIG_CPU_BIN,
         config=XMRIG_CPU_CONFIG,
         log=XMRIG_CPU_LOG,
         pid=XMRIG_CPU_PID)
 print("Xmrig CPU pid {}". format(xmrig_cpu_pid))
+LOG.write("Xmrig CPU pid {}". format(xmrig_cpu_pid))
 
+print("Sleeping for {}s".format(str(40)))
+LOG.write("Sleeping for {}s".format(str(40)))
 time.sleep(40)
 
 print("Altering PPT tables..")
+LOG.write("Altering PPT tables..")
 for i in amd_gpus:
     retcode_ppt.append(set_ppt_table(i))
     retcode_fan.append(set_fan_speed(i, str(85)))
 print("PPT return codes {}".format(retcode_ppt))
+LOG.write("PPT return codes {}".format(retcode_ppt))
 print("Fan return codes {}".format(retcode_fan))
+LOG.write("Fan return codes {}".format(retcode_fan))
 
-time.sleep(60)
+print("Sleeping for {}s".format(str(120)))
+LOG.write("Sleeping for {}s".format(str(120)))
+time.sleep(120)
 
-monitor_xmrig_amd(XMRIG_AMD_LOG)
+print("Started monitoring...")
+LOG.write("Started monitoring...")
+monitor_xmrig_amd(XMRIG_AMD_LOG, xmrig_amd_pid, xmrig_cpu_pid)
 
 print("Group killing AMD pid {}".format(xmrig_amd_pid))
 kill_xmrig(xmrig_amd_pid)
@@ -251,3 +275,5 @@ kill_xmrig(xmrig_cpu_pid)
 
 for i in amd_gpus:
     retcode_fan.append(set_fan_speed(i, str(15)))
+LOG.close()
+FNULL.close()
