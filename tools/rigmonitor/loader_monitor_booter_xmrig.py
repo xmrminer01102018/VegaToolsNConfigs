@@ -12,6 +12,7 @@ import string
 from os.path import isfile, join
 import re
 import time, datetime
+import logging
 
 FNULL = open(os.devnull, 'w')
 LOG = open('/root/VegaToolsNConfigs/loader_monitor_booter.log', 'w')
@@ -28,6 +29,12 @@ SET_FAN_SPEED_BIN='/root/VegaToolsNConfigs/setAMDGPUFanSpeed.sh'
 SET_PPT_BIN='/root/VegaToolsNConfigs/setPPT.sh'
 PPT='/root/VegaToolsNConfigs/V56GIG1'
 TIME_STARTED=datetime.datetime.now()
+
+def remove_log(log):
+    try:
+        os.remove(log)
+    except IOError as e:
+        print(e)
 
 def validate(file_path: str) -> None:
     """Invoke all validations."""
@@ -137,16 +144,17 @@ def get_time_and_speeds(lastlines):
     else:
         return(None)
 
-def reboot(time_speeds:list):
+def reboot(time_speeds:list, threshold):
     print('TimeStarted: {:%Y-%m-%d %H:%M:%S}'.format(TIME_STARTED))
     print('Datetime: {:%Y-%m-%d %H:%M:%S}'.format(time_speeds[0]))
-    elapsed_minutes = (time_speeds[0] - TIME_STARTED).days * 24 * 60
+    time_subtracted = time_speeds[0] - TIME_STARTED
+    elapsed_minutes = divmod(time_subtracted.days * 86400 + time_subtracted.seconds, 60)[0]
     print('Elapsed minutes: {}'.format(elapsed_minutes))
     if elapsed_minutes < 20:
         return 0
     else:
         # if 15m == n/a means rig is not working for 15 min straight
-        if time_speeds[3] == 'n/a':
+        if time_speeds[3] == 'n/a' or time_speeds[3]<threshold:
             return 1
 
 def terminate(amd_pid, cpu_pid):
@@ -162,7 +170,7 @@ def terminate(amd_pid, cpu_pid):
        print(e)
        return 1
     
-def monitor_xmrig_amd(log, amd_pid, cpu_pid):
+def monitor_xmrig_amd(log, amd_pid, cpu_pid, threshold):
     running = 1
     sleeptime = 120
     cicles = 0
@@ -180,7 +188,7 @@ def monitor_xmrig_amd(log, amd_pid, cpu_pid):
             LOG.write("Time and speeds " + str(time_speeds) + "\n")
 
             ## will reboot every 3 hours anyways....
-            if reboot(time_speeds) or (cicles > 90):
+            if reboot(time_speeds, threshold) or (cicles > 90):
                 print("Got a reboot signal. Rebooting because you said so...")
                 LOG.write("Got a reboot signal. Rebooting because you said so..." + "\n")
                 LOG.close()
@@ -208,6 +216,8 @@ retcode_fan = []
 retcode_ppt = []
 xmrig_amd_pid = 0
 xmrig_cpu_pid = 0
+
+print("Threshold is {}".format(args.threshold))
 print("Checking files ... ")
 LOG.write("Checking files ... ")
 try:
@@ -218,6 +228,11 @@ try:
     validate(SET_FAN_SPEED_BIN)
 except OSError as e:
     raise e
+print("done.")
+
+print("Removing LOGs...")
+remove_log(XMRIG_AMD_LOG)
+remove_log(XMRIG_CPU_LOG)
 print("done.")
 
 print("Getting number of AMD GPU cards available... ")
@@ -267,7 +282,7 @@ time.sleep(120)
 
 print("Started monitoring...")
 LOG.write("Started monitoring...")
-monitor_xmrig_amd(XMRIG_AMD_LOG, xmrig_amd_pid, xmrig_cpu_pid)
+monitor_xmrig_amd(XMRIG_AMD_LOG, xmrig_amd_pid, xmrig_cpu_pid, args.threshold)
 
 print("Group killing AMD pid {}".format(xmrig_amd_pid))
 kill_xmrig(xmrig_amd_pid)
