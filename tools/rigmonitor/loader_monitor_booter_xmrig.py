@@ -138,7 +138,7 @@ def get_time_and_speeds(lastlines):
             speed_10 = search.group(2)
             speed_60 = search.group(3)
             speed_15m = search.group(4)
-            print("speed_10:{} speed_60:{} speed_15m:{}".format(speed_10, speed_60, speed_15m))
+            print("speed_10: {} speed_60: {} speed_15m: {}".format(speed_10, speed_60, speed_15m))
     if datetime_obj and speed_10 and speed_60 and speed_15m:
         return([datetime_obj, speed_10, speed_60, speed_15m])
     else:
@@ -156,6 +156,8 @@ def reboot(time_speeds:list, threshold):
         # if 15m == n/a means rig is not working for 15 min straight
         if time_speeds[3] == 'n/a' or time_speeds[3]<threshold:
             return 1
+        else:
+            return 0
 
 def terminate(amd_pid, cpu_pid):
     os.kill(int(amd_pid), signal.SIGTERM)
@@ -184,17 +186,18 @@ def monitor_xmrig_amd(log, amd_pid, cpu_pid, threshold):
         lastlines = get_last_lines(log)
         time_speeds = get_time_and_speeds(lastlines)
         if time_speeds is not None:
-            print("Time and speeds:{}".format(time_speeds))
+            # print("Time and speeds:{}".format(time_speeds))
             LOG.write("Time and speeds " + str(time_speeds) + "\n")
 
-            ## will reboot every 3 hours anyways....
-            if reboot(time_speeds, threshold) or (cicles > 90):
+            ## will reboot every 4 hours anyways....
+            if reboot(time_speeds, threshold) or (cicles > 120):
                 print("Got a reboot signal. Rebooting because you said so...")
                 LOG.write("Got a reboot signal. Rebooting because you said so..." + "\n")
+                terminate(amd_pid, cpu_pid)
                 LOG.close()
                 FNULL.close()
-                terminate(amd_pid, cpu_pid)
-                #os.system('reboot')
+                running = 0
+                os.system('reboot')
         else:
             print("Could not get time and speeds, rebooting...")
             LOG.write("Could not get time and speeds, rebooting..."+ "\n")
@@ -202,7 +205,7 @@ def monitor_xmrig_amd(log, amd_pid, cpu_pid, threshold):
             LOG.close()
             FNULL.close()
             running = 0
-            #os.system('reboot')
+            os.system('reboot')
 
 # RUNNING THE SCRIPT
 parser = argparse.ArgumentParser(description="Run xmrig, monitor, reboot machine.")
@@ -289,7 +292,7 @@ kill_xmrig(xmrig_amd_pid)
 print("Group killing CPU pid {}".format(xmrig_cpu_pid))
 kill_xmrig(xmrig_cpu_pid)
 
-for i in amd_gpus:
-    retcode_fan.append(set_fan_speed(i, str(15)))
+#for i in amd_gpus:
+#    retcode_fan.append(set_fan_speed(i, str(15)))
 LOG.close()
 FNULL.close()
