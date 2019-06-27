@@ -11,6 +11,7 @@ import argparse
 import string
 from os.path import isfile, join
 import re
+import time, datetime
 
 FNULL = open(os.devnull, 'w')
 XMRIG_AMD_BIN="/root/VegaToolsNConfigs/xmrig-amd.bin"
@@ -24,7 +25,7 @@ XMRIG_CPU_LOG="/root/VegaToolsNConfigs/xmrig-cpu.config.log"
 SET_FAN_SPEED_BIN='/root/VegaToolsNConfigs/setAMDGPUFanSpeed.sh'
 SET_PPT_BIN='/root/VegaToolsNConfigs/setPPT.sh'
 PPT='/root/VegaToolsNConfigs/V56GIG1'
-
+TIME_STARTED=datetime.datetime.now()
 
 def validate(file_path: str) -> None:
     """Invoke all validations."""
@@ -111,9 +112,78 @@ def get_last_lines(filename):
     lines = p.split('\n')
     return(lines)
 
+def get_time_and_speeds(lastlines):
+    # TO DO - read list from last to first
+    for line in lastlines:
+        search = re.search('\[(.*?)\]\s+speed\s+10s\/60s\/15m\s+(\S+)\s+(\S+)\s+(\S+)\s+H\/s\s+max\s+(\S+)\s+H\/s',
+                line)
+        if search:
+            timeline = search.group(1)
+            datetime_obj = datetime.datetime.strptime(timeline, '%Y-%m-%d %H:%M:%S')
+            #print('TimeStarted: {:%Y-%m-%d %H:%M:%S}'.format(TIME_STARTED))
+            print('Datetime: {:%Y-%m-%d %H:%M:%S}'.format(datetime_obj))
+            #elapsed_minutes = (datetime_obj - TIME_STARTED).days * 24 * 60
+            #elapsed_hours = (datetime_obj - TIME_STARTED).days * 24
+            #print('Elapsed minutes: {}'.format(elapsed_minutes))
+            #print('Elapsed hours: {}'.format(elapsed_hours))
+            speed_10 = search.group(2)
+            speed_60 = search.group(3)
+            speed_15m = search.group(4)
+            print("speed_10:{} speed_60:{} speed_15m:{}".format(speed_10, speed_60, speed_15m))
+    if datetime_obj and speed_10 and speed_60 and speed_15m:
+        return([datetime_obj, speed_10, speed_60, speed_15m])
+    else:
+        return(None)
+
+def reboot(time_speeds:list):
+    print('TimeStarted: {:%Y-%m-%d %H:%M:%S}'.format(TIME_STARTED))
+    print('Datetime: {:%Y-%m-%d %H:%M:%S}'.format(time_speeds[0]))
+    elapsed_minutes = (datetime_obj - TIME_STARTED).days * 24 * 60
+    print('Elapsed minutes: {}'.format(elapsed_minutes))
+    if elapsed_minutes < 15:
+        return 0
+    else:
+        if time_speeds[3] == 'n/a':
+            return 1
+    #elapsed_hours = (datetime_obj - TIME_STARTED).days * 24
+    #print('Elapsed hours: {}'.format(elapsed_hours))
+
+def terminate(amd_pid, cpu_pid):
+    os.kill(int(amd_pid), signal.SIGTERM)
+    os.kill(int(cpu_pid), signal.SIGTERM)
+    try: 
+       os.kill(int(amd_pid), 0)
+       os.kill(int(cpu_pid), 0)
+       #raise Exception("""wasn't able to kill the process 
+       #                   HINT:use signal.SIGKILL or signal.SIGABORT""")
+       return 0
+   except OSError as ex:
+       return 1
+    
 def monitor_xmrig_amd(log):
-    lastlines = get_last_lines(log)
-    print(lastlines[-1])
+    running = 1
+    sleeptime = 120
+    cicles = 0
+    nonstop_times = ['0', '0', '0']
+    while running:
+        cicles += 1 # each cicle is 2 min
+        time.sleep(sleeptime)
+        lastlines = get_last_lines(log)
+        time_speeds = get_time_and_speeds(lastlines)
+        if time_speeds not None:
+            if reboot(time_speeds) or (cicles == 90):
+               #erminate(XMRIG_AMD_PID, XMRIG_CPU_PID)
+               # os.system('reboot')
+        else:
+               terminate(XMRIG_AMD_PID, XMRIG_CPU_PID)
+               running = 0
+               # os.system('reboot')
+            
+
+
+                
+
+
 
 
 
@@ -172,7 +242,7 @@ print("Fan return codes {}".format(retcode_fan))
 
 time.sleep(60)
 
-#monitor_xmrig_amd(XMRIG_AMD_LOG)
+monitor_xmrig_amd(XMRIG_AMD_LOG)
 
 print("Group killing AMD pid {}".format(xmrig_amd_pid))
 kill_xmrig(xmrig_amd_pid)
