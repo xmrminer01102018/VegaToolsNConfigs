@@ -15,11 +15,11 @@ import time, datetime
 import logging
 
 FNULL = open(os.devnull, 'w')
-LOG = open('/root/VegaToolsNConfigs/loader_monitor_booter.log', 'w')
+WORKING_DIR = '/root/VegaToolsNConfigs'
+LOG = '/root/VegaToolsNConfigs/loader_monitor_booter.log'
 XMRIG_AMD_BIN="/root/VegaToolsNConfigs/xmrig-amd.bin"
 XMRIG_AMD_PID="/root/VegaToolsNConfigs/xmrig-amd.pid"
 XMRIG_AMD_CONFIG="/root/VegaToolsNConfigs/xmrig-amd.config.json"
-# TO DO : REMOVE LOG FILES BEFORE STARTING
 XMRIG_AMD_LOG="/root/VegaToolsNConfigs/xmrig-amd.config.log"
 XMRIG_CPU_BIN="/root/VegaToolsNConfigs/xmrig-cpu.bin"
 XMRIG_CPU_PID="/root/VegaToolsNConfigs/xmrig-cpu.pid"
@@ -93,25 +93,20 @@ def set_ppt_table(n):
 
 
 def run_xmrig(binary, config, log, pid):
-    execute_xmrig_amd_command = binary + " -S -B --no-color -c " + config + " -l " + log
+    execute_xmrig_amd_command = binary + " -B -S --no-color -c " + config + " -l " + log
     args = execute_xmrig_amd_command.split(" ")
     try:
         process = subprocess.Popen(args, stdout=subprocess.PIPE, shell=False, preexec_fn=os.setsid)
     except OSError as e:
         raise e
-    try:
-        outpidfile = open(pid, 'w')
-        outpidfile.write(str(process.pid))
-        outpidfile.close()
-    except OSError as e:
-        raise e
     return(process.pid)
 
-def kill_xmrig(pid):
+def condemn_process(pid, pidfile):
     try:
-        os.killpg(os.getpgid(int(pid)), signal.SIGTERM)
+        outpidfile = open(pidfile, 'w')
+        outpidfile.write(str(pid))
+        outpidfile.close()
     except OSError as e:
-        print("could not kill pid {}".format(pid))
         raise e
 
 def get_last_lines(filename):
@@ -129,16 +124,13 @@ def get_time_and_speeds(lastlines):
         if search:
             timeline = search.group(1)
             datetime_obj = datetime.datetime.strptime(timeline, '%Y-%m-%d %H:%M:%S')
-            #print('TimeStarted: {:%Y-%m-%d %H:%M:%S}'.format(TIME_STARTED))
+            logging.info('Datetime: ' + str(datetime_obj))
             print('Datetime: {:%Y-%m-%d %H:%M:%S}'.format(datetime_obj))
-            #elapsed_minutes = (datetime_obj - TIME_STARTED).days * 24 * 60
-            #elapsed_hours = (datetime_obj - TIME_STARTED).days * 24
-            #print('Elapsed minutes: {}'.format(elapsed_minutes))
-            #print('Elapsed hours: {}'.format(elapsed_hours))
             speed_10 = search.group(2)
             speed_60 = search.group(3)
             speed_15m = search.group(4)
             print("speed_10: {} speed_60: {} speed_15m: {}".format(speed_10, speed_60, speed_15m))
+            logging.info("speed_10:" + speed_10 + " speed_60:" + speed_60 + " speed_15m:" + speed_15m)
     if datetime_obj and speed_10 and speed_60 and speed_15m:
         return([datetime_obj, speed_10, speed_60, speed_15m])
     else:
@@ -159,53 +151,46 @@ def reboot(time_speeds:list, threshold):
         else:
             return 0
 
-def terminate(amd_pid, cpu_pid):
-    os.kill(int(amd_pid), signal.SIGTERM)
-    os.kill(int(cpu_pid), signal.SIGTERM)
-    try: 
-       os.kill(int(amd_pid), 0)
-       os.kill(int(cpu_pid), 0)
-       #raise Exception("""wasn't able to kill the process 
-       #                   HINT:use signal.SIGKILL or signal.SIGABORT""")
-       return 0
-    except OSError as e:
-       print(e)
-       return 1
+def terminate(pid):
+    logging.info("Terminating XMRIG pid: " + str(pid))
+    print("Terminating XMRIG PID:{} ".format(pid))
+    os.killpg(os.getpgid(pid), signal.SIGTERM)
+    #os.kill(int(amd_pid), signal.SIGKILL)
+    #os.kill(int(cpu_pid), signal.SIGKILL)
     
 def monitor_xmrig_amd(log, amd_pid, cpu_pid, threshold):
     running = 1
-    sleeptime = 120
+    sleeptime = 20
+    #sleeptime = 120
     cicles = 0
     while running:
         cicles += 1 # each cicle is 2 min
         print("Cicle number {}:".format(cicles))
         print("Sleeping for {}:".format(sleeptime))
-        LOG.write("Cicle number {}:" + str(cicles) + "\n")
-        LOG.write("Sleeping for {}:" + str(sleeptime) + "\n")
+        logging.info("Cicle number {}:" + str(cicles))
+        logging.info("Sleeping for {}:" + str(sleeptime))
         time.sleep(sleeptime)
         lastlines = get_last_lines(log)
         time_speeds = get_time_and_speeds(lastlines)
         if time_speeds is not None:
-            # print("Time and speeds:{}".format(time_speeds))
-            LOG.write("Time and speeds " + str(time_speeds) + "\n")
+            logging.info("Time and speeds " + str(time_speeds))
 
             ## will reboot every 4 hours anyways....
             if reboot(time_speeds, threshold) or (cicles > 120):
                 print("Got a reboot signal. Rebooting because you said so...")
-                LOG.write("Got a reboot signal. Rebooting because you said so..." + "\n")
-                terminate(amd_pid, cpu_pid)
-                LOG.close()
+                logging.info("Got a reboot signal. Rebooting because you said so...")
+                condemn_process(amd_pid, XMRIG_AMD_PID)
+                condemn_process(cpu_pid, XMRIG_CPU_PID)
+                logging.info("Done.")
                 FNULL.close()
                 running = 0
-                os.system('reboot')
         else:
             print("Could not get time and speeds, rebooting...")
-            LOG.write("Could not get time and speeds, rebooting..."+ "\n")
-            terminate(amd_pid, cpu_pid)
-            LOG.close()
-            FNULL.close()
+            logging.info("Could not get time and speeds, rebooting...")
+            condemn_process(amd_pid, XMRIG_AMD_PID)
+            condemn_process(cpu_pid, XMRIG_CPU_PID)
             running = 0
-            os.system('reboot')
+
 
 # RUNNING THE SCRIPT
 parser = argparse.ArgumentParser(description="Run xmrig, monitor, reboot machine.")
@@ -220,9 +205,19 @@ retcode_ppt = []
 xmrig_amd_pid = 0
 xmrig_cpu_pid = 0
 
+logging.basicConfig(filename=LOG, format='%(asctime)s - %(message)s', level=logging.INFO)
+logging.info('Started.')
+
+
+logging.info("Changing directory ... ")
+os.chdir(WORKING_DIR )
+dir_now = os.getcwd()
+print("Current mining dir : {}".format(os.getcwd()))
+logging.info("Current mining dir :" + dir_now)
+
 print("Threshold is {}".format(args.threshold))
 print("Checking files ... ")
-LOG.write("Checking files ... ")
+logging.info("Checking files ... ")
 try:
     validate(XMRIG_AMD_BIN)
     validate(XMRIG_AMD_CONFIG)
@@ -231,6 +226,12 @@ try:
     validate(SET_FAN_SPEED_BIN)
 except OSError as e:
     raise e
+logging.info("done.")
+print("done.")
+
+print("Removing PIDFILES...")
+remove_log(XMRIG_AMD_PID)
+remove_log(XMRIG_CPU_PID)
 print("done.")
 
 print("Removing LOGs...")
@@ -238,61 +239,58 @@ remove_log(XMRIG_AMD_LOG)
 remove_log(XMRIG_CPU_LOG)
 print("done.")
 
+print("Waiting for boot to complete. Sleeping for {}s".format(str(40)))
+logging.info("Waiting for boot to complete. Sleeping for " + str(20))
+time.sleep(20)
+
 print("Getting number of AMD GPU cards available... ")
-LOG.write("Getting number of AMD GPU cards available... "+ "\n")
+logging.info("Getting number of AMD GPU cards available... ")
 amd_gpus = get_amd_gpus()
 print("done.")
-LOG.write("done."+ "\n")
+logging.info("done.")
 
 print("Altering fan speeds and starting XMRIG AMD GPUS..")
-LOG.write("Altering fan speeds and starting XMRIG AMD GPUS..")
+logging.info("Altering fan speeds and starting XMRIG AMD GPUS..")
 for i in amd_gpus:
     retcode_fan.append(set_fan_speed(i, str(85)))
 print("Fan return codes {}".format(retcode_fan))
-LOG.write("Fan return codes " + str(retcode_fan) + "\n")
+logging.info("Fan return codes " + str(retcode_fan))
 
 xmrig_amd_pid = run_xmrig(binary=XMRIG_AMD_BIN,
         config=XMRIG_AMD_CONFIG,
         log=XMRIG_AMD_LOG,
         pid=XMRIG_AMD_PID)
 print("Xmrig AMD pid {}". format(xmrig_amd_pid))
-LOG.write("Xmrig AMD pid " + str(xmrig_amd_pid) + "\n")
+logging.info("Xmrig AMD pid " + str(xmrig_amd_pid))
 
 xmrig_cpu_pid = run_xmrig(binary=XMRIG_CPU_BIN,
         config=XMRIG_CPU_CONFIG,
         log=XMRIG_CPU_LOG,
         pid=XMRIG_CPU_PID)
 print("Xmrig CPU pid {}". format(xmrig_cpu_pid))
-LOG.write("Xmrig CPU pid " + str(xmrig_cpu_pid) + "\n")
+logging.info("Xmrig CPU pid " + str(xmrig_cpu_pid))
 
 print("Sleeping for {}s".format(str(40)))
-LOG.write("Sleeping for " + str(40) + "\n")
+logging.info("Sleeping for " + str(40))
 time.sleep(40)
 
 print("Altering PPT tables..")
-LOG.write("Altering PPT tables..")
+logging.info("Altering PPT tables..")
 for i in amd_gpus:
     retcode_ppt.append(set_ppt_table(i))
     retcode_fan.append(set_fan_speed(i, str(85)))
 print("PPT return codes {}".format(retcode_ppt))
-LOG.write("PPT return codes " + str(retcode_ppt))
+logging.info("PPT return codes " + str(retcode_ppt))
 print("Fan return codes {}".format(retcode_fan))
-LOG.write("Fan return codes " + str(retcode_fan))
+logging.info("Fan return codes " + str(retcode_fan))
 
-print("Sleeping for {}s".format(str(120)))
-LOG.write("Sleeping for " + str(120))
-time.sleep(120)
+print("Sleeping for {}s to stabilize voltages".format(str(120)))
+logging.info("Sleeping to stabilize voltages: " + str(120))
+#time.sleep(120)
+time.sleep(20)
 
 print("Started monitoring...")
-LOG.write("Started monitoring...")
+logging.info("Started monitoring...")
 monitor_xmrig_amd(XMRIG_AMD_LOG, xmrig_amd_pid, xmrig_cpu_pid, args.threshold)
-
-print("Group killing AMD pid {}".format(xmrig_amd_pid))
-kill_xmrig(xmrig_amd_pid)
-print("Group killing CPU pid {}".format(xmrig_cpu_pid))
-kill_xmrig(xmrig_cpu_pid)
-
-#for i in amd_gpus:
-#    retcode_fan.append(set_fan_speed(i, str(15)))
-LOG.close()
-FNULL.close()
+print("Stopped monitoring.")
+logging.info("Stopped monitoring.")
