@@ -142,6 +142,8 @@ def reboot(time_speeds:list, threshold):
     time_subtracted = time_speeds[0] - TIME_STARTED
     elapsed_minutes = divmod(time_subtracted.days * 86400 + time_subtracted.seconds, 60)[0]
     print('Elapsed minutes: {}'.format(elapsed_minutes))
+    logging.info('Elapsed minutes: ' + str(elapsed_minutes))
+    #if elapsed_minutes < 2:
     if elapsed_minutes < 20:
         return 0
     else:
@@ -160,8 +162,8 @@ def terminate(pid):
     
 def monitor_xmrig_amd(log, amd_pid, cpu_pid, threshold):
     running = 1
-    sleeptime = 20
-    #sleeptime = 120
+    #sleeptime = 20
+    sleeptime = 120
     cicles = 0
     while running:
         cicles += 1 # each cicle is 2 min
@@ -175,8 +177,10 @@ def monitor_xmrig_amd(log, amd_pid, cpu_pid, threshold):
         if time_speeds is not None:
             logging.info("Time and speeds " + str(time_speeds))
 
-            ## will reboot every 4 hours anyways....
+            ## will reboot every ~4 hours anyways....
             if reboot(time_speeds, threshold) or (cicles > 120):
+                logging.info("Cicles: " + str(cicles))
+                print("Cicles: {}".format(cicles))
                 print("Got a reboot signal. Rebooting because you said so...")
                 logging.info("Got a reboot signal. Rebooting because you said so...")
                 condemn_process(amd_pid, XMRIG_AMD_PID)
@@ -286,8 +290,8 @@ logging.info("Fan return codes " + str(retcode_fan))
 
 print("Sleeping for {}s to stabilize voltages".format(str(120)))
 logging.info("Sleeping to stabilize voltages: " + str(120))
-#time.sleep(120)
-time.sleep(20)
+time.sleep(120)
+#time.sleep(20)
 
 print("Started monitoring...")
 logging.info("Started monitoring...")
