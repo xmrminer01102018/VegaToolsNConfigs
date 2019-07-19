@@ -1,7 +1,7 @@
 # VEGA
 # Working Ubuntu Versions:
 
-Ubuntu MATE 18.04.1 (up to latest amdgpu-pro)
+Ubuntu MATE 18.04.1 (up to latest amdgpu-pro 18.X.  19.X not working)
 
 Ubuntu MATE 18.04.2 (up to latest amdgpu-pro NOTE:Video driver is broken.  VNC and ssh sessions only)
 
