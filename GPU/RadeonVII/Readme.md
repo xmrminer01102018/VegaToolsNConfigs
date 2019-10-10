@@ -5,7 +5,7 @@ Ubuntu MATE 18.04.1
 
 # Working/Tested amdgpu-pro and ROCm versions:
 
-CNr/CNrwz/C29/Ethash:
+CNr/CNrwz/Cuckarood29/Ethash:
 ---------------------
 
 amdgpu-pro 19.10 (Ubuntu)
@@ -39,7 +39,7 @@ xmrig-amd (Ubuntu) (CNrwz 2.14.1)
 
     RVII: ~3.8 kH/s
 
-GGM3 (Ubuntu) (C29)
+Grin Miner GGM3 (Ubuntu) (Cuckarood29)
 
     RVII: ~5.7 gps
 
