@@ -137,11 +137,25 @@ xmr-stak (Ubuntu) (CNrwz - V2.10.0-2.10.5 working with some invalid results for 
     Vega 64: TBD H/s
     Vega FE: TBD H/s
 
-GrinPro (Ubuntu) (C29 V2.2)
+Grin Miner GGM3 (Ubuntu) (Cuckarood29)
 
     Vega 56(Hynix): TBD gps
-    Vega 56(Samsung): TBD gps
-    Vega 64: TBD gps
+    Vega 56(Samsung): 4.25 gps
+    Vega 64: 4.4 gps
     Vega FE: 4.55 gps
     Vega FE(LC): 4.75 gps
 
+Claymore's Dual Miner (Ubuntu) (Ethhash - Version 14.7)
+
+    Vega 56(Hynix): TBD Mh/s
+    Vega 56(Samsung): 37 Mh/s
+    Vega 64: 39 Mh/s
+    Vega FE: 42 Mh/s
+    
+PhoenixMiner (Ubuntu) (Ethhash - Version 4.6c)
+
+    Vega 56(Hynix): TBD Mh/s
+    Vega 56(Samsung): TBD Mh/s
+    Vega 64: 40 Mh/s
+    Vega FE: 42.5 Mh/s
+   
