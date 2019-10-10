@@ -139,7 +139,7 @@ xmr-stak (Ubuntu) (CNrwz - V2.10.0-2.10.5 working with some invalid results for 
 
 Grin Miner GGM3 (Ubuntu) (Cuckarood29)
 
-    Vega 56(Hynix): TBD gps
+    Vega 56(Hynix): 4.0 gps
     Vega 56(Samsung): 4.25 gps
     Vega 64: 4.4 gps
     Vega FE: 4.55 gps
