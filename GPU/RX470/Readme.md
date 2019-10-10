@@ -84,6 +84,6 @@ xmrig-amd (Ubuntu 16.04.1) (CNrwz - Version: 2.14.1)
 
     RX470(Micron):1067 H/s
 
-GGM3 (Ubuntu 16.04.1) (Cuckarood29)
+Grin miner GGM3 (Ubuntu 16.04.1) (Cuckarood29)
 
     RX470(Micron): 2.0 gps
