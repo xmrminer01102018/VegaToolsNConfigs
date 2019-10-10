@@ -44,7 +44,7 @@ teamredminer (Ubuntu) (CNrwz - Version: 0.4.4b)
 
     amdgp2: 1885 H/s
     
-Claymore's Dual GPU Miner (Ubuntu) (Ethash - Version: 12.0, 14.0)
+Claymore's Dual GPU Miner (Ubuntu) (Ethash - Version: 12.0, 14.7)
 
     amdgp2: 48.3 Mh/s
     
