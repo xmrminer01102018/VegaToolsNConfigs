@@ -145,14 +145,14 @@ Grin Miner GGM3 (Ubuntu) (Cuckarood29)
     Vega FE: 4.55 gps
     Vega FE(LC): 4.75 gps
 
-Claymore's Dual Miner (Ubuntu) (Ethhash - Version 14.7)
+Claymore's Dual Miner (Ubuntu) (Ethash - Version 14.7)
 
     Vega 56(Hynix): TBD Mh/s
     Vega 56(Samsung): 37 Mh/s
     Vega 64: 39 Mh/s
     Vega FE: 42 Mh/s
     
-PhoenixMiner (Ubuntu) (Ethhash - Version 4.6c)
+PhoenixMiner (Ubuntu) (Ethash - Version 4.6c)
 
     Vega 56(Hynix): TBD Mh/s
     Vega 56(Samsung): TBD Mh/s
