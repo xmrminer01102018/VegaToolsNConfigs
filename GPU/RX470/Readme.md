@@ -52,13 +52,13 @@ xmrig-amd (Ubuntu) (CNrwz - Version: 2.14.0)
     RX470(Micron): 1225 H/s
 
 
-Claymore's Dual GPU Miner (Ubuntu) (CNrwz - Version: 14.7)
+Claymore's Dual GPU Miner (Ubuntu) (Ethash - Version: 14.7)
 
     RX470(Hynix): 25 Mh/s
     RX470(Micron): 25 Mh/s
 
 
-PhoenixMiner (Ubuntu) (CNrwz - Version: 4.6c)
+PhoenixMiner (Ubuntu) (Ethash - Version: 4.6c)
 
     RX470(Hynix): 29.5 Mh/s
     RX470(Micron): 29.5 Mh/s
