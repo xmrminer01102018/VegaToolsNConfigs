@@ -39,7 +39,7 @@ xmrig-amd (Ubuntu) (CNrwz 2.14.1)
 
     RVII: ~3.8 kH/s
 
-GrinPro (Ubuntu) (C29 2.0 RC)
+GGM3 (Ubuntu) (C29)
 
     RVII: ~5.7 gps
 
