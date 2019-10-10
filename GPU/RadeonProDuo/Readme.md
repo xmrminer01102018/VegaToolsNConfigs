@@ -52,6 +52,6 @@ PhoenixMiner (Ubuntu) (Ethash - Version: 4.6c)
 
     amdgp2: 49.0 Mh/s
         
-GrinPro (Ubuntu) (C29 - Version: 2.1/2.2)
+Grin miner GGM3 (Ubuntu) (Cuckarood29)
 
     amdgp2: 4.75 gps/ 5.0 gps
