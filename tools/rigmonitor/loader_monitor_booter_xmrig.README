@@ -1,0 +1,58 @@
+WARNING!!!!!!!
+USE THIS LOADER/MONITOR/REBOOTER AT YOUR OWN RISK/DISCRETION.  PLEASE READ THE WHOLE DOCUMENT BEFORE USING IT.
+AUTHORS DO NOT TAKE ANY RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+YOU HAVE BEEN WARNED.
+
+##########################################################################
+1) What the scripts "loader_monitor_booter_xmrig.py" and "rebooter.py" do:
+
+"loader_monitor_booter_xmrig.py" uses VegaToolsNConfigs tools to:
+   - change all your installed VEGA power tables (PPT) to one you wish automatically;
+   - start xmrig-amd and xmrig-cpu;
+   - monitor your xmrig-amd hashrates and send signal to "rebooter.py" to reboot your computer whenever hashrates are below provided threshold (by the user) or after some hours (default is reboot every four hours - this is  configurable.)
+
+"rebooter.py": reboots your computed whener provided pid-files exist with the PID number of xmrig-amd and xmrig-cpu.
+
+
+##############################
+2) What do you need to install:
+
+    - Ubuntu 18.04.2 (tested)
+    - VegaToolsNConfigs installed and working.
+    - xmrig-amd and xmrig-cpu installed and working.
+    - Python3 installed (comes installed with Ubuntu 18.04.2).
+    - Some python3 libraries (most or all of them are natively installed, if not, type in a terminal as root: "sudo apt install python3-pip" and then "pip3 install <library>"): os, subprocess, select, re ,sys, signal, time, argparse, string, join, datetime, logging
+
+
+#################################
+3) What do you need to configure.
+
+As superuser,
+
+    - Open the scripts "loader_monitor_booter_xmrig.py" and "rebooter.py" with your favorite text editor and change the global variables (THE ONES WITH CAPITAL LETTERS) with the paths to files and scritps following your installation of VegaToolsNConfigs or as you need. Next, 
+
+    ***********************************************************************************************
+    ******  Put the following two lines in your root crontab (type: "crontab -e" as root) ********* :
+    *********************************************************************************************** 
+
+@reboot /usr/bin/python3 /root/VegaToolsNConfigs/tools/rigmonitor/loader_monitor_booter_xmrig.py -t 1900
+
+*/1 * * * * /usr/bin/python3 /root/VegaToolsNConfigs/tools/rigmonitor/rebooter.py
+
+
+
+The first line runs "loader_monitor_booter_xmrig.py" at boot time with the threshold of 1900 H/s (change this accordingly to your needs). Explanation: I have two Vegas that hash ~ 3650 H/s. Because one of them usually stops working, hash rates drop below 1900 H/s. So it is time to reboot - safer than trying to kill xmrig processes. 
+
+The second line runs "rebooter.py" every 1 min (change as you wish) to check if reboot is needed.
+
+
+###############################
+4) What else do you need to do:
+
+Reboot your computer and check if things are working:
+    - Check your LOG files (defaults are "loader_monitor_booter_xmrig.log" and "rebooter.log")
+    - Check xmrig-amd log files
+
+Send me some coffee:
+
+mmudado's XMR wallet: 45FRQJzeMUMcNp5rMTLJsWipXYWnCcWRJNG8kSJXcnCZe9wsmtDoCnnXPW1hthtS4FcihyLAWgXDj2b7XncRR4opJ2HmQUC
