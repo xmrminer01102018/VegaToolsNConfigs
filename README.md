@@ -1,4 +1,9 @@
 # VegaToolsNConfigs
+12/01/2019
+Monero(XMR) has forked to RandomX and all Vega 56/64/FE hashrates reported in this site are cut in half.
+AFAIK, xmrig and XMR-STAK-RX miners are working with RandomX.
+
+Before 12/01/2019
 AMD Vega GPU tools and configuration file(s) mostly for Monero(XMR) mining.
 I will be expanding to other miners/coins/algos/gpus but the main focus will be for XMR and Vega+ GPUs.
 
