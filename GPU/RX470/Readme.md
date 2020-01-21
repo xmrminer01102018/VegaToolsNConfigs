@@ -27,6 +27,8 @@ cast-xmr (Ubuntu) (CNr+ - no longer supported)
 
 Sapphire VCX 11256-28-21G Radeon RX 470:
 
+TeamRedMiner (RandomX - No longer supported)
+
 TeamRedMiner (CNv2: For the same setup 18.40 got additional 10+ H/s)
 
     RX470(Hynix): 1008/1020/1003 H/s (driver 18.30/18.40/18.50)
@@ -68,6 +70,8 @@ PhoenixMiner (Ubuntu 18.04.1) (Ethash - Version: 4.6c)
 
 MSI RX 470 ARMOR OC 8 GB:
 
+TeamRedMiner (RandomX - No longer supported)
+
 TeamRedMiner (Ubuntu 16.04.1) (CNr - Version 0.4.2+ beta)
 
     RX470(Micron): 825 H/s
@@ -83,6 +87,8 @@ xmrig-amd (Ubuntu 16.04.1) (CNr - Version: 2.14.1)
 xmrig-amd (Ubuntu 16.04.1) (CNrwz - Version: 2.14.1)
 
     RX470(Micron):1067 H/s
+
+Grin miner GGM3 (Cuckroom29 - No longer supported)
 
 Grin miner GGM3 (Ubuntu 16.04.1) (Cuckarood29)
 
