@@ -92,6 +92,8 @@ For TeamRedMiner, VFE is about 10 W lower.
 
 cast-xmr (Ubuntu) (CNr+ - no longer supported)
 
+TeamRedMiner (RandomX - No longer supported)
+
 TeamRedMiner (Ubuntu, CentOS) (CNr - V0.4.0+ beta)
 
     Vega 56(Hynix): 1800-1900 H/s
@@ -136,6 +138,8 @@ xmr-stak (Ubuntu) (CNrwz - V2.10.0-2.10.5 working with some invalid results for 
     Vega 56(Samsung): 2200 H/s(miner) 1800 H/s(pool) 400 H/s(Fee+Invalid)
     Vega 64: TBD H/s
     Vega FE: TBD H/s
+
+Grin Miner GGM3 (Cuckaroom29 - No longer supported)
 
 Grin Miner GGM3 (Ubuntu) (Cuckarood29)
 
