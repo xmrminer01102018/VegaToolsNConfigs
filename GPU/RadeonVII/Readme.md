@@ -20,6 +20,7 @@ CNrwz power usage below for xmrig-amd 2.14.0+ and teamredminer 0.4.0+ beta.  Les
 
 RVII @ 175 +/- 10W
 
+TeamRedMiner (RandomX - No longer supported)
 
 TeamRedMiner (Ubuntu) (CNr - 0.4.3+ beta)
 
@@ -38,6 +39,8 @@ xmrig-amd (Ubuntu) (CNr 2.14.1)
 xmrig-amd (Ubuntu) (CNrwz 2.14.1)
 
     RVII: ~3.8 kH/s
+
+Grin Miner GGM3 (Cuckaroom29 - No longer supported)
 
 Grin Miner GGM3 (Ubuntu) (Cuckarood29)
 
