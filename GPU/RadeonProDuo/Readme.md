@@ -36,6 +36,8 @@ xmrig-amd (Ubuntu) (CNrwz - Version: 2.14.0+)
     rocm1: 1800 H/s
     rocm4: 1800 H/s
 
+TeamRedMiner (RandomX - No longer supported)
+
 teamredminer (Ubuntu) (CNr - Version: 0.4.4b)
 
     amdgp2: 1420 H/s
@@ -51,7 +53,9 @@ Claymore's Dual GPU Miner (Ubuntu) (Ethash - Version: 12.0, 14.7)
 PhoenixMiner (Ubuntu) (Ethash - Version: 4.6c)
 
     amdgp2: 49.0 Mh/s
-        
+
+Grin miner GGM3 (Cuckaroom29 - No longer supported)
+
 Grin miner GGM3 (Ubuntu) (Cuckarood29)
 
     amdgp2: 4.75 gps/ 5.0 gps
