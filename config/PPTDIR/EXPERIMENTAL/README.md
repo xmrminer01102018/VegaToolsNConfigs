@@ -47,6 +47,10 @@ m 3 900 900 <-- this value can be found in "s 2" mV value
   m 2 700 862 <-- this value can be found in "s 0" mV value
   m 3 900 900 <-- this value can be found in "s 2" mV value 
 
+    CryptoNightV8/V9(CNv2):
+        Monero(XMR)
+        GRAFT
+
 The V56PPTTemplate and  V64PPTTemplate files are included in the directory. The V64PPTTemplate can be used for Vega FE.
 You can also use your own default file by using xxd.
 $ xxd -ps -c 1500 /sys/class/drm/card0/device/pp_table > MyV56TemplateFile
