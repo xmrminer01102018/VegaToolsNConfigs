@@ -48,8 +48,7 @@ If you do not have base template, get one from your system by running the follow
 
 Assuming the card0 is the the gpu that you want to modify the PPT.
 
-$ cat /sys/class/drm/card0/device/pp_od_clk_voltage
-
+    $ cat /sys/class/drm/card0/device/pp_od_clk_voltage
         OD_SCLK:
         0:        852Mhz        840mV
         1:        991Mhz        840mV
@@ -85,8 +84,7 @@ To avoid confusion on many PPT files, use the following file name.
         xxx - power percentage number usually 50-150
         TT - Memory type HX for Hynix, SS for Samsung
 
-$ cat V56SMCLK1270M900V862PP75HX
-
+    $ cat V56SMCLK1270M900V862PP75HX
         s 0 852 862
         s 1 991 862
         s 2 1084 862 
@@ -102,12 +100,11 @@ $ cat V56SMCLK1270M900V862PP75HX
 
 Make a copy of V56 template file from "V56PPTTemplate" for V56SMCLK1270M900V862PP75HX
 
-$ cp V56PPTTemplate V56SMCLK1270M900V862PP75HXTemplate
+    $ cp V56PPTTemplate V56SMCLK1270M900V862PP75HXTemplate
 
 Just run the script to see the usage.
-
-$ ./generatePPTFromSMClk.sh
-
+    
+    $ ./generatePPTFromSMClk.sh
     ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate PowerPercent
 
     Example: ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate 125
@@ -115,8 +112,7 @@ $ ./generatePPTFromSMClk.sh
 
 In this example, PPT text file will be generated with 75% power on Vega 56 gpu.
 
-$ ./generatePPTFromSMClk.sh V56SMCLK1270M900V862PP75HX V56SMCLK1270M900V862PP75HXTemplate 75
-
+    $ ./generatePPTFromSMClk.sh V56SMCLK1270M900V862PP75HX V56SMCLK1270M900V862PP75HXTemplate 75
     C0c0a0<->d04c01
     V0v0<->5e03
     C1c1a1<->1c8301
@@ -145,9 +141,9 @@ $ ./generatePPTFromSMClk.sh V56SMCLK1270M900V862PP75HX V56SMCLK1270M900V862PP75H
 
 Now generate a PPT binary file with SoftPPT-1.0.0.jar.
 
-$ java -jar ./SoftPPT-1.0.0.jar V56SMCLK1270M900V862PP75HXTemplate V56PPT1270M900V862PP75HX 
-Converting Text PPT to Binary PPT...
-Successfully converted PPT to binary format.
+    $ java -jar ./SoftPPT-1.0.0.jar V56SMCLK1270M900V862PP75HXTemplate V56PPT1270M900V862PP75HX 
+    Converting Text PPT to Binary PPT...
+    Successfully converted PPT to binary format.
 
 The PPT file will be named V56PPT1270M900V862PP75HX1.  You may name it to anything you want.
 
@@ -155,10 +151,11 @@ Example: mv V56PPT1270M900V862PP75HX1 V56PPTForETHRig
 
 Now you have a binary ppt file that you can use.  Set the new PPT values to GPU0.
 
-$ ./setPPT.sh 0 V56PPTForETHRig
+    $ ./setPPT.sh 0 V56PPTForETHRig
 
 The fans will stop running after PPT is set.  Don't forget to restart the fans. 
-$ ./setAMDGPUFanSpeed.sh -g 0 -s 65 
+
+    $ ./setAMDGPUFanSpeed.sh -g 0 -s 65 
 
 
 
