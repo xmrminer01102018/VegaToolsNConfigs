@@ -159,7 +159,7 @@ The fans will stop running after PPT is set.  Don't forget to restart the fans.
 
 
 
-#CONTENTS
+# CONTENTS
 
     generatePPTFromSMClk.sh    - The "bash" script to generate PPT text file.
     README.md                  - This file.
@@ -167,7 +167,7 @@ The fans will stop running after PPT is set.  Don't forget to restart the fans.
     V64PPTTemplate             - Vega 64 template file.
     V56SMCLK1270M900V862PP75HX - Sample SMClock file with core P7 1270, mem P3 900 and 862 mV for all P states with 75 % power percent. 
 
- #MD5 file checksums:
+ # MD5 file checksums:
  
     1. 5ab9af0f40ee8d19f784ff3b8c528d6f  V56PPTTemplate
     2. d3a7848c3423898a5462bf747cacb709  V64PPTTemplate
