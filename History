@@ -1,3 +1,7 @@
+1/22/2020
+Added EXPERIMENTAL section to VegaToolsNConfigs/config/PPTDIR/EXPERIMENTAL to generate
+PPT text file to be used with SoftPPT-1.0.0.jar file in VegaToolsNConfigs/config/PPTDIR/
+
 5/7/2019
 Added OptimalRunningSequencesForRadeonVII.
 Added config.json_RVII xmrig-amd config file in VegaToolsNConfigs/config folder.
