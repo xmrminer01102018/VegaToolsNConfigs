@@ -107,10 +107,11 @@ $ cp V56PPTTemplate V56SMCLK1270M900V862PP75HXTemplate
 Just run the script to see the usage.
 
 $ ./generatePPTFromSMClk.sh
-./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate PowerPercent
 
-Example: ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate 125
-Do not use more than 100 percent of the PowerPercent if you do not know what you are doing...
+    ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate PowerPercent
+
+    Example: ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate 125
+    Do not use more than 100 percent of the PowerPercent if you do not know what you are doing...
 
 In this example, PPT text file will be generated with 75% power on Vega 56 gpu.
 
