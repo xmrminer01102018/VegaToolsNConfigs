@@ -34,7 +34,7 @@ m 3 900 900 <-- this value can be found in "s 2" mV value
 
 The V56PPTTemplate and  V64PPTTemplate files are included in the directory. The V64PPTTemplate can be used for Vega FE.
 You can also use your own default file by using xxd.
-# xxd -ps -c 1500 /sys/class/drm/card0/device/pp_table > MyV56TemplateFile
+$ xxd -ps -c 1500 /sys/class/drm/card0/device/pp_table > MyV56TemplateFile
 
 Then add the C0c0a0, V0v0, C1c1a1, V1v1, C2c2a2, V2v2, C3c3a3, V3v3, C4c4a4, V4v4, C5c5a5, V5v5, C6c6a6, V6v6, C7c7a7, V7v7, M0m0a0, M1m1a1, I1i1, M2m2a2, I2i2, M3m3a3, I3i3 values to MyV56TemplateFile at the correct offset by looking at the provided V56PPTTemplate and/or V64PPTTemplate file(s).
 
@@ -44,7 +44,7 @@ If not, set up the system according to any of the guide files in this site.
 If you do not have base template, get one from your system by running the following command.
 
 Assuming the card0 is the the gpu that you want to modify the PPT.
-# cat /sys/class/drm/card0/device/pp_od_clk_voltage
+$ cat /sys/class/drm/card0/device/pp_od_clk_voltage
 OD_SCLK:
 0:        852Mhz        840mV
 1:        991Mhz        840mV
@@ -78,7 +78,7 @@ PP - Start of power percentage
 xxx - power percentage number usually 50-150
 TT - Memory type HX for Hynix, SS for Samsung
 
-# cat V56SMCLK1270M900V862PP75HX
+$ cat V56SMCLK1270M900V862PP75HX
 s 0 852 862
 s 1 991 862
 s 2 1084 862 
@@ -94,17 +94,17 @@ m 3 900 862
 
 Make a copy of V56 template file from "V56PPTTemplate" for V56SMCLK1270M900V862PP75HX
 
-# cp V56PPTTemplate V56SMCLK1270M900V862PP75HXTemplate
+$ cp V56PPTTemplate V56SMCLK1270M900V862PP75HXTemplate
 
 Just run the script to see the usage.
-# ./generatePPTFromSMClk.sh
+$ ./generatePPTFromSMClk.sh
 ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate PowerPercent
 Example: ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate 125
 Do not use more than 100 percent of the PowerPercent if you do not know what you are doing...
 
 In this example, PPT text file will be generated with 75% power on Vega 56 gpu.
 
-# ./generatePPTFromSMClk.sh V56SMCLK1270M900V862PP75HX V56SMCLK1270M900V862PP75HXTemplate 75
+$ ./generatePPTFromSMClk.sh V56SMCLK1270M900V862PP75HX V56SMCLK1270M900V862PP75HXTemplate 75
 C0c0a0<->d04c01
 V0v0<->5e03
 C1c1a1<->1c8301
@@ -133,7 +133,7 @@ PP<->4b
 
 Now generate a PPT binary file with SoftPPT-1.0.0.jar.
 
-# java -jar ./SoftPPT-1.0.0.jar V56SMCLK1270M900V862PP75HXTemplate V56PPT1270M900V862PP75HX 
+$ java -jar ./SoftPPT-1.0.0.jar V56SMCLK1270M900V862PP75HXTemplate V56PPT1270M900V862PP75HX 
 Converting Text PPT to Binary PPT...
 Successfully converted PPT to binary format.
 
@@ -143,10 +143,10 @@ Example: mv V56PPT1270M900V862PP75HX1 V56PPTForETHRig
 
 Now you have a binary ppt file that you can use.  Set the new PPT values to GPU0.
 
-# ./setPPT.sh 0 V56PPTForETHRig
+$ ./setPPT.sh 0 V56PPTForETHRig
 
 The fans will stop running after PPT is set.  Don't forget to restart the fans. 
-# ./setAMDGPUFanSpeed.sh -g 0 -s 65 
+$ ./setAMDGPUFanSpeed.sh -g 0 -s 65 
 
 
 
@@ -160,4 +160,3 @@ V56SMCLK1270M900V862PP75HX - Sample SMClock file with core P7 1270, mem P3 900 a
 MD5 file checksums:
 1. 5ab9af0f40ee8d19f784ff3b8c528d6f  V56PPTTemplate
 2. d3a7848c3423898a5462bf747cacb709  V64PPTTemplate
-
