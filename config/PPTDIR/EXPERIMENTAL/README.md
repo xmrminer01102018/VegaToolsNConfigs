@@ -69,7 +69,7 @@ $ cat /sys/class/drm/card0/device/pp_od_clk_voltage
         MCLK:     167MHz       1500MHz
         VDDC:     800mV        1200mV
 
-Edit and create ad file similar to the one below.
+Edit and create a file similar to the one below.
 
 To avoid confusion on many PPT files, use the following file name.
 
