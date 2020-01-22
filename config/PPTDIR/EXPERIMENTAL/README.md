@@ -33,19 +33,19 @@ m 2 700 862 <-- this value can be found in "s 0" mV value
 m 3 900 900 <-- this value can be found in "s 2" mV value 
 
 
-INVALID
-s 0 852 862
-s 1 991 862
-s 2 1084 900 
-s 3 1138 862
-s 4 1050 862
-s 5 1202 861
-s 6 1212 862
-s 7 1270 862
-m 0 167 888 <-- this value can't be found in any of "s 0" - "s 7" mV values 
-m 1 500 900 <-- this value can be found in "s 2" mV value 
-m 2 700 862 <-- this value can be found in "s 0" mV value
-m 3 900 900 <-- this value can be found in "s 2" mV value 
+  INVALID
+  s 0 852 862
+  s 1 991 862
+  s 2 1084 900 
+  s 3 1138 862
+  s 4 1050 862
+  s 5 1202 861
+  s 6 1212 862
+  s 7 1270 862
+  m 0 167 888 <-- this value can't be found in any of "s 0" - "s 7" mV values 
+  m 1 500 900 <-- this value can be found in "s 2" mV value 
+  m 2 700 862 <-- this value can be found in "s 0" mV value
+  m 3 900 900 <-- this value can be found in "s 2" mV value 
 
 The V56PPTTemplate and  V64PPTTemplate files are included in the directory. The V64PPTTemplate can be used for Vega FE.
 You can also use your own default file by using xxd.
