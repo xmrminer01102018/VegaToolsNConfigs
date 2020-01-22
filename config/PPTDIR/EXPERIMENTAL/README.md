@@ -52,24 +52,25 @@ If you do not have base template, get one from your system by running the follow
 Assuming the card0 is the the gpu that you want to modify the PPT.
 
 $ cat /sys/class/drm/card0/device/pp_od_clk_voltage
-OD_SCLK:
-0:        852Mhz        840mV
-1:        991Mhz        840mV
-2:       1084Mhz        840mV
-3:       1138Mhz        840mV
-4:       1150Mhz        840mV
-5:       1202Mhz        840mV
-6:       1212Mhz        840mV
-7:       1408Mhz        840mV
-OD_MCLK:
-0:        167Mhz        840mV
-1:        500Mhz        840mV
-2:        800Mhz        840mV
-3:       1050Mhz        840mV
-OD_RANGE:
-SCLK:     852MHz       2400MHz
-MCLK:     167MHz       1500MHz
-VDDC:     800mV        1200mV
+
+        OD_SCLK:
+        0:        852Mhz        840mV
+        1:        991Mhz        840mV
+        2:       1084Mhz        840mV
+        3:       1138Mhz        840mV
+        4:       1150Mhz        840mV
+        5:       1202Mhz        840mV
+        6:       1212Mhz        840mV
+        7:       1408Mhz        840mV
+        OD_MCLK:
+        0:        167Mhz        840mV
+        1:        500Mhz        840mV
+        2:        800Mhz        840mV
+        3:       1050Mhz        840mV
+        OD_RANGE:
+        SCLK:     852MHz       2400MHz
+        MCLK:     167MHz       1500MHz
+        VDDC:     800mV        1200mV
 
 Edit and create ad file similar to the one below.
 To avoid confusion on many PPT files, use the following file name.
