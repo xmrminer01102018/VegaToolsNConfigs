@@ -73,32 +73,35 @@ $ cat /sys/class/drm/card0/device/pp_od_clk_voltage
         VDDC:     800mV        1200mV
 
 Edit and create ad file similar to the one below.
+
 To avoid confusion on many PPT files, use the following file name.
-VXXSMCLKssssMmmmVvvvPPxxxTT
-VXX - Vega 56, 64 or FE
-SMCLK - SMClock
-ssss - P7 core clock number
-M - Start of mem
-mmm - P3 memory clock number
-V - Start of mV
-vvv - P3 mV value
-PP - Start of power percentage
-xxx - power percentage number usually 50-150
-TT - Memory type HX for Hynix, SS for Samsung
+
+        VXXSMCLKssssMmmmVvvvPPxxxTT
+        VXX - Vega 56, 64 or FE
+        SMCLK - SMClock
+        ssss - P7 core clock number
+        M - Start of mem
+        mmm - P3 memory clock number
+        V - Start of mV
+        vvv - P3 mV value
+        PP - Start of power percentage
+        xxx - power percentage number usually 50-150
+        TT - Memory type HX for Hynix, SS for Samsung
 
 $ cat V56SMCLK1270M900V862PP75HX
-s 0 852 862
-s 1 991 862
-s 2 1084 862 
-s 3 1138 862
-s 4 1050 862
-s 5 1202 862
-s 6 1212 862
-s 7 1270 862
-m 0 167 862
-m 1 500 862
-m 2 700 862
-m 3 900 862
+
+        s 0 852 862
+        s 1 991 862
+        s 2 1084 862 
+        s 3 1138 862
+        s 4 1050 862
+        s 5 1202 862
+        s 6 1212 862
+        s 7 1270 862
+        m 0 167 862
+        m 1 500 862
+        m 2 700 862
+        m 3 900 862
 
 Make a copy of V56 template file from "V56PPTTemplate" for V56SMCLK1270M900V862PP75HX
 
@@ -115,31 +118,32 @@ Do not use more than 100 percent of the PowerPercent if you do not know what you
 In this example, PPT text file will be generated with 75% power on Vega 56 gpu.
 
 $ ./generatePPTFromSMClk.sh V56SMCLK1270M900V862PP75HX V56SMCLK1270M900V862PP75HXTemplate 75
-C0c0a0<->d04c01
-V0v0<->5e03
-C1c1a1<->1c8301
-V1v1<->5e03
-C2c2a2<->70a701
-V2v2<->5e03
-C3c3a3<->88bc01
-V3v3<->5e03
-C4c4a4<->289a01
-V4v4<->5e03
-C5c5a5<->88d501
-V5v5<->5e03
-C6c6a6<->70d901
-V6v6<->5e03
-C7c7a7<->18f001
-V7v7<->5e03
-M0m0a0<->3c4100
-I0i0<->0000 for 5e03 Index: 0
-M1m1a1<->50c300
-I1i1<->0000 for 5e03 Index: 0
-M2m2a2<->701101
-I2i2<->0000 for 5e03 Index: 0
-M3m3a3<->905f01
-I3i3<->0000 for 5e03 Index: 0
-PP<->4b
+
+    C0c0a0<->d04c01
+    V0v0<->5e03
+    C1c1a1<->1c8301
+    V1v1<->5e03
+    C2c2a2<->70a701
+    V2v2<->5e03
+    C3c3a3<->88bc01
+    V3v3<->5e03
+    C4c4a4<->289a01
+    V4v4<->5e03
+    C5c5a5<->88d501
+    V5v5<->5e03
+    C6c6a6<->70d901
+    V6v6<->5e03
+    C7c7a7<->18f001
+    V7v7<->5e03
+    M0m0a0<->3c4100
+    I0i0<->0000 for 5e03 Index: 0
+    M1m1a1<->50c300
+    I1i1<->0000 for 5e03 Index: 0
+    M2m2a2<->701101
+    I2i2<->0000 for 5e03 Index: 0
+    M3m3a3<->905f01
+    I3i3<->0000 for 5e03 Index: 0
+    PP<->4b
 
 Now generate a PPT binary file with SoftPPT-1.0.0.jar.
 
@@ -161,11 +165,12 @@ $ ./setAMDGPUFanSpeed.sh -g 0 -s 65
 
 
 CONTENTS
-generatePPTFromSMClk.sh    - The "bash" script to generate PPT text file.
-README.md                  - This file.
-V56PPTTemplate             - Vega 56 template file.
-V64PPTTemplate             - Vega 64 template file.
-V56SMCLK1270M900V862PP75HX - Sample SMClock file with core P7 1270, mem P3 900 and 862 mV for all P states with 75 % power percent. 
+
+    generatePPTFromSMClk.sh    - The "bash" script to generate PPT text file.
+    README.md                  - This file.
+    V56PPTTemplate             - Vega 56 template file.
+    V64PPTTemplate             - Vega 64 template file.
+    V56SMCLK1270M900V862PP75HX - Sample SMClock file with core P7 1270, mem P3 900 and 862 mV for all P states with 75 % power percent. 
 
 MD5 file checksums:
 1. 5ab9af0f40ee8d19f784ff3b8c528d6f  V56PPTTemplate
