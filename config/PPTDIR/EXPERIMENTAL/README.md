@@ -39,6 +39,7 @@ Example:
 
 The V56PPTTemplate and  V64PPTTemplate files are included in the directory. The V64PPTTemplate can be used for Vega FE.
 You can also use your own default file by using xxd.
+
 $ xxd -ps -c 1500 /sys/class/drm/card0/device/pp_table > MyV56TemplateFile
 
 Then add the C0c0a0, V0v0, C1c1a1, V1v1, C2c2a2, V2v2, C3c3a3, V3v3, C4c4a4, V4v4, C5c5a5, V5v5, C6c6a6, V6v6, C7c7a7, V7v7, M0m0a0, M1m1a1, I1i1, M2m2a2, I2i2, M3m3a3, I3i3 values to MyV56TemplateFile at the correct offset by looking at the provided V56PPTTemplate and/or V64PPTTemplate file(s).
@@ -49,6 +50,7 @@ If not, set up the system according to any of the guide files in this site.
 If you do not have base template, get one from your system by running the following command.
 
 Assuming the card0 is the the gpu that you want to modify the PPT.
+
 $ cat /sys/class/drm/card0/device/pp_od_clk_voltage
 OD_SCLK:
 0:        852Mhz        840mV
@@ -102,8 +104,10 @@ Make a copy of V56 template file from "V56PPTTemplate" for V56SMCLK1270M900V862P
 $ cp V56PPTTemplate V56SMCLK1270M900V862PP75HXTemplate
 
 Just run the script to see the usage.
+
 $ ./generatePPTFromSMClk.sh
 ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate PowerPercent
+
 Example: ./generatePPTFromSMClk.sh SMClkFile CopyOfPPTTemplate 125
 Do not use more than 100 percent of the PowerPercent if you do not know what you are doing...
 
