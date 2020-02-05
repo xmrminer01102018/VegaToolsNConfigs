@@ -4,6 +4,9 @@
 Monero(XMR) has forked to RandomX and all Vega 56/64/FE hashrates reported in this site are cut in half.
 AFAIK, xmrig and XMR-STAK-RX miners are working with RandomX.
 
+Since power consumption so much lower and hash rate is much higher with CPU(s), I advise not to mine monero with Vega GPU(s).
+
+
 Before 12/01/2019
 
 AMD Vega GPU tools and configuration file(s) mostly for Monero(XMR) mining.
