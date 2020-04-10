@@ -36,6 +36,7 @@ NOTE: This PPT generating script assumes mV values for memory P states can be fo
         
 The V56PPTTemplate, V64PPTTemplate and VFEPPTTemplate files are included in the directory.
 You can also use your own default file by using xxd.
+
         # xxd -ps -c 1500 /sys/class/drm/card0/device/pp_table > MyV56TemplateFile
 
 Then add the C0c0a0, V0v0, C1c1a1, V1v1, C2c2a2, V2v2, C3c3a3, V3v3, C4c4a4, V4v4, C5c5a5, V5v5, C6c6a6, V6v6, C7c7a7, V7v7, M0m0a0, M1m1a1, I1i1, M2m2a2, I2i2, M3m3a3, I3i3 values to MyV56TemplateFile at the correct offset by looking at the provided V56PPTTemplate and/or V64PPTTemplate file(s).
@@ -153,12 +154,12 @@ The fans will stop running after PPT is set.  Don't forget to restart the fans.
 
 
 
-CONTENTS
-generatePPTFromSMClk.sh    - The "bash" script to generate PPT text file.
-README.md                  - This file.
-V56PPTTemplate             - Vega 56 template file.
-V64PPTTemplate             - Vega 64 template file.
-V56SMCLK1270M900V862PP75HX - Sample SMClock file with core P7 1270, mem P3 900 and 862 mV for all P states with 75 % power percent. 
+        CONTENTS
+        generatePPTFromSMClk.sh    - The "bash" script to generate PPT text file.
+        README.md                  - This file.
+        V56PPTTemplate             - Vega 56 template file.
+        V64PPTTemplate             - Vega 64 template file.
+        V56SMCLK1270M900V862PP75HX - Sample SMClock file with core P7 1270, mem P3 900 and 862 mV for all P states with 75 % power percent. 
 
 MD5 file checksums:
 1. 5ab9af0f40ee8d19f784ff3b8c528d6f  V56PPTTemplate
