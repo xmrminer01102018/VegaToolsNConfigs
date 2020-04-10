@@ -152,16 +152,23 @@ Now you have a binary ppt file that you can use.  Set the new PPT values to GPU0
     # ./setPPT.sh 0 V56PPTForETHRig
 
 The fans will stop running after PPT is set.  Don't forget to restart the fans. 
+
         # ./setAMDGPUFanSpeed.sh -g 0 -s 65 
 
 
+CONTENTS
 
-        CONTENTS
-        generatePPTFromSMClk.sh    - The "bash" script to generate PPT text file.
-        README.md                  - This file.
-        V56PPTTemplate             - Vega 56 template file.
-        V64PPTTemplate             - Vega 64 template file.
-        V56SMCLK1270M900V862PP75HX - Sample SMClock file with core P7 1270, mem P3 900 and 862 mV for all P states with 75 % power percent. 
+generatePPTFromSMClk.sh    - The "bash" script to generate PPT text file.
+
+README.md                  - This file.
+
+V56PPTTemplate             - Vega 56 template file.
+
+V64PPTTemplate             - Vega 64 template file.
+
+VFEPPTTemplate             - Vega Frontier Edition template file.
+
+V56SMCLK1270M900V862PP75HX - Sample SMClock file with core P7 1270, mem P3 900 and 862 mV for all P states with 75 % power percent. 
 
 MD5 file checksums:
 1. 5ab9af0f40ee8d19f784ff3b8c528d6f  V56PPTTemplate
