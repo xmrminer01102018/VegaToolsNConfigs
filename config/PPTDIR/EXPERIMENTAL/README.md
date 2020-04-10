@@ -70,6 +70,7 @@ Assuming the card0 is the the gpu that you want to modify the PPT.
 
 Edit and create ad file similar to the one below.
 To avoid confusion on many PPT files, use the following file name.
+
         VXXSMCLKssssMmmmVvvvPPxxxTT
         VXX - Vega 56, 64 or FE
         SMCLK - SMClock
