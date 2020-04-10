@@ -47,6 +47,7 @@ If not, set up the system according to any of the guide files in this site.
 If you do not have base template, get one from your system by running the following command.
 
 Assuming the card0 is the the gpu that you want to modify the PPT.
+
         # cat /sys/class/drm/card0/device/pp_od_clk_voltage
         OD_SCLK:
         0:        852Mhz        840mV
